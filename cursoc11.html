@@ -1,0 +1,424 @@
+<HTML><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Arrays Multidimensionales</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="description" content="Curso de C - Introducción">
+<meta name="keywords" content="Programación, Curso de C, C">
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: right;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+        display: block;
+        margin: 10px auto;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+    
+    .texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .ejemplo pre {
+        margin: 0;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    b, strong {
+        color: #006600;
+    }
+    
+    u {
+        color: #006600;
+    }
+    
+    ol.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    ol.texto li {
+        margin: 10px 0;
+    }
+    
+    table[border="1"] {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    table[border="1"] td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    table[border="1"] th {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+    
+    center {
+        text-align: center;
+    }
+    
+    font[color="#ff0000"] {
+        color: #ff0000;
+    }
+    
+    font[color="#0000ff"] {
+        color: #0000ff;
+    }
+    
+    blockquote.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+        font-style: italic;
+    }
+    
+    em {
+        font-style: italic;
+    }
+    
+    .comprobado {
+        font-size: 10px;
+        color: #666;
+        display: block;
+        margin-top: 5px;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://sic.cultura.gob.mx/imagenes_cache/universidad_4269_g_74422.png" alt="Curso de C" border="0" style="width: 300px; height: auto; max-width: 300px;">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com"  border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" -->
+<h1>Arrays Multidimensionales</h1>
+<!-- InstanceEndEditable --> 
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" --> 
+<a href="cursoc10.html" class="barranav">[Anterior]</a> <a href="cursoc12.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" -->
+<a name="arriba"></a>
+
+<A NAME="contenido"></A>
+<H2>
+	Contenido del Capítulo:
+</H2>
+<UL>
+<li><A HREF="#intro">Introducción, ¿Qué es un array bidimensional?</A><BR>
+<li><A HREF="#inicializar">Inicializar un array multidimiensional</A><BR>
+<li><A HREF="#recorrer">Recorrer un array multidimiensional</A><BR>
+<li><A HREF="#punteros">Punteros a arrays multidimiensionales</A><BR>
+<li><A HREF="#pasar">Pasar un array multidimiensional a una función</A><BR>
+<li><A HREF="#ejercicios">Ejercicios</A><BR>
+</UL>
+
+
+
+<A NAME="intro"></A>
+<H2>
+	¿Qué es un array bidimensional?
+</H2>
+
+<p>Hemos visto en el capítulo anterior lo conveniente que es usar un array 
+  cuando tenemos que usar muchas variables del mismo "tipo". Pero cuando 
+  avanzamos un poco más en programación podemos encontrarnos que 
+  los arrays también se nos quedan cortos. Podemos verlo utilizando el 
+  ejemplo del capítulo anterior:</p>
+<p>"Supongamos que ahora queremos almacenar las temperaturas de toda la semana. 
+  Según lo que aprendimos en el capítulo anterior podríamos 
+  usar un array unidimiensional por cada día de la semana. En cada uno 
+  de esos arrays podríamos almacenar las temperaturas de cada día."</p>
+<p>Una posible solución sería ésta:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     int temp_dia1[24];
+     int temp_dia2[24];
+     int temp_dia3[24];
+     ...
+     int temp_dia7[24];
+     
+     float media = 0;
+     int hora;
+
+     for( hora=0; hora&lt;24; hora++ ) {
+          printf( "Temperatura de las %i el día 1: ", hora );
+          scanf( "%i", &temp_dia1[hora] );
+          printf( "Temperatura de las %i el día 2: ", hora );
+          scanf( "%i", &temp_dia1[hora] );
+          printf( "Temperatura de las %i el día 3: ", hora );
+          scanf( "%i", &temp_dia1[hora] );
+          ...
+          printf( "Temperatura de las %i el día 7: ", hora );
+          scanf( "%i", &temp_dia1[hora] );                              
+          media += temp_dia1[hora] + temp_dia2[hora] + ... + temp_dia3[hora];
+     }
+     media = media / 24 / 7;
+
+     printf( "\nLa temperatura media de toda la semana es %f\n", media );
+     return 0;
+}
+</PRE>
+<span class="comprobado">Fichero: cap10_ejemplo1.c</span></DIV>
+
+<p class="nota">Nota: os recuerdo que los puntos suspensivos los he puesto para 
+  ahorrar espacio, no pueden usarse en un programa.</p>
+<p>Creo que está claro que nuevamente queda claro que el programa sería 
+  un engorro, sobre todo si queremos almacenar las temperaturas de, por ejemplo, 
+  un mes.</p>
+<p>Para declarar un array bidimensional usaremos el siguiente formato:</p>
+<pre> <em>tipo_de_dato</em> nombre_del_array[ filas ] [ columnas ];</pre>
+<p>Como se puede apreciar, la declaración es igual que la de un array unidimensional 
+  al que le añadimos una nueva dimensión.</p>
+<p>El programa anterior quedaría ahora así:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#define DIAS    7
+#define HORAS   24
+
+int main()
+     {
+     int temp[DIAS][HORAS];
+     
+     float media = 0;
+     int hora, dia;
+
+     for( dia=0 ; dia&lt;DIAS ; dia++ ) {
+          for( hora=0 ; hora&lt;HORAS ; hora++ ) {
+             printf( "Temperatura de las %d el día %d: ", hora, dia );
+             scanf( "%i", &temp[dia][hora] );                            
+             media += temp[dia][hora];
+          }
+     }
+     media = media / HORAS / DIAS;
+
+     printf( "\nLa temperatura media de toda la semana es %f\n", media );
+     return 0;
+}
+</PRE>
+<span class="comprobado">Fichero: cap10_ejemplo2.c</span></DIV>
+
+<p>No tenemos por qué limitarnos a arrays bidimensionales, 
+  podemos usar cuantas dimensiones queramos. Para un array de tres dimensiones 
+  podríamos hacer:</p>
+<pre>int temp[MESES][DIAS][HORAS];</pre>
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="inicializar"></A>
+<H2>
+	Inicializar un array multidimiensional
+</H2>
+
+<p>Vimos en el anterior capítulo que a los arrays unidimensionales se les 
+  podían dar valores iniciales:</p>
+<p> int temperaturas[24] = { 15, 18, 20, 23, 22, 24, 22, 25, 26, 25, 24, 22, <br>
+  21, 20, 18, 17, 16, 17, 15, 14, 14, 14, 13, 12 };</p>
+<p>Con los array multidimensionales también se puede, pero hay que agrupar 
+  entre {} cada fila. Por ejemplo:</p>
+<pre>int temperaturas[3][5] = {
+               { 15, 17, 20, 25, 10 },
+               { 18, 20, 21, 23, 18 },
+               { 12, 17, 23, 29, 16 } };</pre>
+<p>El formato a utilizar sería el siguiente:</p>
+<pre>int variable[ filas ][ columnas ] = {
+            { columnas de la fila 1 },
+            { columnas de la fila 2 },
+            ... ,
+            { columnas de la última fila },
+            };
+</pre>
+<p>No debemos olvidar el ';' al final.</p>
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="ejercicios"></A>
+<H2>
+	Ejercicios
+</H2>
+
+<p><B><U>Ejercicio 1:</U></B> </p>
+
+
+<p><B>Solución</B>:</p>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+<!-- Publicado el 21/11/2004 -->
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" --> 
+<a href="cursoc10.html" class="barranav">[Anterior]</a> <a href="cursoc12.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+</BODY>
+
+<!-- InstanceEnd --></HTML>

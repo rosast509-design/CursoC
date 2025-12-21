@@ -1,0 +1,608 @@
+<HTML><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Introducción a las Funciones</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="description" content="Curso de C - Introducción">
+<meta name="keywords" content="Programación, Curso de C, C">
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: right;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+    
+    .texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .ejemplo pre {
+        margin: 0;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    b, strong {
+        color: #006600;
+    }
+    
+    u {
+        color: #006600;
+    }
+    
+    ol.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    ol.texto li {
+        margin: 10px 0;
+    }
+    
+    table[border="1"] {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    table[border="1"] td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    table[border="1"] th {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://sic.cultura.gob.mx/imagenes_cache/universidad_4269_g_74422.png" alt="Curso de C" border="0" style="width: 300px; height: auto; max-width: 300px;">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com"  border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" -->
+<h1>Introducción a las Funciones</h1>
+<!-- InstanceEndEditable --> 
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" --> 
+<a href="cursoc7.html" class="barranav">[Anterior]</a> <a href="cursoc9.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" -->
+<a name="arriba"></a>
+
+<A NAME="contenido"></A>
+<H2>
+	Contenido del Capítulo:
+</H2>
+<UL>
+<li><A HREF="#intro">Introducción</A>
+<li><A HREF="#definicion">Definición de una función</A>
+<li><A HREF="#donde">Dónde se define una función</A>
+<li><A HREF="#vida">Vida de una variable</A>
+<li><A HREF="#ejercicios">Ejercicios</A>
+</UL>
+
+
+<A NAME="intro"></A>
+<H2>
+	Introducción
+</H2>
+
+<p>Vamos a dar un paso más en la complejidad de nuestros programas. Vamos a empezar a usar funciones creadas por nosotros. Las funciones son de una gran utilidad en los programas. Nos ayudan a que sean más legibles y más cortos. Con ellos estructuramos mejor los programas.</p>
+
+
+<p>Una función sirve para realizar tareas concretas y simplificar el programa. Nos sirve para evitar 
+tener que escribir el mismo código varias veces. Ya hemos visto en el curso algunas funciones como 
+printf, gotoxy, scanf y clrscr. Algunas de éstas están definidas en una biblioteca (la biblioteca 
+estándar de C). No tenemos que preocuparnos de ella porque el compilador se encarga de ella 
+automáticamente.</p>
+
+
+<p>Sin embargo nosotros también podemos definir nuestras propias funciones. Pocas veces se ve un 
+programa un poco complejo que no use funciones. Una de ellas, que usamos siempre, es la función main.</p>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="definicion"></A>
+<H2>
+	Definición de una función
+</H2>
+
+
+<p>Una función tiene el siguiente formato:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+tipo_de_variable nombre_de_la_función( argumentos )
+     {
+     definición de variables;
+
+     cuerpo de la función;
+
+     return 0;
+     }
+</PRE></DIV>
+
+<p>Poco a poco, empecemos por el nombre_de_la_función. Para el nombre no se pueden usar mas que 
+letras, números y el símbolo '_'. No se pueden usar ni acentos ni espacios. Además el nombre 
+de la función debe empezar por una letra, no puede empezar con un número. El nombre de la 
+función se usa para llamarla dentro del programa.</p>
+
+
+<p>El tipo_de_variable: Cuando una función se ejecuta y termina debe devolver un valor. Este valor puede ser cualquiera de los tipos de variables que hemos visto en el capítulo de Tipos de datos (int, char, float, double) o un tipo de dato definido por nosotros (esto lo veremos más tarde). El valor que devuelve la función suele ser el resultado de las operaciones que se realizan en la función, o si han tenido éxito o no.</p>
+
+
+<p>También podemos usar el tipo void. Este nos permite que podamos devolver cualquier tipo de variable o ninguna.</p>
+
+
+<p>Definición de variables: Dentro de la función podemos definir variables que sólo tendrán validez dentro de la propia función. Si declaramos una variable en una función no podemos usarla en otra.</p>
+
+
+<p>Cuerpo de la función: Aquí es donde va el código de la función.</p>
+
+
+<p>Return: Antes hemos indicado que la función devuelve un valor. La sentencia return se usa para esto. El dato que se pone después de return es el dato que se devuelve. Puede ser una constante o una variable. Debe ser del mismo tipo que <I>tipo_de_variable</I>.</p>
+
+
+<p>Argumentos: Estos son variables que se pasan como datos a una función. Deben ir separados por una coma. Cada variable debe ir con su tipo de variable.</p>
+
+<p>Las funciones deben definirse antes de ser llamadas. En los ejemplos a continuación se llama a la función desde main, así que tenemos que definirlas antes que main. Esto lo veremos en el apartado siguiente.</p>
+
+
+<p><B><U>Ejemplo 1</U></B>. Función sin argumentos que no devuelve nada:</p>
+
+
+<p>Este programa llama a la función prepara pantalla que borra la pantalla y muestra el mensaje "la pantalla está limpia". Por supuesto es de nula utilidad pero nos sirve para empezar.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void prepara_pantalla()     /* No se debe poner punto y coma aquí */
+     {
+     clrscr();
+     printf( "La pantalla está limpia\n" );
+     return;     /* No hace falta devolver ningún valor, mucha gente ni siquiera pone este return */
+     }
+
+int main()
+     {
+     prepara_pantalla();/* Llamamos a la función */
+     }
+</PRE></DIV>
+
+<p><B><U>Ejemplo 2</U></B>. Función con argumentos, no devuelve ningún valor:</p>
+
+
+<p>En este ejemplo la función <B>compara</B> toma dos números, los compara y nos dice cual es mayor.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void compara( int a, int b )     /* Metemos los parámetros a y b a la función */
+     {
+     if ( a>b ) printf( "%i es mayor que %i\n" , a, b );
+     else printf( "%i es mayor que %i\n", b, a );
+     }
+
+int main()
+     {
+     int num1, num2;
+
+     printf( "Introduzca dos números: " );
+     scanf( "%i %i", &num1, &num2 );
+     
+     compara( num1, num2 );/* Llamamos a la función con sus dos argumentos */
+	 
+     return 0;
+     }
+</PRE></DIV>
+
+<p><B><U>Ejemplo 3</U></B>. Función con argumentos que devuelve un valor.</p>
+
+<p>Este ejemplo es como el anterior pero devuelve como resultado el mayor de los dos números.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+int compara( int a, int b )     /* Metemos los parámetros a y b a la función */
+     {
+     int mayor;     /* Esta función define su propia variable, esta variable sólo se puede usar aquí */
+
+     if ( a>b )
+     mayor = a;
+     else mayor = b;
+
+     return mayor;
+     }
+
+int main()
+     {
+     int num1, num2;
+     int resultado;
+
+     printf( "Introduzca dos números: " );
+     scanf( "%i %i", num1, num2 );
+     
+     resultado = compara( num1, num2 );/* Recogemos el valor que devuelve la función en <B>resultado</B> */
+     printf( "El mayor de los dos es %i\n", resultado );
+	 
+     return 0;
+     }
+</PRE></DIV>
+
+<p>En este ejemplo podíamos haber hecho también:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+     printf( "El mayor de los dos es %i\n", compara( num1, num2 ) );
+</PRE></DIV>
+
+<p>De esta forma nos ahorramos tener que definir la variable 'resultado'.</p>
+
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="donde"></A>
+<H2>
+	Dónde se definen las funciones
+</H2>
+
+
+<p>Las funciones deben definirse siempre antes de donde se usan. Lo habitual en un programa es:</p>
+
+<TABLE border="1" cellspacing="0" cellpadding="4">
+<TR>
+     <TD bgcolor="#0000ff">
+     <B>
+          <FONT COLOR=#ffffff>Sección</FONT>
+     </B>
+     </TD>
+     <TD bgcolor="#0000ff">
+     <B>
+          <FONT COLOR=#ffffff>Descripción</FONT>
+     </B>
+     </TD>
+</TR>
+<TR>
+     <TD >
+     Includes
+     </TD>
+     <TD >
+     Aquí se indican qué ficheros externos se usan
+     </TD>
+</TR>
+<TR>
+     <TD >
+     Definiciones
+     </TD>
+     <TD >
+     Aquí se definen las constantes que se usan en el programa
+     </TD>
+</TR>
+<TR>
+     <TD >
+     Definición de variables
+     </TD>
+     <TD >
+     Aquí se definen las variables globales (las que se pueden usar en TODAS las funciones)
+     </TD>
+</TR>
+<TR>
+     <TD >
+     Definición de funciones
+     </TD>
+     <TD >
+     Aquí es donde se definen las funciones
+     </TD>
+</TR>
+<TR>
+     <TD >
+     Función main
+     </TD>
+     <TD >
+     Aquí se define la función main.
+     </TD>
+</TR>
+</TABLE>
+
+<p>Esta es una forma muy habitual de estructurar un programa. Sin embargo esto no es algo rígido, no tiene por qué hacerse así, pero es recomendable.</p>
+
+<p>Se puede hacer de otra forma, también aconsejable. Consiste en definir después de las variables las cabeceras de las funciones, sin escribir su código. Esto nos permite luego poner las funciones en cualquier orden. Ejemplos:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+<B>void compara( int a, int b );     /* Definimos la cabecera de la función */
+</B>
+int main()
+     {
+     int num1, num2;
+     int resultado;
+
+     printf( "Introduzca dos números: " );
+     scanf( "%i %i", num1, num2 );
+     
+     resultado = compara( num1, num2 );
+     printf( "El mayor de los dos es %i\n", resultado );
+	 
+     return 0;
+     }
+
+int compara( int a, int b )     /* Ahora podemos poner el cuerpo de la función donde queramos. */
+               /* Incluso después de donde la llamamos (main) */
+     {
+     int mayor;
+     if ( a>b )
+     mayor = a;
+     else mayor = b;
+
+     return mayor;
+     }
+</PRE></DIV>
+
+<p>Cuando se define la cabecera de la función sin su cuerpo (o código) debemos poner un ';' al final. Cuando definamos el cuerpo más tarde no debemos poner el ';', se hace como una función normal.
+</p>
+
+<p>La definición debe ser igual cuando definimos sólo la cabecera y cuando definimos el cuerpo. Mismo nombre, mismo número y tipo de parámetros y mismo tipo de valor devuelto.</p>
+
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="vida"></A>
+<H2>
+	Vida de una variable
+</H2>
+
+<p>Cuando definimos una variable dentro de una función, esa variable sólo es válida dentro de la función. Si definimos una variable dentro de main sólo podremos usarla dentro de main. Si por el contrario la definimos como variable global, antes de las funciones, se puede usar en todas las funciones.</p>
+
+
+<p>Podemos crear una variable global y en una función una variable local con el mismo nombre. Dentro de la función cuando llamamos a esa variable llamamos a la local, no a la global. Esto no da errores pero puede crear confusión al programar y al analizar el código.</p>
+
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="ejercicios"></A>
+<H2>
+	Ejercicios
+</H2>
+
+<p><B><U>Ejercicio 1:</U></B> Descubre los errores:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+int main()
+     {
+     int num1, num2;
+     int resultado,
+
+     printf( "Introduzca dos números: " );
+     scanf( "%i %i", &num1, &num2 );
+     resultado = compara( num1, num2 );
+     printf( "El mayor de los dos es %i\n", resultado );
+	 
+     return 0;
+     }
+
+int compara( int a, int b );
+     {
+     int mayor;
+     if ( a>b )mayor = a;
+     else mayor = b;
+     return mayor;
+     }
+</PRE></DIV>
+
+<p><B>Solución</B>:</p>
+
+<UL class="texto">
+<li>Hay una coma después de int resultado en vez de un punto y coma.
+<li>Llamamos a la función compara dentro de main antes de definirla.
+<li>Cuando definimos la función compara con su cuerpo hemos puesto un punto y coma al final, eso es un error.
+</UL>
+
+<p><B><U>Ejercicio 2:</U></B> Busca los errores.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int resultado( int parametro )
+
+int main()
+     {
+     int a, b;
+
+     a = 2; b = 3;
+     printf( "%i", resultado( a );
+	 
+     return 0;
+     }
+
+char resultado( int parametro )
+     {
+     return parámetro+b;
+     }
+</PRE></DIV>
+
+<p><B>Solución</B>:</p>
+
+<UL class="texto">
+<li>Hemos definido la cabecera de resultado sin punto y coma.
+<li>Cuando definimos el cuerpo de resultado en su cabecera hemos puesto char, que no coincide con la definición que hemos hecho al principio.
+<li>En la función resultado estamos usando la variable 'b' que está definida sólo en main. Por lo tanto es como si no existiera para resultado.
+<li>En printf nos hemos dejado un paréntesis al final.
+</UL>
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" --> 
+<a href="cursoc7.html" class="barranav">[Anterior]</a> <a href="cursoc9.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+</BODY>
+
+<!-- InstanceEnd --></HTML>

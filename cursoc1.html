@@ -1,0 +1,482 @@
+<HTML><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Introducción</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="decription" content="Curso de C - Introducción">
+<meta name="keywords" content="Programación, Curso de C, C" >
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: right;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe2nINnHo0zvnKxFSf0J-eQhpJNU6Q3iVqwg&s" alt="Curso de C" border="0">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com"  border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" -->
+<h1>Introducción</h1>
+<!-- InstanceEndEditable --> 
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" -->
+<p><a href="cursoc.html" class="barranav">[Anterior]</a> <a href="cursoc2.html" class="barranav">[Siguiente]</a> 
+  <a href="indexsss.html" target="_top" class="barranav">[Contenido]</a> </p>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" --> 
+<p><A NAME="contenido"></A> 
+</p>
+<H2> Contenido del Capítulo: </H2>
+<UL>
+  <LI><A HREF="#acercade">Sobre el curso</A> 
+  <LI><A HREF="#donde">Dónde encontrar el curso</A> 
+  <LI><a href="#resolver">C&oacute;mo resolver tus dudas</a> 
+  <LI><A HREF="#lenguajec">El lenguaje C</A> 
+  <LI><A HREF="#peculiaridades">Peculiaridades de C</A> 
+  <LI><A HREF="#compiladores">Compiladores</A> 
+  <LI><A HREF="#editor">El editor</A> 
+  <LI><A HREF="#primer">El primer programa: <I>Hola Mundo</I></A> 
+    <ul>
+      <li><A HREF="#como">¿Como se hace?</A> 
+      <li><A HREF="#nota">Nota adicional sobre comentarios.</A> 
+    </ul>
+  <LI><A HREF="#creacion">La creación de un programa paso a paso</A> 
+  <LI><A HREF="#hacer">¿Qué sabemos hacer?</A> 
+  <LI><A HREF="#ejercicios">Ejercicios</A> 
+</UL>
+<A NAME="acercade"></A> 
+<H2> Sobre el curso </H2>
+<P>Este es un curso para principiantes así que intentaré que no haga falta ningún 
+  conocimiento anterior para seguirlo. Muchos otros cursos suponen conocimientos 
+  previos pero eso no sucederá aquí. Si tienes alguna duda consulta en la sección C&oacute;mo resolver dudas más abajo.</p>
+<P>En cuanto al formato del curso los capítulos más recientes están escritos usando 
+  html dinámico, lo que me permite cambiar el estilo más cómodamente. Si tu navegador 
+  no lo soporta también podrás ver el curso, aunque tendrá un aspecto diferente 
+  (el contenido por supuesto será el mismo). </P>
+<P>Algunos capítulos tienen apartados dedicados a algún Sistema Operativo en concreto 
+  y está indicado en el título entre paréntesis. Por ejemplo en el Capítulo 2 
+  hay un apartado titulado 'Gotoxy: Posicionando el cursor (DOS)'. El DOS entre 
+paréntesis indica que sólo tiene validez en DOS.</P>
+<P>&nbsp;</P>
+
+<A NAME="donde"></A> 
+<H2>&nbsp;</H2>
+
+<p><A NAME="resolver" id="resolver"></A></p>
+<H2>C&oacute;mo resolver tus dudas</H2>
+<P>&nbsp;</p>
+
+<p align=center><A NAME="lenguajec"></A> </p>
+<H2> El lenguaje C </H2>
+<P>El lenguaje <SPAN CLASS="letraC">C</SPAN> es uno de los más rápidos y potentes 
+  que hay hoy en dia. Algunos dicen que está desfasado y que el futuro 
+  es Java. No se si tendrá futuro pero está claro que presente si tiene. No hay 
+  más que decir que el sistema operativo Linux está desarrollado en <SPAN CLASS="letraC">C</SPAN> 
+  en su práctica totalidad. Así que creo que no sólo no perdemos nada aprendiendolo 
+  sino que ganamos mucho. Para empezar nos servirá como base para aprender C++ 
+  e introducirnos en el mundo de la programación Windows. Si optamos por Linux 
+  existe una biblioteca llamada gtk (o librería, como prefieras) que permite desarrollar 
+  aplicaciones estilo windows con C. </P>
+<P>No debemos confundir <SPAN CLASS="letraC">C</SPAN> con C++, que no son lo mismo. 
+  Se podría decir que C++ es una extensión de C. Para empezar en C++ conviene 
+  tener una sólida base de C. </P>
+<P>Existen otros lenguajes como Visual Basic que son muy sencillos de aprender 
+  y de utilizar. Nos dan casi todo hecho. Pero cuando queremos hacer algo complicado 
+  o que sea rápido debemos recurrir a otros lenguajes (c++, delphi,...). </P>
+
+<A NAME="peculiaridades"></A> 
+<H2> Peculiaridades de C </H2>
+<P>Una de las cosas importantes de <SPAN CLASS="letraC">C</SPAN> que debes recordar 
+  es que es <I>Case Sensitive</I> (sensible a las mayúsculas o algo así). Es decir 
+  que para <SPAN CLASS="letraC">C</SPAN> no es lo mismo escribir <VAR>Printf</VAR> 
+  que <VAR>printf</VAR>. </P>
+<P>Conviene indicar también que las instrucciones se separan por ";". </P>
+
+<A NAME="compiladores"></A> 
+<H2> Compiladores de C </H2>
+<P>Un compilador es un programa que convierte nuestro código fuente en un programa 
+  ejecutable . 
+  El ordenador trabaja con 0 y 1. Si escribiéramos un programa en el lenguaje 
+  del ordenador nos volveríamos locos. Para eso están lenguajes como el C. Nos 
+  permiten escribir un programa de manera que sea fácil entenderlo por una persona 
+  (el <B>código fuente</B>). Luego es el compilador el que se encarga de convertirlo 
+  al complicado idioma de un ordenador. </P>
+<P>En la practica a la hora de crear un programa nosotros escribimos el código 
+  fuente, en nuestro caso en C, que normalmente será un fichero de texto normal 
+  y corriente que contiene las instrucciones de nuestro programa. Luego se lo 
+  pasamos al compilador y este se encarga de convertirlo en un programa.</P>
+<p>Si tenemos el código fuente podemos modificar el programa tantas veces como 
+  queramos (sólo tenemos que volver a compilarlo), pero si tenemos el ejecutable 
+  final no podremos cambiar nada (realmente sí se puede pero es mucho más complicado 
+  y requiere más conocimientos).</p>
+<p> Los compiladores que usaremos serán gratuitos. 
+  Si vas a programar en Windows te recomiendo usar el Dev-C++, de fácil 
+  instalación y manejo. También recomiendo usar el <A HREF="http://www.delorie.com/djgpp/">DJGPP</A> 
+  para MS-Dos y Windows y el GNU <SPAN CLASS="letraC">C</SPAN> (<a href="http://gcc.gnu.org">gcc.gnu.org</a>)para 
+  Linux.</p>
+
+<A NAME="editor"></A> 
+<H2> El editor </H2>
+<p>El compilador en sí mismo sólo es un programa que traduce nuestro código fuente 
+  y lo convierte en un ejecutable. Para escribir nuestros programas necesitamos 
+  un editor. La mayoría de los compiladores al instalarse incorporan ya un editor; 
+  es el caso de los conocidos Turbo C, Borland C, Visual C++,... Pero otros no 
+  lo traen por defecto. No debemos confundir por tanto el editor con el compilador. 
+  Estos editores suelen tener unas características que nos facilitan mucho el 
+  trabajo: permiten compilar y ejecutar el programa directamente, depurarlo (corregir 
+  errores), gestionar complejos proyectos,...</p>
+<P>Si nuestro compilador no trae editor la solución más simple en MS-Dos puede 
+  ser usar el edit, en windows el notepad. Pero no son más que editores sin ninguna 
+  otra funcionalidad. Otra posibilidad es un entorno de desarrollo llamado RHIDE, 
+  un programa muy útil que automatiza muchas de las tareas del programador (del 
+  estilo del Turbo <SPAN CLASS="letraC">C</SPAN> y Turbo Pascal). Si queremos 
+  una herramienta muy avanzada podemos usar Emacs, que es un editor muy potente, 
+  aunque para algunos puede parecer muy complicado. Estos 
+  dos programas están disponibles tanto en Linux como en MS-Dos. </P>
+<p>&nbsp;</p>
+
+<A NAME="primer"></A> 
+<H2> El primer programa: <I>Hola Mundo</I> </H2>
+<P>En un alarde de originalidad vamos a hacer nuestro primer programa: hola mundo. 
+  Nadie puede llegar muy lejos en el mundo de la programación sin haber empezado 
+  su carrera con este original y funcional programa: </P>
+<!-- holamundo.c -->
+<DIV CLASS="ejemplo"> 
+  <pre>
+<code><font  size=3 face="Courier New"><font color="#008000">#include &lt;stdio.h&gt;
+
+</font><b>int </b>main() {
+    printf(<font color="#FF0000">&quot;Hola mundo\n&quot;</font>);
+    <b>return </b><font color="#800080">0</font>;
+}</font>
+</code></pre>
+</DIV>
+<div class="nota"> 
+  <p><b>Nota:</b> Hay mucha gente que programa en Windows que se queja de que 
+    cuando ejecuta el programa no puede ver el resultado. Para evitarlo se puede 
+    añadir antes de return 0; la siguiente línea:</p>
+  <pre>     system("PAUSE");</PRE>
+  <p>Si esto no funciona prueba a añadir getch();</p>
+</div>
+<P>¿Qué fácil eh? Este programa lo único que hace es sacar por pantalla el mensaje: 
+</P>
+<DIV CLASS="resultado"> 
+  <PRE>Hola mundo</PRE>
+</DIV>
+<P>Vamos ahora a comentar el programa línea por línea (Esto no va a ser más que 
+  una primera aproximación). </P>
+<DIV CLASS="ejemplo"> 
+  <PRE>
+	#include &lt;stdio.h&gt;
+</PRE>
+</DIV>
+<P>#include es lo que se llama una directiva. Sirve para indicar al compilador 
+  que incluya otro archivo. Cuando en compilador se encuentra con esta directiva 
+  la sustituye por el archivo indicado. En este caso es el archivo stdio.h que 
+  es donde está definida la función printf, que veremos luego. </P>
+<DIV CLASS="ejemplo"> 
+  <PRE>
+	int main()
+</PRE>
+</DIV>
+<P>Es la función principal del programa. Todos los programas de <SPAN CLASS="letraC">C</SPAN> 
+  deben tener una función llamada main. Es la que primero se ejecuta. El <B>int</B> 
+  (viene de Integer=Entero) que tiene al principio significa que cuando la función 
+  main acabe devolverá un número entero. Este valor se suele usar para saber cómo 
+  ha terminado el prorama. Normalmente este valor será 0 si todo ha ido bien, 
+  o un valor distinto si se ha producido algún error (pero esto lo decidimos nosotros, 
+  ya lo veremos). De esta forma si nuestro programa se ejecuta desde otro el programa 
+  'padre' sabe como ha finalizado, si ha habido errores o no. 
+<P>Se puede usar la definición 'void main()', que no necesita devolver ningún 
+  valor, pero se recomienda la forma con 'int' que es más correcta. A lo largo 
+  de este curso verás muchos ejemplos que uso 'void main' y falta el return 0; 
+  del final, el código funciona correctamente pero puede dar un 'warning' al compilar. 
+  En estos momentos estoy intentando corregir esto, pido perdón por las molestias. 
+</P>
+<DIV CLASS="ejemplo"> 
+  <PRE>
+	{</PRE>
+</DIV>
+<P>Son las llaves que indican el comienzo de una función, en este caso la función 
+  main. </P>
+<DIV CLASS="ejemplo"> 
+  <PRE>/* Aquí va el cuerpo del programa */</PRE>
+</DIV>
+<P>Esto es un comentario, no se ejecuta. Sirve para describir el programa. Conviene 
+  acostumbrarse a comentar los programas. Un comentario puede ocupar más de una 
+  línea. Por ejemplo el comentario: </P>
+<DIV CLASS="ejemplo"> 
+  <PRE>
+	/* Este es un comentario
+	   que ocupa dos filas */
+</PRE>
+</DIV>
+<P>es perfectamente válido. </P>
+<DIV CLASS="ejemplo"> 
+  <PRE>	printf( "Hola mundo\n" );</PRE>
+</DIV>
+<P>Aquí es donde por fin el programa hace algo que podemos ver al ejecutarlo. 
+  La función printf muestra un mensaje por la pantalla. Al final del mensaje "Hola 
+  mundo" aparece el símbolo '\n'; este hace que después de imprimir el mensaje 
+  se pase a la línea siguiente. </P>
+<P>Fíjate en el ";" del final. Es la forma que se usa en <SPAN CLASS="letraC">C</SPAN> 
+  para separar una instrucción de otra. Se pueden poner varias en la misma línea 
+  siempre que se separen por el punto y coma. </P>
+<DIV CLASS="ejemplo"> 
+  <PRE>	return 0;</PRE>
+</DIV>
+<P>Como he indicado antes el programa al finalizar develve un valor entero. Como 
+  en este programa no se pueden producir errores (nunca digas nunca jamás) la 
+  salida siempre será 0. La forma de hacer que el programa devuelva un 0 es usando 
+  return. Esta línea significa 'finaliza la función main haz que devuelva un 0. 
+</P>
+<DIV CLASS="ejemplo"> 
+  <PRE>	}</PRE>
+</DIV>
+<P>...y cerramos llaves con lo que termina el programa. Todos los programas finalizan 
+  cuando se llega al final de la función main. </P>
+
+<A NAME="como"></A> 
+<H2> ¿Cómo se hace? </H2>
+<P>Primero debemos crear el código fuente del programa. Para nuestro primer programa 
+  el código fuente es el del listado anterior. Arranca tu compilador de C, sea 
+  cual sea. Crea un nuevo fichero y copia el código anterior. Llámalo por ejemplo 
+  <I>primero.c</I>. 
+<P>Ahora, tenemos que compilar el programa para crear el ejecutable. Si tu compilador 
+  es de windows, o tiene menús busca una opción llamada "compile", o make, build 
+  o algo así.</P>
+<P>Si estamos usando DJGPP (ver información sobre <A HREF="cursoc-instalar.html">instalación 
+  y uso de DJGPP</A>): tenemos que llamarlo desde la línea de comando: </P>
+<DIV CLASS="ejemplo"> 
+  <PRE>	gcc -c primero.c -o primero.exe</PRE>
+</DIV>
+<P>Si usamos Rhide basta con hacer CTRL-F9.</P>
+
+<A NAME="creacion"></A> 
+<H2> La creación de un programa paso a paso </H2>
+<p>En esta sección explicaré cómo es el proceso de creación de un programa, desde 
+  la edición hasta que se genera el ejecutable final.</p>
+<p>Todavía no está disponible.</p>
+
+<A NAME="nota"></A> 
+<H2> Nota adicional sobre los comentarios </H2>
+<P>Los comentarios se pueden poner casi en cualquier parte. Excepto en medio de 
+  una instrucción. Por ejemplo lo siguiente no es válido: </P>
+<DIV CLASS="ejemplo"> 
+  <PRE>
+	pri/* Esto es un comentario */ntf( "Hola mundo" );		GARRAFAL
+</PRE>
+</DIV>
+<P>No podemos cortar a printf por en medio, tendríamos un error al compilar. Lo 
+  siguiente no daría error (al menos usando DJGPP), pero es una fea costumbre: 
+</P>
+<DIV CLASS="ejemplo"> 
+  <PRE>
+	printf( /* Esto es un comentario */ "Hola mundo" );
+</PRE>
+</DIV>
+<P>Y por último tenemos: </P>
+<DIV CLASS="ejemplo"> 
+  <PRE>
+	printf( "Hola/* Esto es un comentario */ mundo" );
+</PRE>
+</DIV>
+<P>Que no daría error, pero al ejecutar tendríamos: </P>
+<DIV CLASS="ejemplo"> 
+  <PRE>
+	Hola /* Esto es un comentario */ mundo
+</PRE>
+</DIV>
+<P>porque <VAR>/* Esto es un comentario */</VAR> queda dentro de las comillas 
+  y <SPAN CLASS="letraC">C</SPAN> lo interpreta como texto, no como un comentario. 
+</P>
+
+<A NAME="hacer"></A> 
+<H2> ¿Qué sabemos hacer? </H2>
+<P>Pues la verdad es que todavía no hemos aprendido mucho. Lo único que podemos 
+  hacer es compilar nuestros programas. Pero paciencia, en seguida avanzaremos. 
+</P>
+
+<A NAME="ejercicios"></A> 
+<H2> Ejercicios </H2>
+<P>Busca los errores en este programa: </P>
+<DIV CLASS="ejemplo"> 
+  <PRE>
+int main()
+	{
+	/* Aquí va el cuerpo del programa */
+	Printf( "Hola mundo\n" );
+	return 0;
+	}
+</PRE>
+</DIV>
+<P>Solución: </P>
+<P>Si lo compilamos posiblemente obtendremos un error que nos indicará que no 
+  hemos definido la función 'Printf'. Esto es porque no hemos incluído la dichosa 
+  directiva '#include &lt;stdio.h&gt;'. (En algunos compiladores no es necesario 
+  incluir esta directiva, pero es una buena costumbre hacerlo). </P>
+<P>Si lo corregimos y volvemos a compilar obtendremos un nuevo error. Otra vez 
+  nos dice que desconoce 'Printf'. Esta vez el problema es el de las mayúsculas 
+  que hemos indicado antes. Lo correcto es poner 'printf' con minúsculas. Parece 
+  una tontería, pero seguro que nos da más de un problema. </P>
+<p class="volver"><a href="#arriba" >[Arriba]</a></p>
+<BR>
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" -->
+<p><a href="cursoc.html">[Anterior]</a> <a href="cursoc2.html">[Siguiente]</a> 
+  <a href="index.html" target="_top">[Contenido]</a></p>
+<!-- InstanceEndEditable --></p>
+
+</BODY>
+
+<!-- InstanceEnd --></HTML>

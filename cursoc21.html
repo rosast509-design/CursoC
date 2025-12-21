@@ -1,0 +1,545 @@
+<HTML>
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Otras funciones para el manejo de ficheros</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="description" content="Curso de C - Otras funciones para el manejo de ficheros">
+<meta name="keywords" content="Programación, Curso de C, C, ficheros, fread, fwrite, fseek, ftell, fprintf, fscanf">
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    h3 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 14pt;
+        font-weight: bold;
+        color: #006600;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: right;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+        display: block;
+        margin: 10px auto;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+    
+    .texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .ejemplo pre {
+        margin: 0;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    b, strong {
+        color: #006600;
+    }
+    
+    u {
+        color: #006600;
+    }
+    
+    ol.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    ol.texto li {
+        margin: 10px 0;
+    }
+    
+    table[border="1"] {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    table[border="1"] td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    table[border="1"] th {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+    
+    center {
+        text-align: center;
+    }
+    
+    font[color="#ff0000"] {
+        color: #ff0000;
+    }
+    
+    font[color="#0000ff"] {
+        color: #0000ff;
+    }
+    
+    blockquote.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+        font-style: italic;
+    }
+    
+    em {
+        font-style: italic;
+    }
+    
+    .comprobado {
+        font-size: 10px;
+        color: #666;
+        display: block;
+        margin-top: 5px;
+    }
+    
+    pre code {
+        color: #006600;
+    }
+    
+    .coment {
+        color: #666;
+        font-style: italic;
+    }
+    
+    .enlace {
+        text-decoration: none;
+        color: #006600;
+    }
+    
+    .enlace:hover {
+        text-decoration: underline;
+    }
+    
+    .mini {
+        font-size: 10px;
+        color: #666;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://sic.cultura.gob.mx/imagenes_cache/universidad_4269_g_74422.png" alt="Curso de C" border="0" style="width: 300px; height: auto; max-width: 300px;">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com"  border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" -->
+<h1>Otras funciones para el manejo de ficheros</h1>
+<!-- InstanceEndEditable --> 
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" --> 
+<a href="cursoc20.html" class="barranav">[Anterior]</a> <a href="cursoc22.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" -->
+<a name="arriba"></a>
+
+<A NAME="contenido"></A>
+<H2>
+	Contenido
+</H2>
+
+<UL>
+	<LI><A HREF="#intro" class="enlace">Introducción</A>
+	<LI><A HREF="#freadfwrite" class="enlace">fread y fwrite</A>
+	<LI><A HREF="#fseekftell" class="enlace">fseek y ftell</A>
+	<LI><A HREF="#fprintffscanf" class="enlace">fprintf y fscanf</A>
+	<LI><A HREF="#ejercicios" class="enlace">Ejercicios</A>
+</UL>
+
+<A NAME="intro"></A>
+<H2>
+	Introducción
+</H2>
+
+<p>En este tema vamos a ver otras funciones que permiten el manejo de ficheros.</p>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="freadfwrite"></A>
+<H2>
+	fread y fwrite
+</H2>
+
+<p>Las funciones que hemos visto hasta ahora (getc, putc, fgets, fputs) son adecuadas para trabajar con caracteres (1 byte) y cadenas. Pero, ¿qué sucede cuando queremos trabajar con otros tipos de datos?</p>
+
+<p>Supongamos que queremos almacenar variables de tipo int en un fichero. Como las funciones vistas hasta ahora sólo pueden operar con cadenas deberíamos convertir los valores a cadenas (con la función <I>itoa</I>). Para recuperar luego estos valores deberíamos leerlos como cadenas y pasarlos a enteros (<I>atoi</I>).</p>
+
+<p>Existe una solución mucho más fácil. Vamos a utilizar las funciones <B>fread</B> y <B>fwrite</B>. Estas funciones nos permiten tratar con datos de cualquier tipo, incluso con estructuras.</p>
+
+<A NAME="fwrite"></A>
+<H3>fwrite</H3>
+
+<p>Empecemos con <I>fwrite</I>, que nos permite escribir en un fichero. Esta función tiene el siguiente formato:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+size_t fwrite(void *buffer, size_t tamano, size_t numero, FILE *pfichero);
+</PRE></DIV>
+
+<ul class=texto>
+<li>buffer - variable que contiene los datos que vamos a escribir en el fichero.
+<li>tamano - el tamaño del tipo de dato a escribir. Puede ser un int, un float, una estructura, ... Para conocer su tamaño usamos el operador <I>sizeof</I>.
+<li>numero - el número de datos a escribir.
+<li>pfichero - El puntero al fichero sobre el que trabajamos.
+</ul>
+
+<p>Para que quede más claro examinemos el siguiente ejemplo: un programa de agenda que guarda el nombre, apellido y teléfono de cada persona.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+struct {
+        char nombre[20];
+        char apellido[20];
+        char telefono[15];
+        } registro;
+
+int main()
+    {
+    FILE *fichero;
+
+    fichero = fopen( "nombres.txt", "a" );
+    do {
+       printf( "Nombre: " ); fflush(stdout);
+       gets(registro.nombre);
+       if (strcmp(registro.nombre,""))
+          {
+          printf( "Apellido: " ); fflush(stdout);
+          gets(registro.apellido);
+          printf( "Teléfono: " ); fflush(stdout);
+          gets(registro.telefono);
+          <B>fwrite( &registro, sizeof(registro), 1, fichero );</B>
+          }
+       } while (strcmp(registro.nombre,"")!=0);
+    fclose( fichero );
+    }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<p>NOTA: El bucle termina cuando el 'nombre' se deja en blanco.</p>
+
+<p>Este programa guarda los datos personales mediante fwrite usando la estructura <i>registro</i>. Abrimos el fichero en modo '<i>a</i>' (append, añadir), para que los datos que introducimos se añadan al final del fichero.</p>
+
+<p>Una vez abierto abrimos estramos en un bucle <i>do-while</i> mediante el cual introducimos los datos. Los datos se van almacenando en la variable <i>registro</i> (que es una estructura). Una vez tenemos todos los datos de la persona los metemos en el fichero con fwrite:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+fwrite( &registro, sizeof(registro), 1, fichero );
+</PRE></DIV>
+
+<ul class=texto>
+<li>&registro - es la variable (en este caso una estructura) que contiene la información a meter al fichero.
+<li>sizeof(registro) - lo utillizamos para saber cuál es el número de bytes que vamos a guardar, el tamaño en bytes que ocupa la estructura.
+<li>1 - indica que sólo vamos a guardar un elemento. Cada vez que se recorre el bucle guardamos sólo un elemento.
+<li>fichero - el puntero FILE al fichero donde vamos a escribir.
+</ul>
+
+<A NAME="fread"></A>
+<H3>fread</H3>
+
+<p>La función <i>fread</i> se utiliza para sacar información de un fichero. Su formato es:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+size_t fread(void *buffer, size_t tamano, size_t numero, FILE *pfichero);
+</PRE></DIV>
+
+<p>Siendo <I>buffer</I> la variable donde se van a escribir los datos leídos del fichero <i>pfichero</i>.</p>
+
+<p>El valor que devuelve la función indica el número de elementos de tamaño 'tamano' que ha conseguido leer. Nosotros podemos pedirle a fread que lea 10 elementos (numero=10), pero si en el fichero sólo hay 6 elementos fread devolverá el número 6.</p>
+
+<p>Siguiendo con el ejemplo anterior ahora vamos a leer los datos que habíamos introducido en "nombres.txt".</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+struct {
+        char nombre[20];
+        char apellido[20];
+        char telefono[15];
+        } registro;
+
+int main()
+    {
+    FILE *fichero;
+
+    fichero = fopen( "nombres.txt", "r" );
+    while (!feof(fichero)) {
+       if (<B>fread( &registro, sizeof(registro), 1, fichero )</B>) {
+              printf( "Nombre: %s\n", registro.nombre );
+              printf( "Apellido: %s\n", registro.apellido);
+              printf( "Teléfono: %s\n", registro.telefono);
+              }
+       }
+    fclose( fichero );
+    }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<p>Abrimos el fichero <I>nombres.txt</I> en modo lectura. Con el bucle while nos aseguramos que recorremos el fichero hasta el final (y que no nos pasamos).</p>
+
+<p>La función fread lee un registro (numero=1) del tamaño de la estructura <I>registro</I>. Si realmente ha conseguido leer un registro la función devolverá un 1, en cuyo caso la condición del 'if' será verdadera y se imprimirá el registro en la pantalla. En caso de que no queden más registros en el 
+fichero, fread devolverá 0 y no se mostrará nada en la pantalla.</p>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="fseekftell"></A>
+<H2>
+	fseek y ftell
+</H2>
+
+<A NAME="fseek"></A>
+<H3>fseek</H3>
+
+<p>La función fseek nos permite situarnos en la posición que queramos de un fichero abierto. Cuando leemos un fichero hay un 'puntero' que indica en qué lugar del fichero nos encontramos. Cada vez que leemos datos del fichero este puntero se desplaza. Con la función fseek podemos situar este puntero en el lugar que deseemos.</p>
+
+<p>El formato de fseek es el siguiente:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+int fseek(FILE *pfichero, long desplazamiento, int modo);
+</PRE></DIV>
+
+<p>Como siempre <I>pfichero</I> es un puntero de tipo FILE que apunta al fichero con el que queremos trabajar.</p>
+
+<p><I>desplazamiento</I> son las posiciones (o bytes) que queremos desplazar el puntero. Este desplazamiento puede ser de tres tipos dependiendo del valor de <I>modo</I>:</p>
+
+<table border="0" width="80%">
+<tr><td class=texto>SEEK_SET</td><td class=texto>El puntero se desplaza desde el principio del fichero.</td>
+<tr><td class=texto>SEEK_CUR</td><td class=texto>El puntero se desplaza desde la posición actual del fichero.</td>
+<tr><td class=texto>SEEK_END</td><td class=texto>El puntero se desplaza desde el final del fichero.</td>
+</table>
+
+<p>Estas tres constantes están definidas en el fichero &lt;stdio.h&gt;. Como curiosidad se indican a continuación sus definiciones:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#define SEEK_SET	0
+#define SEEK_CUR	1
+#define SEEK_END	2</PRE></DIV>
+
+<p>Nota: es posible que los valores cambien de un compilador a otro.</p>
+
+<p>Si se produce algún error al intentar posicionar el puntero, la función devuelve un valor distinto de 0. Si todo ha ido bien el valor devuleto es un 0.</p>
+
+<p>En el siguiente ejemplo se muestra el funcionamiento de fseek. Se trata de un programa que lee la letra que hay en la posición que especifica el usuario.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+    {
+    FILE *fichero;
+    long posicion;
+    int resultado;
+
+    fichero = fopen( "origen.txt", "r" );
+    printf( "¿Qué posición quieres leer? " ); fflush(stdout);
+    scanf( "%D", &posicion );
+    resultado = fseek( fichero, posicion, SEEK_SET );
+    if (!resultado)
+        printf( "En la posición %D está la letra %c.\n", posicion, getc(fichero) );
+    else
+        printf( "Problemas posicionando el cursor.\n" );
+    fclose( fichero );
+    }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<!--Si se indican valores negativos el programa recorre el fichero hacia atrás -->
+
+<A NAME="ftell"></A>
+<H3>ftell</H3>
+
+<p>Esta función es complementaria a fseek, devuelve la posición actual dentro del fichero.</p>
+
+<p>Su formato es el siguiente:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+long ftell(FILE *pfichero);</PRE></DIV>
+
+<p>El valor que nos da ftell puede ser usado por fseek para volver a la posición actual.</p>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="fprintffscanf"></A>
+<H2>
+	fprintf y fscanf
+</H2>
+
+<p>Estas dos funciones trabajan igual que sus equivalentes printf y scanf. La única diferencia es que podemos especificar el fichero sobre el que operar (si se desea puede ser la pantalla para fprintf o el teclado para fscanf).</p>
+
+<p>Los formatos de estas dos funciones son:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+int fprintf(FILE *pfichero, const char *formato, ...);
+</PRE></DIV>
+
+<DIV CLASS="ejemplo"><PRE>
+int fscanf(FILE *pfichero, const char *formato, ...);
+</PRE></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" --> 
+<a href="cursoc20.html" class="barranav">[Anterior]</a> <a href="cursoc22.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+</BODY>
+</HTML>

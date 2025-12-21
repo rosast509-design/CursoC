@@ -1,0 +1,591 @@
+<HTML>
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Listas enlazadas simples (I)</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="description" content="Curso de C - Listas enlazadas simples">
+<meta name="keywords" content="Programación, Curso de C, C, listas enlazadas, estructuras de datos">
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    h3 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 14pt;
+        font-weight: bold;
+        color: #006600;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: right;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+        display: block;
+        margin: 10px auto;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+    
+    .texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .ejemplo pre {
+        margin: 0;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    b, strong {
+        color: #006600;
+    }
+    
+    u {
+        color: #006600;
+    }
+    
+    ol.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    ol.texto li {
+        margin: 10px 0;
+    }
+    
+    table[border="1"] {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    table[border="1"] td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    table[border="1"] th {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+    
+    center {
+        text-align: center;
+    }
+    
+    font[color="#ff0000"] {
+        color: #ff0000;
+    }
+    
+    font[color="#0000ff"] {
+        color: #0000ff;
+    }
+    
+    blockquote.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+        font-style: italic;
+    }
+    
+    em {
+        font-style: italic;
+    }
+    
+    .comprobado {
+        font-size: 10px;
+        color: #666;
+        display: block;
+        margin-top: 5px;
+    }
+    
+    pre code {
+        color: #006600;
+    }
+    
+    .coment {
+        color: #666;
+        font-style: italic;
+    }
+    
+    .enlace {
+        text-decoration: none;
+        color: #006600;
+    }
+    
+    .enlace:hover {
+        text-decoration: underline;
+    }
+    
+    .mini {
+        font-size: 10px;
+        color: #666;
+    }
+    
+    dl.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    dl.texto dt {
+        font-weight: bold;
+        color: #006600;
+        margin-top: 10px;
+    }
+    
+    dl.texto dd {
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://sic.cultura.gob.mx/imagenes_cache/universidad_4269_g_74422.png" alt="Curso de C" border="0" style="width: 300px; height: auto; max-width: 300px;">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com"  border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" -->
+<h1>Listas enlazadas simples (I)</h1>
+<!-- InstanceEndEditable --> 
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" --> 
+<a href="cursoc21.html" class="barranav">[Anterior]</a> <a href="cursoc-buenas.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" -->
+<a name="arriba"></a>
+
+<H2>
+ 	Contenido
+</H2>
+
+<UL>
+	<LI><A HREF="#intro" class="enlace">Introducción</A>
+	<LI><A HREF="#funciona" class="enlace">Cómo funciona una lista</A>
+	<LI><A HREF="#crear" class="enlace">Ejemplo de una lista simple</A>
+	<LI><A HREF="#anadir" class="enlace">Añadir nuevos elementos</A>
+	<LI><A HREF="#mostrar" class="enlace">Mostrar la lista completa</A>
+</UL>
+
+<A NAME="intro"></A>
+<H2>
+	Introducción
+</H2>
+
+<p>En el capítulo de 'Asignación dinámica de memoria' vimos que para ahorrar memoria podíamos reservarla dinámicamente (sobre la marcha). En mayor parte de los ejemplos que hemos visto hasta ahora reservábamos la memoria que íbamos a usar al comenzar el programa (al definir las variables).</p>
+
+<p>El problema surge a la hora de hacer un programa al estilo de una agenda. No sabemos a priori cuántos nombres vamos a meter en la agenda, así que si usamos un array para este programa podemos quedarnos cortos o pasarnos. Si por ejemplo creamos una agenda con un array de mil elementos (que pueda contener mil números) y usamos sólo 100 estamos desperdiciando una cantidad de memoria importante. Si por el contrario decidimos crear una agenda con sólo 100 elementos para ahorrar memoria y necesitamos 200 nos vamos a quedar cortos. La mejor solución para este tipo de programas son las <b>listas enlazadas</b>.</p>
+
+<p>En una lista enlazada la memoria se va tomando según se necesita. Cuando queremos añadir un nuevo elemento reservamos memoria para él y lo añadimos a la lista. Cuando queremos eliminar el elemento simplemente lo sacamos de la lista y liberamos la memoria usada.</p>
+
+<p>Las listas enlazadas pueden ser simples, dobles o circulares. En este capítulo y el siguiente vamos a ver sólo las listas simples.</p>
+
+<A NAME="funciona"></A>
+<H2>
+	Cómo funciona una lista
+</H2>
+
+<p>Para crear una lista necesitamos recordar nuestros conocimientos sobre estructuras y asignación dinámica de memoria. Vamos a desarrollar este tema creando una sencilla agenda que contiene el nombre y el número de teléfono.</p>
+
+<p>Una lista enlazada simple necesita una estructura con varios campos, los campos que contienen los datos necesarios (nombre y teléfono) y otro campo que contiene un puntero a la propia estructura. Este puntero se usa para saber dónde está el siguiente elemento de la lista, para saber la posición en memoria del siguiente elemento.</p>
+
+<div CLASS="ejemplo"><pre>
+struct _agenda {
+       char nombre[20];
+       char telefono[12];
+       struct _agenda *siguiente;
+       };</pre>
+<span CLASS="comprobado">Comprobado con DJGPP</span></div>
+
+<A NAME="crear"></A>
+<H2>
+	Ejemplo de una lista simple
+</H2>
+
+<p>Para estudiar el funcionamiento de una lista simple vamos a usar el programa agenda que hemos comentado arriba. Existen otras formas de implementar una lista simple, pero la que uso en el programa me ha parecido la más sencilla para exlicar su funcionamiento. El programa utiliza dos funciones muy importantes:</p>
+
+<dl class=texto>
+<dt>anadir_elemento
+<dd>esta función se encarga de añadir nuevos elementos a la lista.
+
+<dt>mostrar_lista
+<dd>recorre la lista entera y muestra todos sus elementos en la pantalla.
+
+</dl>
+
+<p>Estas dos funciones se explican en los siguientes apartados. Echa una ojeada al código y pasa al <a href="#anadir">siguiente apartado</a>.</p>
+
+<p>Para controlar la lista usamos dos punteros, *primero y *ultimo. Como podrás imaginar el primero guarda la posición del primer elemento y el segundo la del último.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+struct _agenda {
+       char nombre[20];
+       char telefono[12];
+       struct _agenda *siguiente;
+       };
+
+struct _agenda *primero, *ultimo;
+
+void mostrar_menu() {
+     printf("\n\nMenú:\n=====\n\n");
+     printf("1.- Añadir elementos\n");
+     printf("2.- Borrar elementos\n");
+     printf("3.- Mostrar lista\n");
+     printf("4.- Salir\n\n");
+     printf("Escoge una opción: ");fflush(stdout);
+}
+
+/* Con esta función añadimos un elemento al final de la lista */
+void anadir_elemento() {
+     struct _agenda *nuevo;
+
+     /* reservamos memoria para el nuevo elemento */
+     nuevo = (struct _agenda *) malloc (sizeof(struct _agenda));
+     if (nuevo==NULL) printf( "No hay memoria disponible!\n");
+
+     printf("\nNuevo elemento:\n");
+     printf("Nombre: "); fflush(stdout);
+     gets(nuevo-&gt;nombre);
+     printf("Teléfono: "); fflush(stdout);
+     gets(nuevo-&gt;telefono);
+
+     /* el campo siguiente va a ser NULL por ser el último elemento
+        de la lista */
+     nuevo-&gt;siguiente = NULL;
+
+     /* ahora metemos el nuevo elemento en la lista. lo situamos
+        al final de la lista */
+     /* comprobamos si la lista está vacía. si primero==NULL es que no
+        hay ningún elemento en la lista. también vale ultimo==NULL */
+     if (primero==NULL) {
+        printf( "Primer elemento\n");
+        primero = nuevo;
+        ultimo = nuevo;
+        }
+     else {
+          /* el que hasta ahora era el último tiene que apuntar al nuevo */
+          ultimo-&gt;siguiente = nuevo;
+          /* hacemos que el nuevo sea ahora el último */
+          ultimo = nuevo;
+     }
+}
+
+void mostrar_lista() {
+     struct _agenda *auxiliar; /* lo usamos para recorrer la lista */
+     int i;
+
+     i=0;
+     auxiliar = primero;
+     printf("\nMostrando la lista completa:\n");
+     while (auxiliar!=NULL) {
+           printf( "Nombre: %s, Telefono: %s\n",
+                   auxiliar->nombre,auxiliar-&gt;telefono);
+           auxiliar = auxiliar-&gt;siguiente;
+           i++;
+     }
+     if (i==0) printf( "\nLa lista está vacía!!\n" );
+}
+
+int main() {
+    char opcion;
+
+    primero = (struct _agenda *) NULL;
+    ultimo = (struct _agenda *) NULL;
+    do {
+        mostrar_menu();
+        opcion = getch();
+            switch ( opcion ) {
+               case '1': anadir_elemento();
+                      break;
+               case '2':  printf("No disponible todavía!\n");
+                       break;
+               case '3': mostrar_lista(primero);
+                       break;
+               case '4': exit( 1 );
+               default: printf( "Opción no válida\n" );
+                        break;
+            }
+    } while (opcion!='4');
+}</pre><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="anadir"></A>
+<H2>
+	Añadir nuevos elementos
+</H2>
+
+<p>Reproducimos aquí de nuevo el código de la función <i>anadir_elemento</i>.</p>
+
+<p>Lo primero creamos un puntero que apuntará al nuevo elemento que vamos a añadir:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+     struct _agenda *nuevo;
+</pre></div>
+
+<p>Una vez creado el puntero tenemos que reservar un espacio en memoria donde se almacenará el nuevo elemento. Este espacio debe ser del tamaño de la estructura, que lo conocemos usando "sizeof(struct _agenda)". Hacemos que el puntero guarde la posición de ese espacio reservado.</p>
+
+<p>Por supuesto comprobamos el valor del puntero para saber si la operación se ha realizado con éxito. Si no hay memoria suficiente para el puntero éste tomará el valor NULL.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+     /* reservamos memoria para el nuevo elemento */
+     nuevo = (struct _agenda *) malloc (sizeof(struct _agenda));
+     if (nuevo==NULL) printf( "No hay memoria disponible!\n");
+</pre></div>
+
+<p>El siguiente paso es pedir al usuario del programa que meta los datos. Estos datos se almacenarán directamente en la memoria que hemos reservado gracias al puntero que usamos.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+     printf("\nNuevo elemento:\n");
+     printf("Nombre: "); fflush(stdout);
+     gets(nuevo-&gt;nombre);
+     printf("Teléfono: "); fflush(stdout);
+     gets(nuevo-&gt;telefono);
+</pre></div>
+
+<p>El último elemento de la lista siempre va a apuntar a NULL, de esta forma sabemos cuál es el último elemento. Dado que en este ejemplo vamos a meter los elementos siempre al final de la lista, el campo <i>siguiente</i> tiene que ser NULL.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+     /* el campo siguiente va a ser NULL por ser el último elemento
+        de la lista */
+     nuevo-&gt;siguiente = NULL;
+</pre></div>
+
+<p>El último paso es meter el elemento dentro de la lista (hasta ahora sólo teníamos un elemento aislado, que nada tenía que ver con la lista).</p>
+
+<p>Antes de meterlo en la lista debemos comprobar si ya existía algún elemento antes. Para ello vamos a comprobar el valor del puntero <i>primero</i> que debería apuntar al primer elemento. Si <i>primero</i> es NULL eso significa que no hay ningún elemento en la lista, así que el nuevo elemento será a la vez el primero y el último de la lista:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+     /* ahora metemos el nuevo elemento en la lista. lo situamos
+        al final de la lista */
+     /* comprobamos si la lista está vacía. si primero==NULL es que no
+        hay ningún elemento en la lista. también vale ultimo==NULL */
+     if (primero==NULL) {
+        printf( "Primer elemento\n");
+        primero = nuevo;
+        ultimo = nuevo;
+        }
+</pre></div>
+
+<p>Si ya existía algún elemento, debemos situar el nuevo elemento después del último. Para ello hacemos que el campo <i>siguiente</i> del último elemento apunte al nuevo elemento (ultimo->siguiente = nuevo;). Una vez hecho esto hacemos que el nuevo elemento sea el último de la lista (ultimo = nuevo;).</p>
+
+<DIV CLASS="ejemplo"><PRE>
+     else {
+          /* el que hasta ahora era el último tiene que apuntar al nuevo */
+          ultimo-&gt;siguiente = nuevo;
+          /* hacemos que el nuevo sea ahora el último */
+          ultimo = nuevo;
+     }
+}
+</pre>
+<!-- Creado el 22/3/2001 por Gorka Urrutia Landa. http://www.elrincondelc.com -->
+</div>
+
+<A NAME="mostrar"></A>
+<H2>
+	Mostrar la lista completa
+</H2>
+
+<p>Ya tenemos la forma de añadir elementos a una lista, ahora vamos a ver cómo recorrer la lista y mostrar su contenido.</p>
+
+<p>Para recorrer la lista usaremos un puntero auxiliar al que en un ataque de rabiosa originalidad llamaremos <i>auxiliar</i>.
+
+<p>Para comenzar debemos hacer que 'auxiliar' apunte al primer elemento de la lista (auxiliar=primero). Para recorrer la lista usamos un bucle while y comprobamos el valor de 'auxiliar'. Hemos visto que el campo 'siguiente' del último elemento apuntaba a NULL, por lo tanto, cuando 'auxiliar' sea NULL sabremos que hemos llegado al final de la lista.</p>
+
+<p>En cada vuelta del ciclo mostramos el elemento actual y saltamos al siguiente. El campo 'siguiente' del puntero 'auxiliar' contiene la dirección del siguiente elemento. Si hacemos que 'auxiliar' salte a la dirección almacenada en 'auxiliar->siguiente' estaremos en el siguiente elemento.</p>
+
+<p>Es importante no olvidar saltar al siguiente elemento, puesto que si no lo hacemos así no habrá forma de salir del bucle (estaremos siempre en el primer elemento).</p>
+
+<p>Como curiosidad se ha añadido una variable <i>i</i> con la que se cuenta el número de elementos de la lista. Si al final del bucle 'i' es cero, significa que no hay elementos en la lista.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+void mostrar_lista() {
+     struct _agenda *auxiliar; /* lo usamos para recorrer la lista */
+     int i;
+
+     i=0;
+     auxiliar = primero;
+     printf("\nMostrando la lista completa:\n");
+     while (auxiliar!=NULL) {
+           printf( "Nombre: %s, Telefono: %s\n",
+                   auxiliar->nombre,auxiliar-&gt;telefono);
+           auxiliar = auxiliar-&gt;siguiente;
+           i++;
+     }
+     if (i==0) printf( "\nLa lista está vacía!!\n" );
+}
+</pre></DIV>
+
+<!-- Creado el 22/3/2001 por Gorka Urrutia Landa. http://www.elrincondelc.com -->
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" --> 
+<a href="cursoc21.html" class="barranav">[Anterior]</a> <a href="cursoc-buenas.html" class="barranav">[Siguiente]</a> 
+<a href="indexsss.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+</BODY>
+</HTML>

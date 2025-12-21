@@ -1,0 +1,846 @@
+<HTML><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Tipos de Datos</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="decription" content="Curso de C - Introducción">
+<meta name="keywords" content="Programación, Curso de C, C" >
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+    
+    .texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .ejemplo pre {
+        margin: 0;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    b, strong {
+        color: #006600;
+    }
+    
+    u {
+        color: #006600;
+    }
+    
+    ol.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    ol.texto li {
+        margin: 10px 0;
+    }
+    
+    table[border="1"] {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    table[border="1"] td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    table[border="1"] th {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://sic.cultura.gob.mx/imagenes_cache/universidad_4269_g_74422.png" alt="Curso de C" border="0" style="width: 300px; height: auto; max-width: 300px;">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com"  border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" -->
+	<h1>Tipos de Datos</h1>
+<!-- InstanceEndEditable --> 
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" --> 
+<a href="cursoc2.html" class="barranav">[Anterior]</a> <a href="cursoc4.html" class="barranav">[Siguiente]</a> 
+  <a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" -->
+<a name="arriba"></a>
+
+<A NAME="contenido"></A>
+<H2>
+	Contenido del Capítulo
+</H2>
+<UL>
+<LI><A HREF="#intro">Introducción</A><BR>
+<LI><A HREF="#nombres">Notas sobre los nombres de las variables</A><BR>
+<LI><A HREF="#int">El tipo Int</A><BR>
+<ul>
+<li>Declaracion de variables
+<li>Imprimir
+<li>Asignar
+<li>Operaciones
+</ul>
+<LI><A HREF="#char">El tipo Char</A>
+<LI><A HREF="#unsigned">El modificador Unsigned</A>
+<LI><A HREF="#float">El tipo Float</A>
+<LI><A HREF="#double">El tipo Double</A>
+<LI><A HREF="#maximo">Cómo calcular el máximo valor que admite un tipo de datos</A>
+<LI><A HREF="#overflow">Overflow: Cuando nos saltamos el rango</A>
+<LI><A HREF="#resumen">Resumen de los tipos de datos en C</A>
+<LI><A HREF="#ejercicios">Ejercicios</A>
+</UL>
+
+
+<A NAME="intro"></A>
+<H2>
+	Introducción
+</H2>
+
+<P><!--¿Qué es una variable? Cuando guardamos un dato en la memoria del ordenador, va a una posición determinada de la memoria. Esta posición se identifica con un número, por ejemplo FF304A (en hexadecimal). Ahora imaginemos que hacemos un programa que maneje unos cuantos datos (cosa muy habitual). Menudo lío de números extraños tendríamos!!! Pero afortunadamente tenemos las variables. Cuando creamos una variable lo que hacemos es dar un nombre a una zona de la memoria. Cada vez que queramos usar o modificar ese dato, llamamos a la variable y ya está. Además el compilador es el que se encarga de reservar un sitio para cada variable, de tal forma que no nos tenemos que preocupar en qué dirección está.-->
+<P>
+Cuando usamos un programa es muy importante manejar datos. En <B><FONT COLOR="#0000ff" SIZE="+2" FACE="Comic Sans MS, Arial">C</FONT></B> podemos almacenar los datos en variables. El contenido de las variables se puede ver o cambiar en cualquier momento. Estas variables pueden ser de distintos tipos dependiendo del tipo de dato que queramos meter. No es lo mismo guardar un nombre que un número. Hay que recordar también que la memoria del ordenador es limitada, así que cuando guardamos un dato, debemos usar sólo la memoria necesaria. Por ejemplo si queremos almacenar el número 400 usaremos una variable tipo <i>int</i> (la estudiamos más abajo) que ocupa sólo 16 bits, y no una de tipo <i>long</i> que ocupa 32 bits. Si tenemos un ordenador con 32Mb de Ram parece una tontería ponernos a ahorrar bits (1Mb=1024Kb, 1Kb=1024bytes, 1byte=8bits), pero si tenemos un programa que maneja muchos datos puede no ser una cantidad despreciable. Además ahorrar memoria es una buena costumbre.</P>
+<P>
+<FONT SIZE="-1">(Por si alguno tiene dudas: No hay que confundir la memoria con el espacio en el disco duro. Son dos cosas distintas. La capacidad de ambos se mide en bytes, y la del disco duro suele ser mayor que la de la memoria Ram. La información en la Ram se pierde al apagar el ordenador, la del disco duro permanece. Cuando queremos guardar un fichero lo que necesitamos es espacio en el disco duro. Cuando queremos ejecutar un programa lo que necesitamos es memoria Ram. La mayoría me imagino que ya lo sabéis, pero me he encontrado muchas veces con gente que los confunde.)</FONT>
+<P>
+<!-- <U>Pero, ¿para qué quiero las variables?</U>
+<P>
+Pues las variables sirven por ejemplo para almacenar datos que nos introduce el usuario del programa por el teclado. También para hacer operaciones.
+<P>
+ -->
+
+<A NAME="nombres"></A>
+<H2>
+	Notas sobre los nombres de las variables
+</H2>
+<P>
+
+A las variables no se les puede dar cualquier nombre. No se pueden poner más que letras de la 'a' a la 'z' (la ñ no vale), números y el símbolo '_'. No se pueden poner signos de admiración, ni de interrogación... El nombre de una variable puede contener números, pero su primer carácter no puede serlo.
+
+<P>Ejemplos de nombres válidos:
+
+</P>
+<DIV CLASS="ejemplo"><PRE>
+	camiones
+	numero
+	buffer
+	a1
+	j10hola29
+	num_alumnos
+</PRE></DIV>
+Ejemplos de nombres no válidos:
+</P>
+<DIV CLASS="ejemplo"><PRE>
+	1abc
+	nombre?
+	num/alumnos
+</PRE></DIV>
+
+<P>Tampoco valen como nombres de variable las <A HREF="cursoc45.html#reservadas">palabras reservadas</A> que usa el compilador. Por ejemplo: <I>for, main, do, while.</I></P>
+<P>Por último es interesante señalar que el <B><FONT COLOR="#0000ff" SIZE="+2" FACE="Comic Sans MS, Arial">C</FONT></B> distingue entre mayúsculas y minúsculas. Por lo tanto:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	Nombre
+	nombre
+	NOMBRE
+</PRE></DIV>
+
+<P>serían tres variables distintas.</P>
+
+<A NAME="int"></A>
+<H2>
+	El tipo Int
+</H2>
+
+<P>En una variable de este tipo se almacenan números enteros (sin decimales). El rango de valores que admite es -32767 a 32767. Cuando definimos una variable lo que estamos haciendo es decirle al compilador que nos reserve una zona de la memoria para almacenar datos de tipo int. Para guardarla necesitaremos 16 bits de la memoria del ordenador (2<SUP>16</SUP>=32767).
+
+Para poder usar una variable primero hay que declararla (definirla). Hay que decirle al compilador que queremos crear una variable y hay que indicarle de qué tipo. Por ejemplo:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+int numero;
+</PRE></DIV>
+
+<P>Esto hace que declaremos una variable llamada <I>numero</I> que va a contener un número entero.
+
+<P><U>¿Pero dónde se declaran las variables?</U>
+
+<P>Tenemos dos posibilidades, una es declararla como global y otra como local. Por ahora vamos a decir que global es aquella variable que se declara fuera de la función main y local la que se declara dentro:
+<P>
+<TABLE BORDER=0 ALIGN=CENTER width="80%">
+	<TR>
+		<!-- Row 1 Column 1 -->
+		<TD>
+			<B>Variable Global</B>
+		</TD>
+		<!-- Row 1 Column 2 -->
+		<TD>
+			<B>Variable Local</B>
+		</TD>
+	</TR>
+	<TR>
+		<!-- Row 2 Column 1 -->
+		<TD>
+<PRE>
+#include &lt;stdio.h&gt;
+
+int x;
+
+int main()
+	{
+	}
+</PRE>
+		</TD>
+		<!-- Row 2 Column 2 -->
+		<TD>
+<PRE>
+
+#include &lt;stdio.h&gt;
+
+int main()
+	{
+	int x;
+	}
+</PRE>
+		</TD>
+	</TR>
+</TABLE>
+<P>La diferencia práctica es que las variables globales se pueden usar en cualquier procedimiento. Las variables locales sólo pueden usarse en el procedimiento en el que se declaran. Como por ahora sólo tenemos el procedimiento (o función, o rutina, o subrutina, como prefieras) <I>main</I> esto no debe preocuparnos mucho por ahora. Cuando estudiemos cómo hacer un programa con más funciones aparte de main volveremos sobre el tema. Sin embargo debes saber que es buena costumbre usar variables locales que globales. Ya veremos por qué.
+<P>
+Podemos declarar más de una variable en una sola línea:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	int x, y;
+</PRE></DIV>
+
+<P><U>Mostrar variables por pantalla</U>
+<P>Vamos a ir u poco más allá con la función printf. Supongamos que queremos mostrar el contenido de la variable <PRE>x</PRE> por pantalla:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	printf( "%i", x );
+</PRE></DIV>
+
+<P>Suponiendo que x valga 10 (x=10) en la pantalla tendríamos:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	10
+</PRE></DIV>
+
+<P>Empieza a complicarse un poco ¿no? Vamos poco a poco. ¿Recuerdas el símbolo "\" que usábamos para sacar ciertos caracteres? Bueno, pues el uso del "%" es parecido. "%i" no se muestra por pantalla, se sustituye por el valor de la variable que va detrás de las comillas. ( %i, de integer=entero en inglés).
+<P>Para ver el contenido de dos variables, por ejemplo x e y, podemos hacer:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	printf( "%i ", x );
+	printf( "%i", y );
+</PRE></DIV>
+
+<P>resultado (suponiendo x=10, y=20):</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	10 20
+</PRE></DIV>
+
+<P>Pero hay otra forma mejor:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	printf( "%i %i", x, y );
+</PRE></DIV>
+<P>... y así podemos poner el número de variables que queramos. Obtenemos el mismo resultado con menos trabajo. No olvidemos que por cada variable hay que poner un %i dentro de las comillas.
+<P>
+También podemos mezclar texto con enteros:
+
+</P>
+<DIV CLASS="ejemplo"><PRE>
+	printf( "El valor de x es %i, ¡que bien!\n", x );
+</PRE></DIV>
+<P>que quedará como:
+</P>
+<DIV CLASS="ejemplo"><PRE>
+	El valor de x es 10, ¡que bien!
+</PRE></DIV>
+<P>Como vemos %i al imprimir se sustituye por el valor de la variable.
+
+<P><U>Asignar valores a variables de tipo int</U>
+<P>La asignación de valores es tan sencilla como:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	x = 10;
+</PRE></DIV>
+
+<P>También se puede dar un valor inicial a la variable cuando se define:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	int x = 15;
+</PRE></DIV>
+
+<P>También se pueden inicializar varias variables en una sola línea:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	int x = 15, y = 20;
+</PRE></DIV>
+
+<P>Hay que tener cuidado con lo siguiente:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	int x, y = 20;
+</PRE></DIV>
+
+<P>Podríamos pensar que x e y son igual a 20, pero no es así. La variable x está sin valor inicial y la variable 'y' tiene el valor 20.
+<P>Veamos un ejemplo para resumir todo:
+</P>
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+	{
+	int x = 10;
+
+	prinft( "El valor inicial de x es %i\n", x );
+	x = 50;
+	printf( "Ahora el valor es %i\n", x );
+	}
+</PRE></DIV>
+
+<P>Cuya salida será:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	El valor inicial de x es 10
+	Ahora el valor es 50
+</PRE></DIV>
+
+<P><U>Importante!</U> Si imprimimos una variable a la que no hemos dado ningún valor no obtendremos ningún error al compilar pero la variable tendrá un valor cualquiera. Prueba el ejemplo anterior quitando </P>
+<DIV CLASS="ejemplo"><PRE>int x = 10;</PRE></DIV>
+
+<p>Puede que te imprima el valor 10 o puede que no.</p>
+
+
+<A NAME="char"></A>
+<H2>
+	El tipo Char
+</H2>
+
+<P>Las variables de tipo char sirven para almacenar caracteres. Los caracteres se almacenan en realidad como números del 0 al 255. Los 128 primeros (0 a 127) son el ASCII estándar. El resto es el ASCII extendido y depende del idioma y del ordenador. Consulta <A HREF="cursoc40.html#ascii">la tabla ASCII</A> en el anexo.
+<P>Para declarar una variable de tipo char hacemos:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	char letra;
+</PRE></DIV>
+
+<P>En una variable char <B>sólo podemos almacenar solo una letra</B>, no podemos almacenar ni frases ni palabras. Eso lo veremos más adelante (strings, cadenas). Para almacenar un dato en una variable char tenemos dos posibilidades:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	letra = 'A'; 
+o
+	letra = 65;
+</PRE></DIV>
+
+<p>En ambos casos se almacena la letra 'A' en la variable. Esto es así porque el código ASCII de la letra 'A' es el 65.</p>
+<P>Para imprimir un char usamos el símbolo %c (c de character=caracter en inglés):</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	letra = 'A';
+	printf( "La letra es: %c.", letra );
+</PRE></DIV>
+<P>resultado:
+</P>
+<DIV CLASS="ejemplo"><PRE>
+	La letra es A.
+</PRE></DIV>
+
+<P>También podemos imprimir el valor ASCII de la variable usando %i en vez de %c:
+</P>
+<DIV CLASS="ejemplo"><PRE>
+	letra = 'A';
+	printf( "El número ASCII de la letra %c es: %i.", letra, letra );
+</PRE></DIV>
+
+<P>resultado:
+</P>
+<DIV CLASS="ejemplo"><PRE>
+	El código ASCII de la letra A es 65.
+</PRE></DIV>
+
+<P>Como vemos la única diferencia para obtener uno u otro es el modificador (%c ó %i) que usemos.
+<P>Las variables tipo char se pueden usar (y de hecho se usan mucho) para almacenar enteros. Si necesitamos un número pequeño (entre -127 y 127) podemos usar una variable char (8bits) en vez de una int (16bits), con el consiguiente ahorro de memoria.
+<P>Todo lo demás dicho para los datos de tipo <PRE>int</PRE> se aplica también a los de tipo <PRE>char</PRE>.
+<P>Una curiosidad:</P>
+<DIV CLASS="ejemplo"><PRE>
+	letra = 'A';
+	printf( "La letra es: %c y su valor ASCII es: %i\n", letra, letra );
+	letra = letra + 1;
+	printf( "Ahora es: %c y su valor ASCII es: %i\n", letra, letra );
+</PRE></DIV>
+<P>En este ejemplo <I>letra</I> comienza con el valor 'A', que es el código ASCII 65. Al sumarle 1 pasa a tener el valor 66, que
+equivale a la letra 'B' (código ASCII 66). La salida de este ejemplo sería:
+</P>
+<DIV CLASS="ejemplo"><PRE>
+La letra es A y su valor ASCII es 65
+Ahora es B y su valor ASCII es 66
+</PRE></DIV>
+
+<A NAME="unsigned"></A>
+<H2>
+	El modificador Unsigned
+</H2>
+
+<P>Este modificador (que significa <I>sin signo</I>) modifica el rango de valores que puede contener una variable. Sólo admite valores positivos. Si hacemos:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	unsigned char variable;
+</PRE></DIV>
+
+<p>Esta variable en vez de tener un rango de -128 a 128 pasa a tener un rango de 0 a 255.</p>
+
+<A NAME="float"></A>
+<H2>
+	El tipo Float
+</H2>
+
+<P>En este tipo de variable podemos almacenar números decimales, no sólo enteros como en los anteriores. El rango de posibles valores es del 3,4E-38 al 3,4E38.
+<P>Declaración de una variable de tipo float:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	float numero;
+</PRE></DIV>
+
+<P>Para imprimir valores tipo float Usamos %f.
+</P>
+<DIV CLASS="ejemplo"><PRE>
+	float num=4060.80;
+	printf( "El valor de num es : %f", num );
+
+Resultado:
+
+	El valor de num es: 4060.80
+</PRE></DIV>
+
+<P>Si queremos escribirlo en notación exponencial usamos %e:
+</P>
+<DIV CLASS="ejemplo"><PRE>
+	float num = 4060.80;
+	printf( "El valor de num es: %e", num );
+
+Que da como resultado:
+
+	El valor de num es: 4.06080e003
+</PRE></DIV>
+
+<A NAME="double"></A>
+<H2>
+	El tipo Double
+</H2>
+
+<P>En las variables tipo double se almacenan números reales del 1,7E-307 al 1,7E308. Se declaran como <I>double</I>:
+</P>
+<DIV CLASS="ejemplo"><PRE>
+	double numero;
+</PRE></DIV>
+
+<p>Para imprimir se usan los mismos modificadores que en float.</p>
+
+
+<A NAME="maximo"></A>
+<H2>
+	Cómo calcular el máximo valor que admite un tipo de datos
+</H2>
+
+<P>Lo primero que tenemos que conocer es el tamaño en bytes de ese tipo de dato. Vamos a ver un ejemplo con el tipo INT. Hagamos el siguiente programa:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     int num1;
+
+     printf( "El tipo int ocupa %i bytes\n", sizeof(int) );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<p>En mi ordenador el resultado es:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+El tipo int ocupa 4 bytes.
+</PRE></DIV>
+
+<P>Como sabemos 1byte = 8bits. Por lo tanto el tipo int ocupa 4*8=32 bits.
+
+<P>Ahora para calcular el máximo número debemos elevar 2 al número de bits obtenido. En nuestro ejemplo: 2^32=4.294.967.296. Es decir en un int se podría almacenar un número entre 0 y 4.294.967.296.
+
+<P>Sin embargo esto sólo es cierto si usamos un tipo unsigned (sin signo, se hace añadiendo la palabra unsigned antes de int). Para los tipos normales tenemos que almacenar números positivos y negativos. Así que de los 4.294.967.296 posibles números la mitad serán positivos y la mitad negativos. Por lo tanto tenemos que dividir el número anterior entre 2 = 2.147.483.648. Como el 0 se considera positivo el rango de números posibles que se pueden almacenar en un int sería: -2.147.483.648 a 2.147.483.647.</p>
+<p>Resumen:</p>
+<ol class="texto">
+<li>Obtenemos el número de bytes.
+<li>Multiplicamos por ocho (ya lo tenemos en bits).
+<li>Elevamos 2 al número de bits.
+<li>Dividimos entre 2.
+</ol>
+
+<A NAME="overflow"></A>
+<H2>
+	Overflow: Qué pasa cuando nos saltamos el rango
+</H2>
+
+<P>El <VAR>overflow</VAR> es lo que se produce cuando intentamos almacenar en una variable un número mayor del máximo permitido. El comportamiento es distinto para variablesde números enteros y para variables de números en coma flotante.
+<p><B>Con números enteros</B></p>
+
+<p>En mi ordenador y usando DJGPP bajo Dos el tamaño del tipo int es de 4bytes(4*8=32bits). El número máximo que se puede almacenar en una variable tipo int es por tanto 2.147.483.647 (ver apartado anterior). Si nos pasamos de este número el que se guardará será el siguiente pero empezando desde el otro extremo, es decir, el -2.147.483.648. El compilador seguramente nos dará un aviso (warning) de que nos hemos pasado.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     int num1;
+
+     num1 = 2147483648;
+     printf( "El valor de num1 es: %i\n", num1 );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>El resultado que obtenemos es:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+El valor de num1 es: -2147483648
+</PRE></DIV>
+
+<P>Comprueba si quieres que con el número anterior (2.147.483.647) no pasa nada.
+<P><B>Con números en coma flotante</B>
+<p>El comportamiento con números en coma flotante es distinto. Dependiendo del ordenador si nos pasamos del rango al ejecutar un programa se puede producir un error y detenerse la ejecución.</p>
+<p>Con estos números también existe otro error que es el <B>underflow</B>. Este error se produce cuando almacenamos un número demasiado pequeño (3,4E-38 en float).</p>
+
+
+<A NAME="resumen"></A>
+<H2>
+	Resumen de los tipos de datos en C
+</H2>
+
+<P>Esto es algo orientativo, depende del sistema.
+<P>
+
+<TABLE BORDER=1 width="100%">
+	<TR>
+		<TD>
+			<B>Tipo</B>
+		</TD>
+		<TD>
+			<B>Datos almacenados</B>
+		</TD>
+		<TD ALIGN=CENTER>
+			<B>Nº de Bits</B>
+		</TD>
+		<TD ALIGN=CENTER>
+			<B>Valores posibles (Rango)</B>
+		</TD>
+		<TD>
+			<B>Rango usando unsigned</B>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			char
+		</TD>
+		<TD>
+			Caracteres
+		</TD>
+		<TD ALIGN=CENTER>
+			8
+		</TD>
+		<TD ALIGN=CENTER>
+			-128 a 128
+		</TD>
+		<TD ALIGN=CENTER>
+			0 a 255
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			int
+		</TD>
+		<TD>
+			enteros
+		</TD>
+		<TD ALIGN=CENTER>
+			16	
+		</TD>
+		<TD ALIGN=CENTER>
+			-32.767 a 32.767
+		</TD>
+		<TD ALIGN=CENTER>
+			0 a 65.535
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			long
+		</TD>
+		<TD>
+			enteros largos
+		</TD>
+		<TD ALIGN=CENTER>
+			32
+		</TD>
+		<TD ALIGN=CENTER>
+			-2.147.483.647 a 2.147.483.647
+		</TD>
+		<TD ALIGN=CENTER>
+			0 a 4.294.967.295
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			float
+		</TD>
+		<TD>
+			Nums. reales (coma flotante)
+		</TD>
+		<TD ALIGN=CENTER>
+			32
+		</TD>
+		<TD ALIGN=CENTER>
+			3,4E-38 a 3,4E38
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			double
+		</TD>
+		<TD>
+			Nums. reales (coma flotante doble)
+		</TD>
+		<TD ALIGN=CENTER>
+			64
+		</TD>
+		<TD ALIGN=CENTER>
+			1,7E-307 a 1,7E308
+		</TD>
+	</TR>
+</TABLE>
+
+<p>Esto no siempre es cierto, depende del ordenador y del compilador. Para saber en nuestro caso qué tamaño tienen nuestros tipos de datos debemos hacer lo siguiente. Ejemplo para int:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		printf( "Tamaño (en bits) de int = %i\n", sizeof( int )*8 );
+		
+		return 0;
+		}
+</PRE></DIV>
+
+<p>Ya veremos más tarde lo que significa sizeof. Por ahora basta con saber que nos dice cual es el tamaño de una variable o un tipo de dato.</p>
+
+<A NAME="ejercicios"></A>
+<H2>
+	Ejercicios
+</H2>
+
+<P><B><U>Ejercicio 1</U></B>. Busque los errores:
+
+</P>
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		int número;
+
+		número = 2;
+		
+		return 0;
+		}
+</PRE></DIV>
+
+<P><B>Solución:</B> Los nombres de variables no pueden llevar acentos, luego al compilar número dará error.</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		int numero;
+
+		numero = 2;
+
+		printf( "El valor es %i" Numero );
+		
+		return 0;
+		}
+</PRE></DIV>
+
+<P><B>Solución:</B> Falta la coma después de "El valor es %i". Además la segunda vez <B>numero</B> está escrito con mayúsculas.
+</P>
+<p align=center><a href="#arriba" class="volver">[Arriba]</a></p>
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" --> 
+<a href="cursoc2.html" class="barranav">[Anterior]</a> <a href="cursoc4.html" class="barranav">[Siguiente]</a> <a href="index.html" target="_top" class="barranav">[Contenido]</a><!-- InstanceEndEditable --></p>
+
+</BODY>
+
+<!-- InstanceEnd --></HTML>

@@ -1,0 +1,499 @@
+<HTML><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Mostrando Información por pantalla</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="decription" content="Curso de C - Introducción">
+<meta name="keywords" content="Programación, Curso de C, C" >
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+    
+    .texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .ejemplo pre {
+        margin: 0;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    b, strong {
+        color: #006600;
+    }
+    
+    u {
+        color: #006600;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://sic.cultura.gob.mx/imagenes_cache/universidad_4269_g_74422.png" alt="Curso de C" border="0" style="width: 300px; height: auto; max-width: 300px;">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com"  border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" -->
+<h1>Mostrando Información 
+  por pantalla </h1>
+<!-- InstanceEndEditable --> 
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" --> 
+<a href="cursoc1.html" class="barranav">[Anterior]</a> <a href="cursoc3.html" class="barranav">[Siguiente]</a> 
+  <a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" --> 
+<p><A NAME="contenido"></A> </p>
+<H2> Contenido del capítulo </H2>
+<UL>
+  <LI><A HREF="#printf">Printf: Imprimir en pantalla</A> 
+  <LI><A HREF="#gotoxy">Gotoxy: Posicionando el cursor (DOS)</A> 
+  <LI><A HREF="#clrscr">Clrscr: Borrar la pantalla (DOS)</A> 
+  <LI><A HREF="#otros">Borrar la pantalla (otros sistemas)</A> 
+  <LI><A HREF="#hacer">¿Qué sabemos hacer?</A> 
+  <LI><A HREF="#ejercicios">Ejercicios</A> 
+</UL>
+
+<A NAME="printf"></A> 
+<H2> Printf: Imprimir en pantalla </H2>
+<P>&nbsp;</p>
+<P>Para utilizar la función printf en nuestros programas debemos incluir la directiva: 
+</P>
+  <PRE CLASS="ejemplo">
+#include &lt;stdio.h&gt;
+</PRE>
+
+<P>al principio de programa. Como se ha visto en el programa <I>hola mundo</I>. </p>
+<P>Si se quiere imprimir una cadena basta con hacer (no olvides el ";" al 
+  final): </P>
+  <PRE CLASS="ejemplo">printf( "Cadena" );</PRE>
+
+<P>Esto resultará por pantalla: </P>
+<DIV CLASS="ejemplo">
+  <PRE>Cadena</PRE>
+</DIV>
+<P>Lo que se ponga entre las comillas es lo que se muestra por pantalla. 
+<P>Si se usa  otro printf, por ejemplo: </P>
+<DIV CLASS="ejemplo">
+  <PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+printf( "Cadena" );
+printf( "Segunda" );
+
+return 0;
+}
+</PRE>
+</DIV>
+<P>Se obtiene:</P>
+<DIV CLASS="ejemplo">
+  <PRE>CadenaSegunda</PRE>
+</DIV>
+<P>Este ejemplo muestra cómo funciona printf. Para escribir en la pantalla 
+  se usa un cursor que no se ve. Cuando se escribe algo el cursor va al final 
+  del texto. Cuando el texto llega al final de la fila, lo siguiente que se ponga  
+  irá a la fila siguiente. Si lo que se quiere es sacar cada una en una línea se utiliza  "\n". Es el indicador de retorno de carro. Lo que hace es saltar el cursor 
+de escritura a la línea siguiente: </P>
+<DIV CLASS="ejemplo">
+  <PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+printf( "Cadena\n" );
+printf( "Segunda" );
+
+return 0;
+}
+</PRE>
+</DIV>
+<P>y tendremos: </P>
+<DIV CLASS="ejemplo">
+  <PRE>
+Cadena
+Segunda
+</PRE>
+</DIV>
+<p>También podemos poner más de una cadena dentro del printf:</p>
+<DIV CLASS="ejemplo">
+  <PRE>
+printf( "Primera cadena" "Segunda cadena" );
+</PRE>
+</DIV>
+<p>Lo que no podemos hacer es meter <em>cosas</em> entre las cadenas:</p>
+<DIV CLASS="ejemplo">
+  <PRE>
+printf( "Primera cadena" texto en medio  "Segunda cadena" );
+</PRE>
+</DIV>
+<p>esto no es válido. Cuando el compilador intenta interpretar esta sentencia 
+  se encuentra <em>"Primera cadena"</em> y luego <em>texto en medio</em>, no sabe 
+  qué hacer con ello y da un error.</p>
+<p>Pero ¿qué pasa si queremos imprimir el símbolo <b>&quot;</b> en pantalla? Por 
+  ejemplo imaginemos que queremos escribir:</p>
+<DIV CLASS="ejemplo">
+  <PRE>Esto es "extraño"</PRE>
+</DIV>
+<P>Si para ello hacemos: </P>
+<DIV CLASS="ejemplo">
+  <PRE>printf( "Esto es "extraño"" );</PRE>
+</DIV>
+<P>obtendremos unos cuantos errores. El problema es que el símbolo <b>&quot;</b> 
+  se usa para indicar al compilador el comienzo o el final de una cadena. Así 
+  que en realidad le estaríamos dando la cadena <em>"Esto es"</em>, luego <em>extraño</em> 
+  y luego otra cadena vacía <em>""</em>. Pues resulta que printf no admite esto 
+  y de nuevo tenemos errores.</p>
+<P>La solución es usar <b>\"</b>. Veamos:</P>
+<DIV CLASS="ejemplo">
+  <PRE>
+printf( "Esto es \"extraño\"" );
+</PRE>
+</DIV>
+<P>Esta vez todo irá como la seda. Como vemos la contrabarra '\' sirve para indicarle 
+  al compilador que escriba caracteres que de otra forma no podríamos.</p>
+<p>Esta contrabarra se usa en C para indicar al compilador que queremos meter 
+  símbolos especiales. Pero ¿Y si lo que queremos es usar '\' como un carácter 
+  normal y poner por ejemplo <em>Hola\Adiós</em>? Pues muy fácil, volvemos a usar 
+  '\':</P>
+<DIV CLASS="ejemplo">
+  <PRE>
+printf( "Hola\\Adiós" );</PRE>
+</DIV>
+<p>y esta doble '\' indica a C que lo que queremos es mostrar una '\'.</p>
+<P>Esto no ha sido mas que una introducción a printf. Luego volveremos sobre ella.</p>
+
+<A NAME="gotoxy"></A> 
+<H2> Gotoxy: Posicionando el cursor (DOS) </H2>
+<p>Esta función sólo está disponible en compiladores de C que dispongan de la 
+  biblioteca &lt;conio.h&gt;</p>
+<P>Hemos visto que cuando usamos <em>printf</em> se escribe en la posición actual 
+  del cursor y se mueve el cursor al final de la cadena que hemos escrito.</p>
+<P>Vale, pero ¿qué pasa cuando queremos escribir en una posición determinada de 
+  la pantalla? La solución está en la función gotoxy. Supongamos que queremos 
+  escribir 'Hola' en la fila 10, columna 20 de la pantalla: </P>
+<DIV CLASS="ejemplo">
+  <PRE>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+int main()
+{
+gotoxy( 20, 10 );
+printf( "Hola" );
+
+return 0;
+}
+</PRE>
+</DIV>
+<P>(Nota: para usar gotoxy hay que incluir la biblioteca <I>conio.h</I>). 
+<P>Fíjate que primero se pone la columna (x) y luego la fila (y). La esquina superior 
+  izquierda es la posición (1, 1).</P>
+
+<A NAME="clrscr"></A> 
+<H2> Clrscr: Borrar la pantalla (DOS) </H2>
+<P>Ahora ya sólo nos falta saber cómo se borra la pantalla. Pues es tan fácil 
+  como usar:</P>
+<DIV CLASS="ejemplo">
+  <PRE>clrscr()</PRE>
+</DIV>
+<p> (<U>cl</U>ea<U>r</U> <U>scr</U>een, borrar pantalla).</p>
+<P>Esta función nó solo borra la pantalla, sino que además sitúa el cursor en 
+  la posición (1, 1), en la esquina superior izquierda.</P>
+<DIV CLASS="ejemplo">
+  <PRE>
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+int main()
+{
+clrscr();
+printf( "Hola" );
+
+return 0;
+}
+</PRE>
+</DIV>
+<p>Este método sólo vale para compiladores que incluyan el fichero stdio.h. Si 
+  tu sistema no lo tiene puedes consultar la sección siguiente.</p>
+
+<A NAME="otros"></A> 
+<H2> Borrar la pantalla (otros métodos) </H2>
+<p>Existen otras formas de borrar la pantalla aparte de usar stdio.h.</p>
+<p>Si usas DOS:</p>
+<DIV CLASS="ejemplo">
+  <PRE>
+system ("cls"); //Para DOS
+</PRE>
+</DIV>
+<p>Si usas Linux:</p>
+<DIV CLASS="ejemplo">
+  <PRE>
+system ("clear"); // Para Linux
+</PRE>
+</DIV>
+<p>Otra forma válida para ambos sistemas:</p>
+<DIV CLASS="ejemplo">
+  <PRE>
+char a[5]={27,'[','2','J',0}; /* Para ambos (en DOS cargando antes ansi.sys) */
+printf("%s",a);
+</PRE>
+</DIV>
+<br>
+
+<A NAME="hacer"></A> 
+<H2> ¿Qué sabemos hacer? </H2>
+<P>Bueno, ya hemos aprendido a sacar información por pantalla. Si quieres puedes 
+  practicar con las instrucciones printf, gotoxy y clrscr. Lo que hemos visto 
+  hasta ahora no tiene mucho secreto, pero ya veremos cómo la función printf tiene 
+  mayor complejidad.</P>
+
+<A NAME="ejercicios"></A> 
+<H2> Ejercicios </H2>
+<P><B><U>Ejercicio 1:</U></B> Busca los errores en el programa. </P>
+<DIV CLASS="ejemplo">
+  <PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		ClrScr();
+		gotoxy( 10, 10 )
+		printf( Estoy en la fila 10 columna 10 );
+		
+		return 0;
+		}
+</PRE>
+</DIV>
+<P><B>Solución:</B> 
+<UL CLASS="texto">
+  <li>ClrScr está mal escrito, debe ponerse todo en minúsculas, recordemos una 
+    vez más que el <B>C</B> diferencia las mayúsculas de las minúsculas. Además no hemos incluído la directiva 
+    <I>#include &lt;conio.h&gt;</I>, que necesitamos para usar clrscr() y gotoxy(). 
+  <li>Tampoco hemos puesto el punto y coma (;) después del gotoxy( 10, 10 ). Después 
+    de cada instrucción debe ir un punto y coma. 
+  <li>El último fallo es que el texto del printf no lo hemos puesto entre comillas. 
+    Lo correcto sería: printf( "Estoy en la fila 10 columna 10" ); 
+</UL>
+<P><B><U>Ejercicio 2</U></B>. Escribe un programa que borre la pantalla y escriba 
+  en la primera línea su nombre y en la segunda su apellido: 
+<P><B>Solución:</B> </P>
+<DIV CLASS="ejemplo">
+  <PRE>
+	#include &lt;stdio.h&gt;
+	#include &lt;conio.h&gt;
+
+	int main()
+		{
+		clrscr();
+		printf( "Gorka\n" );
+		printf( "Urrutia" );
+		
+		return 0;
+		}
+</PRE>
+</DIV>
+<P>También se podía haber hecho todo de golce: </P>
+<DIV CLASS="ejemplo">
+  <PRE>
+	#include &lt;stdio.h&gt;
+	#include &lt;conio.h&gt;
+
+	int main()
+		{
+		clrscr();
+		printf( "Gorka\nUrrutia" );
+		
+		return 0;
+		}
+</PRE>
+</DIV>
+<P><B><U>Ejercicio 3</U></B>. Escriba un programa que borre la pantalla y muestre 
+  el texto "estoy aqui" en la fila 10, columna 20 de la pantalla: 
+<P><B>Solución:</B> 
+<P> </P>
+
+  <PRE CLASS="ejemplo">
+	#include &lt;stdio.h&gt;
+	#include &lt;conio.h&gt;
+
+	int main()
+		{
+		clrscr();
+		gotoxy( 20, 10 );
+		printf( "Estoy aqui" );
+		
+		return 0;
+		}
+</PRE>
+
+<BR>
+<!-- Modificaciones:
+
+16/01/2004: añadidos los return 0 al final de las funcines main
+-->
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" --> 
+  <p align=center><a href="#arriba" class="volver">[Arriba]</a></p>
+<a href="cursoc1.html" class="barranav">[Anterior]</a> <a href="cursoc3.html" class="barranav">[Siguiente]</a> 
+  <a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+</BODY>
+
+<!-- InstanceEnd --></HTML>

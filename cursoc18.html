@@ -1,0 +1,530 @@
+<HTML>
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Redireccionamiento</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="description" content="Curso de C - Redireccionamiento">
+<meta name="keywords" content="Programación, Curso de C, C, redireccionamiento, stdout, stdin, stderr">
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    h3 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 14pt;
+        font-weight: bold;
+        color: #006600;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: right;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+        display: block;
+        margin: 10px auto;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+    
+    .texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .ejemplo pre {
+        margin: 0;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    b, strong {
+        color: #006600;
+    }
+    
+    u {
+        color: #006600;
+    }
+    
+    ol.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    ol.texto li {
+        margin: 10px 0;
+    }
+    
+    table[border="1"] {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    table[border="1"] td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    table[border="1"] th {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+    
+    center {
+        text-align: center;
+    }
+    
+    font[color="#ff0000"] {
+        color: #ff0000;
+    }
+    
+    font[color="#0000ff"] {
+        color: #0000ff;
+    }
+    
+    blockquote.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+        font-style: italic;
+    }
+    
+    em {
+        font-style: italic;
+    }
+    
+    .comprobado {
+        font-size: 10px;
+        color: #666;
+        display: block;
+        margin-top: 5px;
+    }
+    
+    pre code {
+        color: #006600;
+    }
+    
+    .coment {
+        color: #666;
+        font-style: italic;
+    }
+    
+    .enlace {
+        text-decoration: none;
+        color: #006600;
+    }
+    
+    .enlace:hover {
+        text-decoration: underline;
+    }
+    
+    .mini {
+        font-size: 10px;
+        color: #666;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://sic.cultura.gob.mx/imagenes_cache/universidad_4269_g_74422.png" alt="Curso de C" border="0" style="width: 300px; height: auto; max-width: 300px;">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com"  border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" -->
+<h1>Redireccionamiento</h1>
+<!-- InstanceEndEditable --> 
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" --> 
+<a href="cursoc17.html" class="barranav">[Anterior]</a> <a href="cursoc19.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" -->
+<a name="arriba"></a>
+
+<A NAME="contenido"></A>
+<H2>
+	Contenido
+</H2>
+
+<UL>
+	<LI><A HREF="#quees" class="enlace">¿Qué es la redirección?</A>
+	<LI><A HREF="#salida" class="enlace">Redireccionar la salida</A>
+	<LI><A HREF="#salidaplus" class="enlace">Redireccionar la salida con &gt;&gt;</A>
+	<LI><A HREF="#entrada" class="enlace">Redireccionar la entrada</A>
+	<LI><A HREF="#freopen" class="enlace">Redireccionar desde el programa - freopen</A>	
+	<LI><A HREF="#ejercicios" class="enlace">Ejercicios</A>
+</UL>
+
+<A NAME="quees"></A>
+<H2>
+	¿Qué es la redirección?
+</H2>
+
+<p>Cuando ejecutamos el comando <I>dir</I> se nos muestra el resultado en la pantalla. Sin embargo podemos hacer que el resultado se guarde en un fichero haciendo:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+dir > resultado.txt
+</PRE></DIV>
+
+<p>De esta forma el listado de directorios quedará guardado en el fichero <I>resultado.txt</I> y no se mostrará en la pantalla.</p>
+
+<p>Esto es lo que se llama <strong>redirección</strong>. En este ejemplo lo que hemos hecho ha sido redireccionar la salida utilizando '&gt;'.</p>
+
+<p>La salida del programa se dirige hacia la salida estándar (stdout, standard output). Normalmente, si no se especifica nada, la salida standard es la pantalla.</p>
+
+<p>La entrada de datos al programa se hace desde la entrada estándar (stdin, standard input). Normalmente, por defecto es el teclado.</p>
+
+<p>Existe una tercera opción que es la salida de error estándar (stderr, standard error). Aquí es donde se muestran los mensajes de error del programa al usuario. Normalmente suele ser la pantalla, al igual que la de salida. ¿Por qué tenemos stderr y stdout? Porque de esta forma podemos redireccionar la salida a un fichero y aún así podemos ver los mensajes de error en pantalla.</p>
+
+<p>Stdin, stdout y stderr en realidad hay que verlos como ficheros:</p>
+
+<ul class="texto">
+<li>Si stdout es la pantalla, cuando usemos printf, el resultado se muestra en el monitor de nuestro ordenador. Podemos imaginar que stdout es un fichero cuyo contenido se muestra en la pantalla.
+<li>Si stdin es el teclado imaginemos que lo que tecleamos va a un fichero cuyo contenido lee el programa.
+</ul>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="salida"></A>
+<H2>
+	Redireccionar la salida
+</H2>
+
+<p>Ya hemos visto cómo se redirecciona la salida con el dir. Ahora vamos a aplicarlo a nuestro curso con un sencillo ejemplo. Vamos a ver un programa que toma los datos del teclado y los muestra en la pantalla. Si el usuario teclea 'salir' el programa termina:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+    {
+    char texto[100];
+
+    gets(texto);
+    do {
+       printf( "%s\n",texto );
+       gets(texto);
+       } while ( strcmp(texto, "salir") != 0 );
+    <B>fprintf</B>( <B>stderr</B>, "El usuario ha tecleado 'salir'" );
+    }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<p>En este programa tenemos una función nueva: <strong>fprintf</strong>. Esta función permite escribir en el fichero indicado. Su formato es el siguiente:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	int fprintf(FILE *fichero, const char *formato, ...);
+</PRE></DIV>
+
+<p>Ya veremos esta función más adelante. Por ahora nos basta con saber que funciona como printf pero nos permite indicar en qué fichero queremos que se escriba el texto. En nuestro ejemplo <I>fichero=stderr</I>.</p>
+
+<p>Como ya hemos visto antes <I>stderr</I> es un fichero. Stderr es la pantalla, así que, si escribimos el texto en el fichero stderr lo podremos ver en el monitor.</p>
+
+<p>Si ejecutamos el programa como hemos hecho hasta ahora tendremos el siguiente resultado (en negrita lo que tecleamos nosotros):</p>
+
+<DIV CLASS="ejemplo"><PRE>
+<B>primera línea</B>
+primera línea
+<B>segunda</B>
+segunda
+<B>esto es la monda</B>
+esto es la monda
+<B>salir</B>
+El usuario ha tecleado 'salir'
+</PRE></DIV>
+
+<p>Como vemos el programa repite lo que tecleamos.</p>
+
+<p>Si ahora utilizamos la redirección '<B>&gt; resultado.txt</B>' el resultado por pantalla será (en negrita lo que tecleamos nosotros):</p>
+
+<DIV CLASS="ejemplo"><PRE>
+<B>primera línea
+segunda
+esto es la monda
+salir</B>
+El usuario ha tecleado 'salir'
+</PRE></DIV>
+
+<p>NOTA: Seguimos viendo el mensaje final (<I>El usuario ha tecleado 'salir'</I>) porque stderr sigue siendo la pantalla.</p>
+
+<p>y se habrá creado un fichero llamado <I>resultado.txt</I> cuyo contenido será:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+primera línea
+segunda
+esto es la monda
+</PRE></DIV>
+
+<p>Si no hubiésemos usado stderr el mensaje final hubiese ido a stdout (y por lo tanto al fichero), así que no podríamos haberlo visto en la pantalla. Hubiera quedado en el fichero resultado.txt.</p>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="salidaplus"></A>
+<H2>
+	Redireccionar la salida con &gt;&gt;
+</H2>
+
+<p>Existe una forma de redireccionar la salida de forma que se añada a un fichero en vez de sobreescribirlo. Para ello debemos usar '&gt;&gt;' en vez de '&gt;'. Haz la siguiente prueba:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+dir &gt; resultado.txt
+dir &gt;&gt; resultado.txt
+</PRE></DIV>
+
+<p>Tendrás el listado del directorio dos veces en el mismo fichero. La segunda vez que llamamos al comando dir, si usamos &gt;&gt;, se añade al final del fichero.</p>
+
+<A NAME="aviso"></A>
+<H3>Aviso</H3>
+
+<p>Todo esto nos sirve como una introducción al mundo de los ficheros, pero puede no ser la forma más cómoda para trabajar con ella (aunque como hemos visto es muy sencilla). El tema de los ficheros lo veremos más a fondo en el siguiente capítulo.</p>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="entrada"></A>
+<H2>
+	Redireccionar la entrada
+</H2>
+
+<p>Ahora vamos a hacer algo curioso. Vamos a crear un fichero llamado <I>entrada.txt</I> y vamos a usarlo como entrada de nuestro programa. Vamos a redireccionar la entrada al fichero entrada.txt. El fichero entrada.txt debe contener lo siguiente:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+Esto no lo he tecleado yo.
+Se escribe sólo.
+Qué curioso.
+salir
+</PRE></DIV>
+
+<p>Es importante la última línea 'salir' porque si no podemos tener unos resultados curiosos (en mi caso una sucesión infinita de 'Qué curioso.'.</p>
+
+<p>Para cambiar la entrada utilizamos el símbolo '&lt;'. Si nuestro programa lo hemos llamado <B>stdout.c</B> haremos:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+# stdout &lt; entrada.txt
+</PRE></DIV>
+
+<p>y tendremos:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+primera línea
+segunda
+esto es la monda
+El usuario ha tecleado 'salir'
+</PRE></DIV>
+
+<p>Increíble, hemos escrito todo eso sin tocar el teclado. Lo que sucede es que el programa toma los datos del fichero entrada.txt en vez del teclado. Cada vez que encuentra un salto de línea (el final de una línea) es equivalente a cuando pulsamos el 'Enter'.</p>
+
+<p>Podemos incluso hacer una doble redirección: Tomaremos como entrada <I>entrada.txt</I> y como salida <i>resultado.txt</i>:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+stdout &lt; entrada.txt &gt; resultado.txt
+</PRE></DIV>
+
+<p>NOTA: Cambiando el orden también funciona:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+stdout &gt; resultado.txt &lt; entrada.txt
+</PRE></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="freopen"></A>
+<H2>
+	Redireccionar desde el programa - freopen
+</H2>
+
+<p>Existe una forma de cambiar la salida estándar desde el propio programa. Esto se puede conseguir utilizando la función <strong>freopen</strong>:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	FILE *freopen(const char *nombre_fichero, const char *modo, FILE *fichero);
+</PRE></DIV>
+
+<p>Esta función hace que el fichero al que apunta <i>fichero</i> se cierre y se abra pero apuntando a un nuevo fichero llamado <i>nombre_fichero</i>. Para redireccionar la salida con este método podemos hacer:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+    {
+    char texto[100];
+
+    <B>freopen( "resultado.txt","wb",stdout );</B>
+    gets(texto);
+    do {
+       printf( "%s\n",texto );
+       gets(texto);
+       } while ( strcmp(texto, "salir") != 0 );
+    fprintf( stderr, "El usuario ha tecleado 'salir'" );
+    }
+</PRE></DIV>
+
+<p>En este programa la función freopen cierra el fichero <i>stdout</i>, que es la pantalla, y lo abre apuntando al fichero <i>resultado.txt</i>. Ya veremos esta función más adelante.</p>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="ejercicios"></A>
+<H2>
+	Ejercicios
+</H2>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" --> 
+<a href="cursoc17.html" class="barranav">[Anterior]</a> <a href="cursoc19.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+</BODY>
+</HTML>

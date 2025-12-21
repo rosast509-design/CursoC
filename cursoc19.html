@@ -1,0 +1,598 @@
+<HTML>
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Lectura de Ficheros</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="description" content="Curso de C - Lectura de Ficheros">
+<meta name="keywords" content="Programación, Curso de C, C, ficheros, fopen, fclose, getc, feof, fgets">
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    h3 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 14pt;
+        font-weight: bold;
+        color: #006600;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: right;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+        display: block;
+        margin: 10px auto;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+    
+    .texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .ejemplo pre {
+        margin: 0;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    b, strong {
+        color: #006600;
+    }
+    
+    u {
+        color: #006600;
+    }
+    
+    ol.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    ol.texto li {
+        margin: 10px 0;
+    }
+    
+    table[border="1"] {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    table[border="1"] td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    table[border="1"] th {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+    
+    center {
+        text-align: center;
+    }
+    
+    font[color="#ff0000"] {
+        color: #ff0000;
+    }
+    
+    font[color="#0000ff"] {
+        color: #0000ff;
+    }
+    
+    blockquote.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+        font-style: italic;
+    }
+    
+    em {
+        font-style: italic;
+    }
+    
+    .comprobado {
+        font-size: 10px;
+        color: #666;
+        display: block;
+        margin-top: 5px;
+    }
+    
+    pre code {
+        color: #006600;
+    }
+    
+    .coment {
+        color: #666;
+        font-style: italic;
+    }
+    
+    .enlace {
+        text-decoration: none;
+        color: #006600;
+    }
+    
+    .enlace:hover {
+        text-decoration: underline;
+    }
+    
+    .mini {
+        font-size: 10px;
+        color: #666;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://sic.cultura.gob.mx/imagenes_cache/universidad_4269_g_74422.png" alt="Curso de C" border="0" style="width: 300px; height: auto; max-width: 300px;">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com"  border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" -->
+<h1>Lectura de Ficheros</h1>
+<!-- InstanceEndEditable --> 
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" --> 
+<a href="cursoc18.html" class="barranav">[Anterior]</a> <a href="cursoc20.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" -->
+<a name="arriba"></a>
+
+<A NAME="contenido"></A>
+<H2>
+	Contenido
+</H2>
+
+<UL>
+	<LI><A HREF="#intro" class="enlace">Introducción</A>
+	<LI><A HREF="#lectura" class="enlace">Lectura de un fichero</A>
+	<ul>
+		<li><A HREF="#file" class="enlace">El puntero FILE *</A>
+		<li><A HREF="#fopen" class="enlace">Abrir el fichero - fopen</A>
+		<li><A HREF="#comprobar" class="enlace">Comprobar si está abierto</A>
+		<li><A HREF="#getc" class="enlace">Lectura del fichero - getc</A>
+		<li><A HREF="#feof" class="enlace">Comprobar fin de fichero - feof</A>
+		<li><A HREF="#fclose" class="enlace">Cerrar el fichero - fclose</A>
+	</ul>
+	<LI><A HREF="#fgets" class="enlace">Lectura de líneas - fgets</A>
+	<LI><A HREF="#fread" class="enlace">fread</A>
+	<LI><A HREF="#ejercicios" class="enlace">Ejercicios</A>
+</UL>
+
+<A NAME="intro"></A>
+<H2>
+	Introducción
+</H2>
+
+<p>Hasta el capítulo anterior no habíamos visto ninguna forma de guardar permanentemente los datos y resultados de nuestros programas. En este capítulo vamos a verlo mediante el manejo de ficheros.</p>
+
+<p>En el capítulo anterior usábamos la redirección para crear ficheros. Este es un sistema poco flexible para manejar ficheros. Ahora vamos a crear y modificar ficheros usando las funciones estándar del C.</p>
+
+<p>Es importante indicar que los ficheros no son únicamente los archivos que guardamos en el disco duro, en C todos los dispositivos del ordenador se tratan como ficheros: la impresora, el teclado, la pantalla,...</p>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="lectura"></A>
+<H2>
+	Lectura de un fichero
+</H2>
+
+<p>Para entrar en materia vamos a analizar un ejemplo que lee un fichero de texto y lo muestra en la pantalla:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+    {
+    FILE *fichero;
+    char letra;
+
+    fichero = fopen("origen.txt","r");
+    if (fichero==NULL)
+       {
+       printf( "No se puede abrir el fichero.\n" );
+       exit( 1 );
+       }
+    printf( "Contenido del fichero:\n" );
+    letra=getc(fichero);
+    while (feof(fichero)==0)
+          {
+          printf( "%c",letra );
+          letra=getc(fichero);
+          }
+    if (fclose(fichero)!=0)
+       printf( "Problemas al cerrar el fichero\n" );
+    }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<p>Vamos a analizar el ejemplo poco a poco:</p>
+
+<A NAME="file"></A>
+<H3>El puntero FILE *</H3>
+
+<p>Todas las funciones de estrada/salida estándar usan este puntero para conseguir información sobre el fichero abierto. Este puntero no apunta al archivo sino a una estructura que contiene información sobre él.</p>
+
+<p>Esta estructura incluye entre otras cosas información sobre el nombre del archivo, la dirección de la zona de memoria donde se almacena el fichero, tamaño del buffer.</p>
+
+<p>Como dato curioso se adjunta la definición de la estructura FILE definida en el fichero <I>stdio.h</I>:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+typedef struct {
+  int   _cnt;
+  char *_ptr;
+  char *_base;
+  int   _bufsiz;
+  int   _flag;
+  int   _file;
+  char *_name_to_remove;
+  int   _fillsize;
+} FILE;
+</PRE></DIV>
+
+<A NAME="fopen"></A>
+<H3>Abrir el fichero - fopen</H3>
+
+<p>Ahora nos toca abrir el fichero. Para ello usamos la función <strong>fopen</strong>. Esta función tiene el siguiente formato:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	FILE *fopen(const char *nombre_fichero, const char *modo);
+</PRE></DIV>
+
+<p>En el ejemplo usábamos:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+    fichero = fopen("origen.txt","r");
+</PRE></DIV>
+
+<p>El nombre de fichero se puede indicar directamente (como en el ejemplo) o usando una variable.</p>
+
+<p>El fichero se puede abrir de diversas formas. Esto se especifica con el parámetro <strong>modo</strong>. Los modos posibles son:</p>
+
+<table border="1">
+<tr>
+<td class="texto">r</td>
+<td class="texto">Abre un fichero existente para lectura.</td>
+</tr>
+<tr>
+<td class="texto">w</td>
+<td class="texto">Crea un fichero nuevo (o borra su contenido si existe) y lo abre para escritura.</td>
+</tr>
+<tr>
+<td class="texto">a</td>
+<td class="texto">Abre un fichero (si no existe lo crea) para escritura. El puntero se sitúa al final del archivo, de forma que se puedan añadir datos si borrar los existentes.</td>
+</tr>
+</table>
+
+<p>Se pueden añadir una serie de modificadores siguiendo a los modos anteriores:</p>
+
+<table border="1">
+<tr>
+<td class="texto">b</td>
+<td class="texto">Abre el fichero en modo binario.</td>
+</tr>
+<tr>
+<td class="texto">t</td>
+<td class="texto">Abre el fichero en modo texto.</td>
+</tr>
+<tr>
+<td class="texto">+</td>
+<td class="texto">Abre el fichero para lectura y escritura.</td>
+</tr>
+</table>
+
+<p>Ejemplos de combinaciones:</p>
+
+<ul class="texto">
+<li>rb+ - Abre el fichero en modo binario para lectura y escritura.
+<li>w+ - Crea (o lo borra si existe) un fichero para lectura y escritura.
+<li>rt - Abre un archivo existente en modo texto para lectura.
+</ul>
+
+<A NAME="comprobar"></A>
+<H3>Comprobar si está abierto</H3>
+
+<p>Una cosa muy importante después de abrir un fichero es comprobar si realmente está abierto. El sistema no es infalible y pueden producirse fallos: el fichero puede no existir, estar dañado o no tener permisos de lectura.</p>
+
+<p>Si intentamos realizar operaciones sobre un puntero tipo FILE cuando no se ha conseguido abrir el fichero puede haber problemas. Por eso es importante comprobar si se ha abierto con éxito.</p>
+
+<p>Si el fichero no se ha abierto el puntero <I>fichero</I> (puntero a FILE) tendrá el valor  NULL, si se ha abierto con éxito tendrá un valor distinto de NULL. Por lo tanto para comprobar si ha habido errores nos fijamos en el valor del puntero:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+    if (fichero==NULL)
+       {
+       printf( "No se puede abrir el fichero.\n" );
+       exit( 1 );
+       }
+</PRE></DIV>
+
+<p>Si fichero==NULL significa que no se ha podido abrir por algún error. Lo más conveniente es salir del programa. Para salir utilizamos la función exit( 1 ), el 1 indica al sistema operativo que se han producido errores.</p>
+
+<A NAME="getc"></A>
+<H3>Lectura del fichero - getc</H3>
+
+<p>Ahora ya podemos empezar a leer el fichero. Para ello podemos utilizar la función <strong>getc</strong>, que lee los caracteres uno a uno. Se puede usar también la función fgetc (son equivalentes, la diferencia es que getc está implementada como macro). Además de estas dos existen otras funciones como fgets, fread que leen más de un carácter y que veremos más adelante.</p>
+
+<p>El formato de la función getc (y de fgetc) es:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	int getc(FILE *fichero);
+</PRE></DIV>
+
+<p>En este caso lo usamos como:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+letra = getc( fichero );
+</PRE></DIV>
+
+<p>Tomamos un carácter de <I>fichero</I>, lo almacenamos en <I>letra</I> y el puntero se coloca en el siguiente carácter.</p>
+
+<A NAME="feof"></A>
+<H3>Comprobar fin de fichero - feof</H3>
+
+<p>Cuando entramos en el bucle while, la lectura se realiza hasta que se encuentre el final del fichero. Para detectar el final del fichero se pueden usar dos formas:</p>
+
+<ul class="texto">
+<li>con la función <I>feof()</I>
+<li>comprobando si el valor de <I>letra</I> es <B>EOF</B>.
+</ul>
+
+<p>En el ejemplo hemos usado la función feof. Esta función es de la forma:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	int feof(FILE *fichero);
+</PRE></DIV>
+
+<p>Esta función comprueba si se ha llegado al final de <I>fichero</I> en cuyo caso devuelve un valor distinto de 0. Si no se ha llegado al final de fichero devuelve un cero. Por eso lo usamos del siguiente modo:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+while ( feof(fichero)==0 )
+
+o
+
+while ( !feof(fichero) )
+</PRE></DIV>
+
+<p>La segunda forma que comentaba arriba consiste en comprobar si el carácter leído es el de fin de fichero <strong>EOF</strong>:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+while ( letra!=EOF )
+</PRE></DIV>
+
+<p>Cuando trabajamos con ficheros de texto no hay ningún problema, pero si estamos manejando un fichero binario podemos encontrarnos EOF antes del fin de fichero. Por eso es mejor usar feof.</p>
+
+<A NAME="fclose"></A>
+<H3>Cerrar el fichero - fclose</H3>
+
+<p>Una vez realizadas todas las operaciones deseadas sobre el fichero hay que cerrarlo. Es importante no olvidar este paso pues el fichero podría corromperse. Al cerrarlo se vacían los buffers y se guarda el fichero en disco. Un fichero se cierra mediante la función fclose(fichero). Si todo va bien fclose devuelve un cero, si hay problemas devuelve otro valor. Estos problemas se pueden producir si el disco está lleno, por ejemplo.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+    if (fclose(fichero)!=0)
+        printf( "Problemas al cerrar el fichero\n" );
+</PRE></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="fgets"></A>
+<H2>
+	Lectura de líneas - fgets
+</H2>
+
+<p>La función <strong>fgets</strong> es muy útil para leer líneas completas desde un fichero. El formato de esta función es:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	char *fgets(char *buffer, int longitud_max, FILE *fichero);
+</PRE></DIV>
+
+<p>Esta función lee desde el fichero hasta que encuentra un carácter '\n' o hasta que lee <i>longitud_max-1</i> caracteres y añade '\0' al final de la cadena. La cadena leída la almacena en <I>buffer</I>.</p>
+
+<p>Si se encuentra EOF antes de leer ningún carácter o si se produce un error la función devuelve NULL, en caso contrario devuelve la dirección de <I>buffer</I>.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+    {
+    FILE *fichero;
+    <B>char texto[100];</B>
+
+    fichero=fopen("origen.txt","r");
+    if (fichero==NULL)
+       {
+       printf( "No se puede abrir el fichero.\n" );
+       exit( 1 );
+       }
+    printf( "Contenido del fichero:\n" );
+    <B>fgets(texto,100,fichero);</B>
+    while (feof(fichero)==0)
+          {
+          printf( "%s",texto );
+          <B>fgets(texto,100,fichero);</B>
+          }
+    if (fclose(fichero)!=0)
+       printf( "Problemas al cerrar el fichero\n" );
+    }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="fread"></A>
+<H2>
+	fread
+</H2>
+
+<p>Esta función la vamos a tratar en un tema posterior junto con la función fwrite. Estas dos funciones permiten guardar y leer cualquier tipo de dato, incluso estructuras.</p>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="ejercicios"></A>
+<H2>
+	Ejercicios
+</H2>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" --> 
+<a href="cursoc18.html" class="barranav">[Anterior]</a> <a href="cursoc20.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+</BODY>
+</HTML>

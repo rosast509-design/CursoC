@@ -1,0 +1,910 @@
+<HTML>
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Estructuras</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="description" content="Curso de C - Estructuras">
+<meta name="keywords" content="Programación, Curso de C, C, estructuras, struct">
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    h3 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 14pt;
+        font-weight: bold;
+        color: #006600;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: right;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+        display: block;
+        margin: 10px auto;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+    
+    .texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .ejemplo pre {
+        margin: 0;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    b, strong {
+        color: #006600;
+    }
+    
+    u {
+        color: #006600;
+    }
+    
+    ol.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    ol.texto li {
+        margin: 10px 0;
+    }
+    
+    table[border="1"] {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    table[border="1"] td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    table[border="1"] th {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+    
+    center {
+        text-align: center;
+    }
+    
+    font[color="#ff0000"] {
+        color: #ff0000;
+    }
+    
+    font[color="#0000ff"] {
+        color: #0000ff;
+    }
+    
+    blockquote.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+        font-style: italic;
+    }
+    
+    em {
+        font-style: italic;
+    }
+    
+    .comprobado {
+        font-size: 10px;
+        color: #666;
+        display: block;
+        margin-top: 5px;
+    }
+    
+    pre code {
+        color: #006600;
+    }
+    
+    .coment {
+        color: #666;
+        font-style: italic;
+    }
+    
+    .enlace {
+        text-decoration: none;
+        color: #006600;
+    }
+    
+    .enlace:hover {
+        text-decoration: underline;
+    }
+    
+    .mini {
+        font-size: 10px;
+        color: #666;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://sic.cultura.gob.mx/imagenes_cache/universidad_4269_g_74422.png" alt="Curso de C" border="0" style="width: 300px; height: auto; max-width: 300px;">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com"  border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" -->
+<h1>Estructuras</h1>
+<!-- InstanceEndEditable --> 
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" --> 
+<a href="cursoc13.html" class="barranav">[Anterior]</a> <a href="cursoc15.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" -->
+<a name="arriba"></a>
+
+<A NAME="contenido"></A>
+<H2>
+	Contenido
+</H2>
+
+<UL>
+	<LI><A HREF="#estructuras" class="enlace">Estructuras</A>
+	<LI><A HREF="#arrays" class="enlace">Arrays de estructuras</A>
+	<LI><A HREF="#inicializar" class="enlace">Inicializar una estructura</A>
+	<LI><A HREF="#punteros" class="enlace">Punteros a estructuras</A>
+	<LI><A HREF="#puntarray" class="enlace">Punteros a arrays de estructuras</A>
+	<LI><A HREF="#funciones" class="enlace">Paso de estructuras a funciones</A>
+	<UL>
+		<LI><A HREF="#miembros" class="enlace">Pasar solo miembros</A>
+	</UL>
+	<LI><A HREF="#anidadas" class="enlace">Estructuras dentro de estructuras (Anidadas)</A>
+	<!--LI><A HREF="#ejercicios" class="enlace">Ejercicios</A-->
+</UL>
+
+<A NAME="estructuras"></A>
+<H2>
+	Estructuras
+</H2>
+
+<P>Supongamos que queremos hacer una agenda con los números de teléfono de nuestros amigos. Necesitaríamos un array de Cadenas para almacenar sus nombres, otro para sus apellidos y otro para sus números de teléfono. Esto puede hacer que el programa quede desordenado y difícil de seguir. Y aquí es donde vienen en nuestro auxilio las estructuras.
+</P>
+
+<P>Para definir una estructura usamos el siguiente formato:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+<B>struct</B> nombre_de_la_estructura <B>{</B>
+       <I>campos de estructura;</I>
+       <B>};</B>
+</PRE></DIV>
+
+<P>NOTA: Es importante no olvidar el ';' del final, si no a veces se obtienen errores extraños.</P>
+
+<P>Para nuestro ejemplo podemos crear una estructura en la que almacenaremos los datos de cada persona. Vamos a crear una declaración de estructura llamada <VAR>amigo</VAR>:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+struct estructura_amigo {
+       char nombre[30];
+       char apellido[40];
+       char telefono[10];
+       char edad;
+       };
+</PRE></DIV>
+
+<P>A cada elemento de esta estructura (nombre, apellido, teléfono) se le llama campo o <B>miembro</B>. (NOTA: He declarado <VAR>edad</VAR> como char porque no conozco a nadie con más de 127 años.</P>
+
+<P>Ahora ya tenemos definida la estructura, pero aun no podemos usarla. Necesitamos declarar una variable con esa estructura.
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+struct estructura_amigo amigo;
+</PRE></DIV>
+
+<P>Ahora la variable <VAR>amigo</VAR> es de tipo <VAR>estructura_amigo</VAR>. Para acceder al nombre de <VAR>amigo</VAR> usamos: <B>amigo.nombre</B>. Vamos a ver un ejemplo de aplicación de esta estructura. (NOTA: En el siguiente ejemplo los datos no se guardan en disco así que cuanda acaba la ejecución del programa se pierden).
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+struct estructura_amigo {	/* Definimos la estructura <VAR>estructura_amigo</VAR> */
+       char nombre[30];
+       char apellido[40];
+       char telefono[10];
+       char edad;
+       };
+
+struct estructura_amigo amigo;
+
+int main()
+     {
+     printf( "Escribe el nombre del amigo: " );
+     fflush( stdout );
+     scanf( "%s", &amigo.nombre );
+     printf( "Escribe el apellido del amigo: " );
+     fflush( stdout );
+     scanf( "%s", &amigo.apellido );
+     printf( "Escribe el número de teléfono del amigo: " );
+     fflush( stdout );
+     scanf( "%s", &amigo.telefono );
+     printf( "El amigo %s %s tiene el número: %s.\n", amigo.nombre,
+             amigo.apellido, amigo.telefono );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Este ejemplo estaría mejor usando gets que scanf, ya que puede haber nombres compuestos que scanf no cogería por los espacios.</P>
+
+<P>Se podría haber declarado directamente la variable <VAR>amigo</VAR>:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+struct estructura_amigo {
+       char nombre[30];
+       char apellido[40];
+       char telefono[10];
+       } amigo;
+</PRE></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="arrays"></A>
+<H2>
+	Arrays de estructuras
+</H2>
+
+<P>Supongamos ahora que queremos guardar la información de varios amigos. Con una variable de estructura sólo podemos guardar los datos de uno. Para manejar los datos de más gente (al conjunto de todos los datos de cada persona se les llama REGISTRO) necesitamos declarar arrays de estructuras.
+</P>
+
+<P>¿Cómo se hace esto? Siguiendo nuestro ejemplo vamos a crear un array de <VAR>ELEMENTOS</VAR> elementos:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+struct estructura_amigo amigo[ELEMENTOS];
+</PRE></DIV>
+
+<P>Ahora necesitamos saber cómo acceder a cada elemento del array. La variable definida es <VAR>amigo</VAR>, por lo tanto para acceder al primer elemento usaremos <VAR>amigo[0]</VAR> y a su miembro <VAR>nombre</VAR>: <VAR>amigo[0].nombre</VAR>. Veamoslo en un ejemplo en el que se supone que tenemos que meter los datos de tres amigos:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+#define ELEMENTOS       3
+
+struct estructura_amigo {
+       char nombre[30];
+       char apellido[40];
+       char telefono[10];
+       int edad;
+       };
+
+struct estructura_amigo amigo[ELEMENTOS];
+
+int main()
+     {
+     int num_amigo;
+
+     for( num_amigo=0; num_amigo&lt;ELEMENTOS; num_amigo++ )
+          {
+          printf( "\nDatos del amigo número %i:\n", num_amigo+1 );
+          printf( "Nombre: " ); fflush( stdout );
+          gets(amigo[num_amigo].nombre);
+          printf( "Apellido: " ); fflush( stdout );
+          gets(amigo[num_amigo].apellido);
+          printf( "Teléfono: " ); fflush( stdout );
+          gets(amigo[num_amigo].telefono);
+          printf( "Edad: " ); fflush( stdout );
+          scanf( "%i", &amigo[num_amigo].edad );
+          while(getchar()!='\n');
+          }
+     /* Ahora imprimimos sus datos */
+     for( num_amigo=0; num_amigo&lt;ELEMENTOS; num_amigo++ )
+          {
+          printf( "El amigo %s ", amigo[num_amigo].nombre );
+          printf( "%s tiene ", amigo[num_amigo].apellido );
+          printf( "%i años ", amigo[num_amigo].edad );
+          printf( "y su teléfono es el %s.\n" , amigo[num_amigo].telefono );
+          }
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>IMPORTANTE: Quizás alguien se pregunte qué pinta la línea esa de <VAR>while(getchar()!='\n');</VAR>. Esta línea se usa para vaciar el buffer de entrada. Para más información consulta <A HREF="cursoc11.html#buffer">Qué son los buffer y cómo funcionan</A>.
+</P>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="inicializar"></A>
+<H2>
+	Inicializar una estructura
+</H2>
+
+<P>A las estructuras se les pueden dar valores iniciales de manera análoga a como hacíamos con los arrays. Primero tenemos que definir la estructura y luego cuando declaramos una variable como estructura le damos el valor inicial que queramos. Recordemos que esto no es en absoluto necesario. Para la estructura que hemos definido antes sería por ejemplo:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+struct estructura_amigo amigo = {
+       "Juanjo",
+       "Lopez",
+       "592-0483",
+       30
+       };
+</PRE></DIV>
+
+<P CLASS="mini">NOTA: En algunos compiladores es posible que se exija poner antes de struct la palabra <em>static</em>.</P>
+
+<P>Por supuesto hemos de meter en cada campo el tipo de datos correcto. La definición de la estructura es:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+struct estructura_amigo {
+        char nombre[30];
+        char apellido[40];
+        char telefono[10];
+        int edad;
+        };
+</PRE></DIV>
+
+<P>por lo tanto el nombre ("Juanjo") debe ser una cadena de no más de 29 letras (recordemos que hay que reservar un espacio para el símbolo '\0'),
+el apellido ("Lopez") una cadena de menos de 39, el teléfono una de 9 y la edad debe ser de tipo char.</P>
+
+<P>Vamos a ver la inicialización de estructuras en acción:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+struct estructura_amigo {
+        char nombre[30];
+        char apellido[40];
+        char telefono[10];
+        int edad;
+        };
+
+struct estructura_amigo amigo = {
+       "Juanjo",
+       "Lopez",
+       "592-0483",
+       30
+       };
+
+int main()
+      {
+      printf( "%s tiene ", amigo.apellido );
+      printf( "%i años ", amigo.edad );
+      printf( "y su teléfono es el %s.\n" , amigo.telefono );
+      }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>También se puede inicializar un array de estructuras de la forma siguiente:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+struct estructura_amigo amigo[] =
+       {
+       "Juanjo", "Lopez", "504-4342", 30,
+       "Marcos", "Gamindez", "405-4823", 42,
+       "Ana", "Martinez", "533-5694", 20
+       };
+</PRE></DIV>
+
+<P>En este ejemplo cada línea es un registro. Como sucedía en los arrays si damos valores iniciales al array de estructuras no hace falta indicar  cuántos elementos va a tener. En este caso la matriz tiene 3 elementos, que son los que le hemos pasado.</P>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="punteros"></A>
+<H2>
+	Punteros a estructuras
+</H2>
+
+<P>Cómo no, también se pueden usar punteros con estructuras. Vamos a ver como funciona esto de los punteros con estructuras. Primero de todo hay que definir la estructura de igual forma que hacíamos antes. La diferencia está en que al declara la variable de tipo estructura debemos ponerle el operador '<B>*</B>' para indicarle que es un puntero.</P>
+
+<P>Creo que es importante recordar que un puntero no debe apuntar a un lugar cualquiera, debemos darle una dirección válida donde apuntar. No podemos por ejemplo crear un puntero a estructura y meter los datos directamente mediante ese puntero, no sabemos dónde apunta el puntero y los datos se almacenarían en un lugar cualquiera.</P>
+
+<P>Y para comprender cómo funcionan nada mejor que un ejemplo. Este programa utiliza un puntero para acceder a la información de la estructura:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+struct estructura_amigo {
+        char nombre[30];
+        char apellido[40];
+        char telefono[10];
+        int edad;
+        };
+
+struct estructura_amigo amigo = {
+       "Juanjo",
+       "Lopez",
+       "592-0483",
+       30
+       };
+
+struct estructura_amigo *p_amigo;
+
+int main()
+      {
+      p_amigo = &amp;amigo;
+      printf( "%s tiene ", p_amigo-&gt;apellido );
+      printf( "%i años ", p_amigo-&gt;edad );
+      printf( "y su teléfono es el %s.\n" , p_amigo-&gt;telefono );
+      }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Has la definición del puntero <var>p_amigo</var> vemos que todo era igual que antes. <VAR>p_amigo</VAR> es un puntero a la estructura <VAR>estructura_amigo</VAR>. Dado que es un puntero tenemos que indicarle dónde debe apuntar, en este caso vamos a hacer que apunte a la variable <VAR>amigo</VAR>:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+      p_amigo = <B>&amp;</B>amigo;
+</PRE></DIV>
+
+<P>No debemos olvidar el operador <B>&amp;</B> que significa 'dame la dirección donde está almacenado...'.</P>
+
+<P>Ahora queremos acceder a cada campo de la estructura. Antes lo hacíamos usando el operador '.', pero, como muestra el ejemplo, si se trabaja con punteros se debe usar el operador '<B>-&gt;</B>'. Este operador viene a significar algo así como: "dame acceso al miembro ... del puntero ...".</P>
+
+<P>Ya sólo nos queda saber cómo podemos utilizar los punteros para introducir datos en las estructuras. Lo vamos a ver un ejemplo:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+struct estructura_amigo {
+       char nombre[30];
+       char apellido[40];
+       int edad;
+       };
+
+struct estructura_amigo amigo, *p_amigo;
+
+int main()
+     {
+     p_amigo = &amigo;
+
+     /* Introducimos los datos mediante punteros */
+     printf("Nombre: ");fflush(stdout);
+     gets(p_amigo-&gt;nombre);
+     printf("Apellido: ");fflush(stdout);
+     gets(p_amigo-&gt;apellido);
+     printf("Edad: ");fflush(stdout);
+     scanf( "%i", &p_amigo-&gt;edad );
+
+      /* Mostramos los datos */
+      printf( "El amigo %s ", p_amigo-&gt;nombre );
+      printf( "%s tiene ", p_amigo-&gt;apellido );
+      printf( "%i años.\n", p_amigo-&gt;edad );
+      }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>NOTA: <VAR>p_amigo</VAR> es un puntero que apunta a la estructura <VAR>amigo</VAR>. Sin embargo <VAR>p_amigo->edad</VAR> es una variable de tipo int. Por eso al usar el scanf tenemos que poner el &amp;.</P>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="puntarray"></A>
+<H2>
+	Punteros a arrays de estructuras
+</H2>
+
+<P>Por supuesto también podemos usar punteros con arrays de estructuras. La forma de trabajar es la misma, lo único que tenemos que hacer es asegurarnos que el puntero inicialmente apunte al primer elemento, luego saltar al siguiente hasta llegar al último.</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+#define ELEMENTOS       3
+
+struct estructura_amigo {
+       char nombre[30];
+       char apellido[40];
+       char telefono[10];
+       int edad;
+       };
+
+struct estructura_amigo amigo[] =
+       {
+       "Juanjo", "Lopez", "504-4342", 30,
+       "Marcos", "Gamindez", "405-4823", 42,
+       "Ana", "Martinez", "533-5694", 20
+       };
+
+struct estructura_amigo *p_amigo;
+
+int main()
+     {
+     int num_amigo;
+     p_amigo = amigo;  <span class="coment">/* apuntamos al primer elemento del array */</span>
+
+     /* Ahora imprimimos sus datos */
+     for( num_amigo=0; num_amigo&lt;ELEMENTOS; num_amigo++ )
+          {
+          printf( "El amigo %s ", p_amigo-&gt;nombre );
+          printf( "%s tiene ", p_amigo-&gt;apellido );
+          printf( "%i años ", p_amigo-&gt;edad );
+          printf( "y su teléfono es el %s.\n" , p_amigo-&gt;telefono );
+          <span class="coment">/* y ahora saltamos al siguiente elemento */</span>
+          p_amigo++;  
+          }
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>En vez de <VAR>p_amigo = amigo;</VAR> se podía usar la forma <VAR>p_amigo = &amigo[0];</VAR>, es decir que apunte al primer elemento (el elemento 0) del array. La primera forma creo que es más usada pero la segunda quizás indica más claramente al lector principiante lo que se pretende.
+</P>
+
+<P>Ahora veamos el ejemplo anterior de cómo introducir datos en un array de estructuras mediante punteros:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+#define ELEMENTOS       3
+
+struct estructura_amigo {
+       char nombre[30];
+       char apellido[40];
+       int edad;
+       };
+
+struct estructura_amigo amigo[ELEMENTOS], *p_amigo;
+
+int main()
+     {
+     int num_amigo;
+     <span class="coment">/* apuntamos al primer elemento */</span>
+     p_amigo = amigo;
+
+     /* Introducimos los datos mediante punteros */
+     for ( num_amigo=0; num_amigo&lt;ELEMENTOS; num_amigo++ )
+         {
+         printf("Datos amigo %i\n",num_amigo);
+         printf("Nombre: ");fflush(stdout);
+         gets(p_amigo-&gt;nombre);
+         printf("Apellido: ");fflush(stdout);
+         gets(p_amigo-&gt;apellido);
+         printf("Edad: ");fflush(stdout);
+         scanf( "%i", &p_amigo-&gt;edad );
+         <span class="coment">/* vaciamos el buffer de entrada */</span>
+         while(getchar()!='\n');  
+         <span class="coment">/* saltamos al siguiente elemento */</span>
+         p_amigo++;
+         }
+     /* Ahora imprimimos sus datos */
+     <B>p_amigo = amigo;</B>
+     for( num_amigo=0; num_amigo&lt;ELEMENTOS; num_amigo++ )
+          {
+          printf( "El amigo %s ", p_amigo-&gt;nombre );
+          printf( "%s tiene ", p_amigo-&gt;apellido );
+          printf( "%i años.\n", p_amigo-&gt;edad );
+          p_amigo++;
+          }
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Es importante no olvidar que al terminar el primer bucle for el puntero p_amigo apunta al último elemento del array de estructuras. Para mostrar los datos tenemos que hacer que vuelva a apuntar al primer elemento y por eso usamos de nuevo p_amigo=amigo; (en negrita).</P>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="funciones"></A>
+<H2>
+	Paso de estructuras a funciones
+</H2>
+
+<P>Las estructuras se pueden pasar directamente a una función igual que hacíamos con las variables. Por supuesto en la definición de la función debemos indicar el tipo de argumento que usamos:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+int nombre_función ( struct <i>nombre_de_la_estructura</i> <i>nombre_de_la variable_estructura</i> )
+</PRE></DIV>
+
+<P>En el ejemplo siguiente se usa una función llamada <em>suma</em> que calcula cual será la edad 20 años más tarde (simplemente suma 20 a la edad). Esta función toma como argumento la variable estructura <VAR>arg_amigo</VAR>. Cuando se ejecuta el programa llamamos a <VAR>suma</VAR> desde <VAR>main</VAR> y en esta variable se copia el contenido de la variable <VAR>amigo</VAR>.</P>
+
+<P>Esta función devuelve un valor entero (porque está declarada como int) y el valor que devuelve (mediante return) es la suma.</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+struct estructura_amigo {
+        char nombre[30];
+        char apellido[40];
+        char telefono[10];
+        int edad;
+        };
+
+int suma( struct estructura_amigo arg_amigo )
+    {
+    return arg_amigo.edad+20;
+    }
+int main()
+      {      
+      struct estructura_amigo amigo = {
+             "Juanjo",
+             "López",
+             "592-0483",
+             30
+       };      
+      printf( "%s tiene ", amigo.apellido );
+      printf( "%i años ", amigo.edad );
+      printf( "y dentro de 20 años tendrá %i.\n", suma(amigo) );
+      system( "PAUSE" );
+      }
+</PRE><DIV CLASS="comprobado">Fichero: estructuras_funciones.c</DIV></DIV>
+
+<P>Si dentro de la función <VAR>suma</VAR> hubiésemos cambiado algún valor de la estructura, dado que es una copia no hubiera afectado a la variable <VAR>amigo</VAR> de main. Es decir, si dentro de 'suma' hacemos arg_amigo.edad = 20; el valor de arg_amigo cambiará, pero el de <VAR>amigo</VAR> seguirá siendo 30.</P>
+
+<P>También se pueden pasar estructuras mediante punteros o se puede pasar simplemente un miembro (o campo) de la estructura.</P>
+
+<P>Si usamos punteros para pasar estructuras como argumentos habrá que hacer unos cambios al código anterior (en negrita y subrrayado):</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+struct estructura_amigo {
+        char nombre[30];
+        char apellido[40];
+        char telefono[10];
+        int edad;
+        };
+
+int suma( struct estructura_amigo *arg_amigo )
+    {
+    return arg_amigo-&gt;edad+20;
+    }
+int main()
+      {      
+      struct estructura_amigo amigo = {
+             "Juanjo",
+             "López",
+             "592-0483",
+             30
+       };      
+      printf( "%s tiene ", amigo.apellido );
+      printf( "%i años ", amigo.edad );
+      printf( "y dentro de 20 años tendrá %i.\n", suma(&amigo) );
+      system( "PAUSE" );
+      }
+</PRE><DIV CLASS="comprobado">Fichero: estructuras_funciones2.c</DIV></DIV>
+
+<P>Lo primero será indicar a la función suma que lo que va a recibir es un puntero, para eso ponemos el * (asterisco). Segundo, como dentro de la función suma usamos un puntero a estructura y no una variable estructura debemos cambiar el '.' (punto) por el '-&gt;'. Tercero, dentro de main cuando llamamos a <VAR>suma</VAR> debemos pasar la dirección de <VAR>amigo</VAR>, no su valor, por lo tanto debemos poner '&amp;' delante de <VAR>amigo</VAR>.</P>
+
+<P>Si usamos punteros a estructuras corremos el riesgo (o tenemos la ventaja, según cómo se mire) de poder cambiar los datos de la estructura de la variable <VAR>amigo</VAR> de main.</P>
+
+<A NAME="miembros"></A>
+<H3>Pasar sólo miembros de la estructura</H3>
+
+<P>Otra posibilidad es no pasar toda la estructura a la función sino tan sólo los miembros que sean necesarios. Los ejemplos anteriores serían más correctos usando esta tercera opción, ya que sólo usamos el miembro 'edad':</P>
+
+<DIV CLASS="ejemplo"><PRE>
+int suma( char edad )
+    {
+    return edad+20;
+    }
+
+int main()
+      {
+      printf( "%s tiene ", amigo.apellido );
+      printf( "%i años ", amigo.edad );
+      printf( "y dentro de 20 años tendrá %i.\n", suma(amigo.edad) );
+      }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Por supuesto a la función suma hay que indicarle que va a recibir una variable tipo char (amigo->edad es de tipo char).</P>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="anidadas"></A>
+<H2>
+	Estructuras dentro de estructuras (Anidadas)
+</H2>
+
+<P>Es posible crear estructuras que tengan como miembros otras estructuras. Esto tiene diversas utilidades, por ejemplo tener la estructura de datos más ordenada. Imaginemos la siguiente situación: una tienda de música quiere hacer un programa para el inventario de los discos, cintas y cd's que tienen. Para cada título quiere conocer las existencias en cada soporte (cinta, disco, cd), y los datos del proveedor (el que le vende ese disco). Podría pensar en una estructura así:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+struct inventario {
+        char titulo[30];
+        char autor[40];
+        int existencias_discos;
+        int existencias_cintas;
+        int existencias_cd;
+        char nombre_proveedor[40];
+        char telefono_proveedor[10];
+        char direccion_proveedor[100];
+        };
+</PRE></DIV>
+
+<P>Sin embargo utilizando estructuras anidadas se podría hacer de esta otra forma más ordenada:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+struct estruc_existencias {
+       int discos;
+       int cintas;
+       int cd;
+       };
+
+struct estruc_proveedor {
+       char nombre_proveedor[40];
+       char telefono_proveedor[10];
+       char direccion_proveedor[100];
+       };
+
+struct estruc_inventario {
+        char titulo[30];
+        char autor[40];
+        struct estruc_existencias existencias;
+        struct estruc_proveedor proveedor;
+        } inventario;
+</PRE></DIV>
+
+<P>Ahora para acceder al número de cd de cierto título usaríamos lo siguiente:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+inventario.existencias.cd
+</PRE></DIV>
+
+<P>y para acceder al nombre del proveedor:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+inventario.proveedor.nombre
+</PRE></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<!--A NAME="ejercicios"></A>
+<H2>
+	Ejercicios
+</H2>
+
+<P><B><U>Ejercicio :</U></B>
+</P>
+
+<P><B>Solución</B>:
+</P-->
+
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" --> 
+<a href="cursoc13.html" class="barranav">[Anterior]</a> <a href="cursoc15.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+</BODY>
+</HTML>

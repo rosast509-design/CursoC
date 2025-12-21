@@ -1,0 +1,433 @@
+<HTML><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Constantes (uso de #define)</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="decription" content="Curso de C - Introducción">
+<meta name="keywords" content="Programación, Curso de C, C" >
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: right;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+    
+    .texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .ejemplo pre {
+        margin: 0;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    b, strong {
+        color: #006600;
+    }
+    
+    u {
+        color: #006600;
+    }
+    
+    ol.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    ol.texto li {
+        margin: 10px 0;
+    }
+    
+    table[border="1"] {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    table[border="1"] td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    table[border="1"] th {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://sic.cultura.gob.mx/imagenes_cache/universidad_4269_g_74422.png" alt="Curso de C" border="0" style="width: 300px; height: auto; max-width: 300px;">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com"  border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" -->
+	
+<h1>Constantes (uso de #define)</h1>
+<!-- InstanceEndEditable --> 
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" --> 
+<a href="cursoc3.html" class="barranav">[Anterior]</a> <a href="cursoc5.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" -->
+<a name="arriba"></a>
+
+<A NAME="arriba"></A>
+<H2>
+	Contenido del Capítulo
+</H2>
+<UL>
+<A HREF="#intro">Introducción</A><BR>
+<A HREF="#nombre">Constantes con nombre</A><BR>
+<!--A HREF="#ejercicios">Ejercicios</A-->
+</UL>
+<P>
+
+<A NAME="intro"></A>
+<H2>
+	Introducción
+</H2>
+
+<p>Las constantes son aquellos datos que no pueden cambiar a lo largo de la ejecución de un programa.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+	{
+	int radio, perimetro;
+
+	radio = 20;
+	perimetro = 2 * 3.1416 * radio;
+
+	
+	printf( "El perímetro es: %i", perimetro  );
+	
+	return 0;
+	}
+</PRE></DIV>
+
+<p><I>radio</I> y <I>perimetro</I> son variables, su valor puede cambiar a lo largo del programa. Sin embargo 20, 2 y 3.1416 son constantes, no hay manera de cambiarlas. El valor 3.1416 no cambia a lo largo del programa , ni entre ejecución y ejecución. Sólo cambiará cuando edites el programa y lo cambies tu mismo. Esto es obvio, y no tiene ningún misterio así que no le des vueltas. Sólo quería indicarlo porque en algunos libros le dan muchas vueltas.</p>
+
+
+<A NAME="nombre"></A>
+<H2>
+	Constantes con nombre
+</H2>
+
+<P>Supongamos que tenemos que hacer un programa en el que haya que escribir unas cuantas veces 3.1416 (como todos sabreis es PI). Es muy fácil que nos confundamos alguna vez al teclearlo y al compilar el programa no tendremos ningún error, sin embargo el programa no dará resultados correctos. Para evitar esto usamos las constantes con nombre. Al definir una constante con nombre estamos dando un nombre al valor, a 3.1416 le llamamos PI.</p>
+
+<p>Estas constantes se definen de la manera siguiente:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	<B>#define</B> nombre_de_la_constante	valor_de_la_constante
+</PRE></DIV>
+
+<p>Ejemplo:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+<B>#define PI	3.1416</B>
+
+int main()
+	{
+	int radio, perimetro;
+
+	radio = 20;
+	perimetro = 2 * <B>PI</B> * radio;
+
+	printf( "El perímetro es: %i", perimetro  );
+	
+	return 0;
+	}
+</PRE></DIV>
+
+
+<p>De esta forma cada vez que el compilador encuentre el nombre PI lo sustituirá por 3.1416.
+</P>
+
+<p>A una constante no se le puede dar un valor mientras se ejecuta, no se puede hacer PI = 20;. Sólo se le puede dar un valor con #define, y sólo una vez.
+Tampoco podemos usar el scanf para dar valores a una constante:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#define CONSTANTE	14
+
+	int main()
+		{
+		...
+		scanf( "%i", CONSTANTE );
+		...
+		}
+</PRE></DIV>
+
+
+<p>eso sería como hacer:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+	scanf( "%i", 14 );
+</PRE></DIV>
+
+<p>Esto es muy grave, estamos diciendo que el valor que escribamos en scanf se almacene en la posición 14 de la memoria, lo que puede bloquear el ordenador.
+</P>
+
+<p>Las constantes se suelen escribir en mayúsculas sólo se puede definir una constante por fila. <B>No se pone ";" al final.</B>
+</P>
+
+<p>Las constantes nos proporcionan una mejor comprensión del código fuente. Mira el siguiente programa:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+	{
+	int precio;
+
+	precio = ( 4 * 25 * 100 ) * ( 1.16 );
+	
+	printf( "El precio total es: %i", precio  );
+	
+	return 0;
+	}
+</PRE></DIV>
+
+<p>¿Quien entiende lo que quiere decir este programa? Es difícil si no imposible. Hagámoslo de otra forma.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+#define CAJAS			4
+#define UNIDADES_POR_CAJA	25
+#define PRECIO_POR_UNIDAD 	100
+#define IMPUESTOS		1.16
+
+int main()
+	{
+	int precio;
+
+	precio = ( CAJAS * UNIDADES_POR_CAJA * PRECIO_POR_UNIDAD ) * ( IMPUESTOS );
+	
+	printf( "El precio total es: %i", precio  );
+	
+	return 0;
+	}
+</PRE></DIV>
+
+<p>¿A que ahora se entiende mejor? Claro que sí. Los números no tienen mucho significado y si revisamos el programa un tiempo más tarde ya no nos acordaremos qué cosa era cada número. De la segunda forma nos enteraremos al momento.
+</P>
+
+<p>También podemos definir una constante usando el valor de otras. Por supuesto las otras tienen que estar definidas antes:
+</P>
+
+<PRE CLASS="ejemplo">
+#include &lt;stdio.h&gt;
+
+#define CAJAS			4
+#define UNIDADES_POR_CAJA	25
+#define PRECIO_POR_UNIDAD	100	
+<B>#define PRECIO_POR_CAJA		UNIDADES_POR_CAJA * PRECIO_POR_UNIDAD</B>
+#define IMPUESTOS		1.16
+
+int main()
+	{
+	int precio;
+
+	precio = ( CAJAS * <B>PRECIO_POR_CAJA</B> ) * ( IMPUESTOS );
+	
+	printf( "El precio total es: %i", precio  );
+	
+	return 0;
+	}
+</PRE>
+
+
+<p>#define tiene más usos aparte de éste, ya los veremos en el capítulo de directivas.
+</P>
+
+
+<A NAME="ejercicios"></A>
+<!--<H2>
+	Ejercicios
+</H2>
+
+<P>
+
+<B><U>Ejercicio :</U></B>
+
+
+
+
+<B>Solución</B>:-->
+
+<p align=center><a href="#arriba" class="volver">[Arriba]</a></p>
+<!-- Modificaciones:
+16/01/2004: añadidos los return 0 que faltaban.-->
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" --> 
+
+<a href="cursoc3.html" class="barranav">[Anterior]</a> <a href="cursoc5.html" class="barranav">[Siguiente]</a> 
+  <a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+</BODY>
+
+<!-- InstanceEnd --></HTML>

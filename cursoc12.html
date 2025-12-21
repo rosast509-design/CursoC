@@ -1,0 +1,1223 @@
+<HTML><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Strings (Cadenas de texto)</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="description" content="Curso de C - Introducción">
+<meta name="keywords" content="Programación, Curso de C, C">
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    h3 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 14pt;
+        font-weight: bold;
+        color: #006600;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: right;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+        display: block;
+        margin: 10px auto;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+    
+    .texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .ejemplo pre {
+        margin: 0;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    b, strong {
+        color: #006600;
+    }
+    
+    u {
+        color: #006600;
+    }
+    
+    ol.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    ol.texto li {
+        margin: 10px 0;
+    }
+    
+    table[border="1"] {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    table[border="1"] td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    table[border="1"] th {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+    
+    center {
+        text-align: center;
+    }
+    
+    font[color="#ff0000"] {
+        color: #ff0000;
+    }
+    
+    font[color="#0000ff"] {
+        color: #0000ff;
+    }
+    
+    blockquote.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+        font-style: italic;
+    }
+    
+    em {
+        font-style: italic;
+    }
+    
+    .comprobado {
+        font-size: 10px;
+        color: #666;
+        display: block;
+        margin-top: 5px;
+    }
+    
+    pre code {
+        color: #006600;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://sic.cultura.gob.mx/imagenes_cache/universidad_4269_g_74422.png" alt="Curso de C" border="0" style="width: 300px; height: auto; max-width: 300px;">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com"  border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" -->
+<h1>Strings (Cadenas de texto)</h1>
+<!-- InstanceEndEditable --> 
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" --> 
+<a href="cursoc11.html" class="barranav">[Anterior]</a> <a href="cursoc13.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" -->
+<a name="arriba"></a>
+
+<A NAME="contenido"></A>
+<H2>
+	Contenido del Capítulo:
+</H2>
+<UL>
+	<LI><A HREF="#intro">Introducción</A>
+	<LI><A HREF="#pordentro">Las cadenas por dentro</A>
+	<LI><A HREF="#funcioneslibc">Funciones de manejo de cadenas</A>
+	<UL>
+		<LI><A HREF="#strlen">strlen</A>
+		<LI><A HREF="#strcpy">strcpy</A>
+		<LI><A HREF="#strcat">strcat - unir cadenas</A>
+		<LI><A HREF="#sprintf">sprintf</A>
+		<LI><A HREF="#strcmp">strcmp</A>
+		<li><a href="#mayus">toupper() y tolower() - Convertir a mayúsculas y minúsculas</a></li>
+	</UL>
+	<LI><A HREF="#entrada">Entrada de cadenas por teclado</A>
+	<UL>
+		<LI><A HREF="#scanf">scanf</A>
+		<LI><A HREF="#gets">gets</A>
+		<LI><A HREF="#buffer">Qué son los buffer y cómo funcionan</A>
+		<LI><A HREF="#getchar">getchar</A>
+	</UL>
+
+	<LI><A HREF="#punteros">Recorrer cadenas con punteros</A>
+	<LI><A HREF="#arrays">Arrays de cadenas</A>
+	<LI><A HREF="#ordenar">Ordenar un array de cadenas</A>
+	<LI><A HREF="#ejercicios">Ejercicios</A>
+</UL>
+
+<A NAME="intro"></A>
+<H2>
+Introducci�n
+</H2>
+
+
+<P>Vamos a ver por fin cómo manejar texto con <SPAN CLASS="letraC">C</SPAN>, hasta ahora sólo sabíamos cómo mostrarlo por pantalla.
+</P>
+
+<P>Para empezar diré que en <SPAN CLASS="letraC">C</SPAN> no existe un tipo string como en otros lenguajes. No existe un tipo de datos para almacenar texto, se utilizan arrays de chars. Funcionan igual que los demás arrays con la diferencia que ahora jugamos con letras en vez de con números.
+</P>
+
+<P>Se les llama cadenas, strings o tiras de caracteres. A partir de ahora les llamaremos <B>cadenas</B>.
+</P>
+
+<P>Para declarar una cadena se hace como un array:
+</P>
+
+
+<DIV CLASS="ejemplo"><PRE>
+    char texto[20];
+</PRE></DIV>
+
+<P>Al igual que en los arrays no podemos meter más de 20 elementos en la cadena. Vamos a ver un ejemplo para mostrar el nombre del usuario en pantalla:
+</P>
+
+<DIV CLASS="ejemplo">
+<PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     char nombre[20];
+
+     printf( "Introduzca su nombre (20 letras máximo): " );
+     scanf( "%s", nombre );
+     printf( "\nEl nombre que ha escrito es: %s\n", nombre );
+     }
+</PRE>
+<DIV CLASS="comprobado">Comprobado con DJGPP</DIV>
+</DIV>
+
+<P>Vemos cosas curiosas como por ejemplo que en el scanf no se usa el símbolo <B>&</B>. No hace falta porque es un array, y ya sabemos que escribir el nombre del array es equivalente a poner &nombre[0].
+</P>
+
+<P>También puede llamar la atención la forma de imprimir el array. Con sólo usar %s ya se imprime todo el array. Ya veremos esto más adelante.
+</P>
+
+<P>Si alguno viene de algún otro lenguaje esto es importante: en <SPAN CLASS="letraC">C</SPAN> no se puede hacer esto:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+int main()
+     {
+     char texto[20];
+
+     <B>texto = "Hola";</B>
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+
+
+<!-- TÍTULO DE NIVEL 1 ------------------------------------------------------>
+<A NAME="pordentro"></A><H2>
+Las cadenas por dentro
+</H2>
+
+<P>Es interesante saber cómo funciona una cadena por dentro, por eso vamos a ver primero cómo se inicializa una cadena.
+</P>
+
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     char nombre[] = "Gorka";
+
+     printf( "Texto: %s\n", nombre );
+     printf( "Tamaño de la cadena: %i bytes\n", sizeof nombre );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Resultado al ejecutar:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+Texto: Gorka
+Tamaño de la cadena: 6 bytes</PRE></DIV>
+
+<P>¡Qué curioso! La cadena es "Gorka", sin embargo nos dice que ocupa 6 bytes. Como cada elemento (char) ocupa un byte eso quiere decir que la cadena tiene 6 elementos. ¡Pero si "Gorka" sólo tiene 5! ¿Por qué? Muy sencillo, porque al final de una cadena se pone un símbolo <B>'\0'</B> que significa "Fin de cadena". De esta forma cuando queremos escribir la cadena basta con usar %s y el programa ya sabe cuántos elementos tiene que imprimir, hasta que encuentre '\0'.
+</P>
+
+
+<P>El programa anterior sería equivalente a:
+</P>
+
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main(int argc,char *argv[])
+     {
+     char nombre[] = { 'G', 'o', 'r', 'k', 'a', '\0' };
+
+     printf( "Texto: %s\n", nombre );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Aquí ya se ve que tenemos 6 elementos. Pero, ¿Qué pasaría si no pusiéramos '\0' al final?
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     char nombre[] = { 'G', 'o', 'r', 'k', 'a' };
+
+     printf( "Texto: %s\n", nombre );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>En mi ordenador salía:
+</P>
+
+
+<DIV CLASS="ejemplo"><PRE>
+Texto: Gorka-
+Tamaño de la cadena: 5 bytes
+</PRE></DIV>
+
+<P>Pero en el tuyo después de "Gorka" puede aparecer cualquier cosa. Lo que aquí sucede es que no encuentra el símbolo '\0' y no sabe cuándo dejar de imprimir. Afortunadamente, cuando metemos una cadena se hace de la primera forma y el <SPAN CLASS="letraC">C</SPAN> se encarga de poner el dichoso símbolo al final.
+</P>
+
+<P>Es importante no olvidar que la longitud de una cadena es la longitud del texto más el símbolo de fin de cadena. Por eso cuando definamos una cadena tenemos que reservarle un espacio adicional. Por ejemplo:
+</P>
+
+
+<DIV CLASS="ejemplo"><PRE>
+    char nombre[6] = "Gorka";
+</PRE></DIV>
+
+<P>Si olvidamos esto podemos tener problemas.
+</P>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+
+
+<!-- TÍTULO DE NIVEL 1 ------------------------------------------------------>
+<A NAME="funcioneslibc"></A><H2>
+Funciones de manejo de cadenas
+</H2>
+
+
+<P>Existen unas cuantas funciones el la biblioteca estándar de <SPAN CLASS="letraC">C</SPAN> para el manejo de cadenas:
+</P>
+
+<UL>
+	<LI><A HREF="#strlen">strlen</A>
+	<LI><A HREF="#strcpy">strcpy</A>
+	<LI><A HREF="#strcat">strcat</A>
+	<LI><A HREF="#sprintf">sprintf</A>
+	<LI><A HREF="#strcmp">strcmp</A>
+</UL>
+
+<P>Para usar estas funciones hay que añadir la directiva:
+</P>
+
+
+<DIV CLASS="ejemplo"><PRE>
+    #include &lt;string.h&gt;
+</PRE></DIV>
+
+<BR><A NAME="strlen"></A><H3>
+strlen
+</H3>
+
+
+<P>Esta función nos devuelve el número de caracteres que tiene la cadena (sin contar el '\0').
+</P>
+
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+     {
+     char texto[]="Gorka";
+     int longitud;
+
+     longitud = strlen(texto);
+     printf( "La cadena \"%s\" tiene %i caracteres.\n", texto, longitud );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Crea tus propias funciones: Vamos a ver cómo se haría esta función si no dispusiéramos de ella. Si no te enteras cómo funciona consulta <A HREF="#punteros">Recorrer cadenas con punteros</A>.
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+     {
+     char texto[]="Gorka";
+     char *p;
+     int longitud=0;
+
+     p = texto;
+     while (*p!='\0')
+          {
+          longitud++;
+          printf( "%c\n", *p ); /* Mostramos la letra actual */
+          p++;                  /* Vamos a la siguiente letra */
+          }
+     printf( "La cadena \"%s\" tiene %i caracteres.\n", texto, longitud );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Para medir la longitud de la cadena usamos un puntero para recorrerla (el puntero <VAR>p</VAR>). Hacemos que <VAR>p</VAR> apunte a <VAR>texto</VAR>. Luego entramos en un bucle while. La condición del bucle comprueba si se ha llegado al fin de cadena ('\0'). Si no es así suma 1 a <VAR>longitud</VAR>, muestra la letra por pantalla e incrementa el puntero en 1 (con esto pasamos a la siguiente letra).
+</P>
+
+<BR><A NAME="strcpy"></A><H3>
+	strcpy
+</H3>
+
+<DIV CLASS="ejemplo"><PRE>
+     #include &lt;string.h&gt;
+
+     char *strcpy(char *cadena1, const char *cadena2);
+</PRE></DIV>
+
+<P>Copia el contenido de <VAR>cadena2</VAR> en <VAR>cadena1</VAR>. <VAR>cadena2</VAR> puede ser una variable o una cadena directa (por ejemplo "hola"). Debemos tener cuidado de que la cadena destino (cadena1) tenga espacio suficiente para albergar a la cadena origen (cadena2).
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+     {
+     char textocurso[] = "Este es un curso de C.";
+     char destino[50];
+
+     strcpy( destino, textocurso );
+     printf( "Valor final: %s\n", destino );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Vamos a ver otro ejemplo en el que la cadena destino es una cadena constante ("Este es un curso de C") y no una variable. Además en este ejemplo vemos que la cadena origen es sustituida por la cadena destino totalmete. Si la cadena origen es más larga que la destino, se eliminan las letras adicionales.</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+     {
+     char destino[50] = "Esto no es un curso de HTML sino un curso de C.";
+
+     printf( "%s\n", destino );
+     strcpy( destino, "Este es un curso de C." );
+     printf( "%s\n", destino );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<BR><A NAME="strcat"></A><H3>
+	strcat
+</H3>
+
+<DIV CLASS="ejemplo"><PRE>
+     #include &lt;string.h&gt;
+
+     char *strcat(char *cadena1, const char *cadena2);
+</PRE></DIV>
+
+<P>Copia la <VAR>cadena2</VAR> al final de la <VAR>cadena1</VAR>.</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+     {
+     char nombre_completo[50];
+     char nombre[]="Gorka";
+     char apellido[]="Urrutia";
+
+     strcpy( nombre_completo, nombre );
+     strcat( nombre_completo, " " );
+     strcat( nombre_completo, apellido );
+     printf( "El nombre completo es: %s.\n", nombre_completo );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Como siempre tenemos que asegurarnos que la variable en la que metemos las demás cadenas tenga el tamaño suficiente. Con la primera línea metemos el nombre en <VAR>nombre_completo</VAR>. Usamos strcpy para asegurarnos de que queda borrado cualquier dato anterior. Luego usamos un strcat para añadir un espacio y finalmente metemos el apellido.
+</P>
+
+<BR><A NAME="sprintf"></A><H3>
+	sprintf
+</H3>
+
+<DIV CLASS="ejemplo"><PRE>
+     #include &lt;stdio.h&gt;
+
+     int sprintf(char *destino, const char *format, ...);
+</PRE></DIV>
+
+<P>Funciona de manera similar a printf, pero en vez de mostrar el texto en la pantalla lo guarda en una variable (<VAR>destino</VAR>). El valor que devuelve (int) es el número de caracteres guardados en la variable <VAR>destino</VAR>.</P>
+
+<P>Con sprintf podemos repetir el ejemplo de strcat de manera más sencilla:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+     {
+     char nombre_completo[50];
+     char nombre[]="Gorka";
+     char apellido[]="Urrutia";
+
+     sprintf( nombre_completo, "%s %s", nombre, apellido );
+     printf( "El nombre completo es: %s.\n", nombre_completo );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Se puede aplicar a sprintf todo lo que valía para printf.
+</P>
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+
+
+<!-- TÍTULO DE NIVEL 2 ------------------------------------------------------>
+<BR><A NAME="strcmp"></A><H3>
+	strcmp
+</H3>
+
+<DIV CLASS="ejemplo"><PRE>
+     #include &lt;string.h&gt;
+
+     int strcmp(const char *cadena1, const char *cadena2);
+</PRE></DIV>
+
+<P>Compara <VAR>cadena1</VAR> y <VAR>cadena2</VAR>. Si son iguales devuelve 0. Un número negativo si <VAR>cadena1</VAR> va antes que <VAR>cadena2</VAR> y un número positivo si es al revés:</P>
+
+<UL>
+	<LI>cadena1 == cadena2 -> 0
+	<LI>cadena1 > cadena2 -> número negativo
+	<LI>cadena1 < cadena2 -> número positivo
+</UL>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+     {
+     char nombre1[]="Gorka";
+     char nombre2[]="Pedro";
+
+     printf( "%i", strcmp(nombre1,nombre2));
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+
+<!-- TÍTULO DE NIVEL 2 --------------------------------------------->
+<BR><A NAME="mayus"></A><H3>
+	toupper() y tolower() - Convertir a mayúsculas y minúsculas
+</H3>
+<p><A NAME="mayus"> </A> 
+  <!-- TÍTULO DE NIVEL 1 ------------------------------------------------------>
+</p>
+<p>La función tolower() nos permite convertir una cadena a minúsculas:</p>
+<pre>char *tolower( char *cadena );</pre>
+<p>toupper cumple la función contraria, convierte la cadena a mayúsculas:</p>
+<pre>char *toupper( char *cadena );</pre>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+
+<A NAME="entrada"></A><H2>
+	Entrada de cadenas por teclado (scanf y gets)	
+</H2>
+
+<UL>
+	<LI><A HREF="#scanf">scanf</A>
+	<LI><A HREF="#gets">gets</A>
+	<LI><A HREF="#buffer">Qué son los buffer y cómo funcionan</A>
+	<LI><A HREF="#getchar">getchar</A>
+</UL>
+
+
+<!-- TÍTULO DE NIVEL 2 ------------------------------------------------------>
+<BR><A NAME="scanf"></A><H3>
+	scanf
+</H3>
+
+<P>Hemos visto en capítulos anteriores el uso de scanf para números, ahora es el momento de ver su uso con cadenas.
+</P>
+
+<P>Scanf almacena en memoria (en un buffer) lo que vamos escribiendo. Cuando pulsamos ENTER (o Intro o Return, como se llame en cada teclado) lo analiza, comprueba si el formato es correcto y por último lo mete en la variable que le indicamos.
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+     {
+     char cadena[30];
+
+     printf( "Escribe una palabra: " );
+     fflush( stdout );
+     scanf( "%s", cadena );
+     printf( "He guardado: \"%s\" \n", cadena );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Ejecutamos el programa e introducimos la palabra "hola". Esto es lo que tenemos:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+Escribe una palabra: hola
+He guardado: "hola"
+</PRE></DIV>
+
+<P>Si ahora introducimos "hola amigos" esto es lo que tenemos:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+Escribe una palabra: hola amigos
+He guardado: "hola"
+</PRE></DIV>
+
+<P>Sólo nos ha cogido la palabra "hola" y se ha olvidado de amigos. ¿Por qué? pues porque scanf toma una palabra como cadena. Usa los espacios para separar variables.
+</P>
+
+<P>Es importante siempre asegurarse de que no vamos a almacenar en <VAR>cadena</VAR> más letras de las que caben. Para ello debemos limitar el número de letras que le va a introducir scanf. Si por ejemplo queremos un máximo de 5 caracteres usaremos %5s:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+     {
+     char cadena[6];
+
+     printf( "Escribe una palabra: " );
+     fflush( stdout );
+     scanf( "%5s", cadena );
+     printf( "He guardado: \"%s\" \n", cadena );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Si metemos una palabra de 5 letras (no se cuenta '\0') o menos la recoge sin problemas y la guarda en <VAR>cadena</VAR>.
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+Escribe una palabra: Gorka
+He guardado: "Gorka"
+</PRE></DIV>
+
+<P>Si metemos más de 5 letras nos cortará la palabra y nos dejará sólo 5.
+</P>
+
+
+<DIV CLASS="ejemplo"><PRE>
+Escribe una palabra: Juanjo
+He guardado: "Juanj"
+</PRE></DIV>
+
+<P>Scanf tiene más posibilidades (consulta la ayuda de tu compilador), entre otras permite controlar qué caracteres entramos. Supongamos que sólo queremos coger las letras mayúsculas:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+     {
+     char cadena[30];
+
+     printf( "Escribe una palabra: " );
+     fflush( stdout );
+     scanf( "%<B>[A-Z]</B>s", cadena );
+     printf( "He guardado: \"%s\" \n", cadena );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Guarda las letras mayúsculas en la variable hasta que encuentra una minúscula:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+Escribe una palabra: Hola
+He guardado: "H"
+</PRE></DIV>
+
+<DIV CLASS="ejemplo"><PRE>
+Escribe una palabra: HOLA
+He guardado: "HOLA"
+</PRE></DIV>
+
+<DIV CLASS="ejemplo"><PRE>
+Escribe una palabra: AMigOS
+He guardado: "AM"
+</PRE></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+
+
+<!-- TÍTULO DE NIVEL 2 -->
+<BR><A NAME="gets"></A><H3>
+	gets
+</H3>
+
+<P>Esta función nos permite introducir frases enteras, incluyendo espacios.
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+     #include &lt;stdio.h&gt;
+
+     char *gets(char *buffer);
+</PRE></DIV>
+
+<P>Almacena lo que vamos tecleando en la variable <VAR>buffer</VAR> hasta que pulsamos ENTER. Si se ha almacenado algún caracter en <VAR>buffer</VAR> le añade un '\0' al final y devuelve un puntero a su dirección. Si no se ha almacenado ninguno devuelve un puntero NULL.
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+     {
+     char cadena[30];
+     char *p;
+
+     printf( "Escribe una palabra: " );
+     fflush( stdout );
+     p = gets( cadena );
+     if (p) printf( "He guardado: \"%s\" \n", cadena );
+     else printf( "No he guardado nada!\n" );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Esta función es un poco peligrosa porque no comprueba si nos hemos pasado del espacio reservado (de 29 caracteres en este ejemplo: 29letras+'\0').
+</P>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+
+
+
+<!-- TÍTULO DE NIVEL 2 --------------------------------------------->
+<BR><A NAME="buffer"></A><H3>
+	Qué son los buffer y cómo funcionan
+</H3>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     char ch;
+     char nombre[20], apellido[20], telefono[10];
+     printf( "Escribe tu nombre: " );
+     scanf( "%[A-Z]s", nombre );
+     printf( "Lo que recogemos del scanf es: %s\n", nombre );
+     printf( "Lo que había quedado en el buffer: " );
+     while( (ch=getchar())!='\n' )
+            printf( "%c", ch );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<DIV CLASS="ejemplo"><PRE>
+Escribe tu nombre: GORka
+Lo que recogemos del scanf es: GOR
+Lo que había quedado en el buffer: ka
+</PRE></DIV>
+
+<P>Cuidado con scanf!!!</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     char nombre[20], apellido[20], telefono[10];
+     printf( "Escribe tu nombre: " );
+     scanf( "%s", nombre );
+     printf( "Escribe tu apellido: " );
+     gets( apellido );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+
+
+
+<!-- TÍTULO DE NIVEL 2 --------------------------------------------->
+<BR><A NAME="getchar"></A><H3>
+	getchar
+</H3>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+
+<!-- TÍTULO DE NIVEL 1 ------------------------------------------------------>
+<BR><A NAME="punteros"></A><H2>
+	Recorrer cadenas con punteros
+</H2>
+
+<P>Las cadenas se pueden recorrer de igual forma que hacíamos con las matrices, usando punteros.
+</P>
+
+<P>Vamos a ver un ejemplo: Este sencillo programa cuenta los espacios y las letras 'e' que hay en una cadena.</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+     {
+     char cadena[]="Gorka es un tipo estupendo";
+     char *p;
+     int espacios=0, letras_e=0;
+
+     p = cadena;
+     while (*p!='\0')
+           {
+           if (*p==' ') espacios++;
+           if (*p=='e') letras_e++;
+           p++;
+           }
+     printf( "En la cadena \"%s\" hay:\n", cadena );
+     printf( "  %i espacios\n", espacios );
+     printf( "  %i letras e\n", letras_e );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>Para recorrer la cadena necesitamos un puntero <VAR>p</VAR> que sea de tipo char. Debemos hacer que <VAR>p</VAR> apunte a la cadena (p=cadena). Así <VAR>p</VAR> apunta a la dirección del primer elemento de la cadena. El valor de <VAR>*p</VAR> sería por tanto 'G'. Comenzamos el bucle. La condición comprueba que no se ha llegado al final de la cadena (*p!='\0'), recordemos que '\0' es quien marca el final de ésta. Entonces comprobamos si en la dirección a la que apunta <VAR>p</VAR> hay un espacio o una letra e. Si es así incrementamos las variables correspondientes. Una vez comprobado esto pasamos a la siguiente letra (<VAR>p++</VAR>).</P>
+
+<P>Dos cosas muy importantes: primero no debemos olvidarnos nunca de inicializar un puntero, en este caso hacer que apunte a <VAR>cadena</VAR>. Segundo no debemos olvidarnos de incrementar el puntero dentro del bucle (p++), sino estaríamos en un bucle infinito siempre comprobando el primer elemento.
+</P>
+
+<P>En la condición del bucle podíamos usar simplemente: while (!*p), que es equivalente a (*p!='\0').
+</P>
+
+
+<P>En este otro ejemplo sustituímos los espacios por guiones:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main()
+     {
+     char cadena[]="Gorka es un tipo estupendo";
+     char *p;
+
+     p = cadena;
+     while (*p!='\0')
+           {
+           if (*p==' ') *p = '-';
+           p++;
+           }
+     printf( "La cadena queda: \"%s\" \n", cadena );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>y se obtiene:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+La cadena queda: "Gorka-es-un-tipo-estupendo"
+</PRE></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+
+
+
+<!-- TÍTULO DE NIVEL 1 ------------------------------------------------------>
+<BR><A NAME="arrays"></A><H2>
+	Arrays de cadenas
+</H2>
+
+<P>Un array de cadenas puede servirnos para agrupar una serie de mensajes. Por ejemplo todos los mensajes de error de un programa. Luego para acceder a cada mensaje basta con usar su número.
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int error( int errnum )
+    {
+    char *errores[] = {
+         "No se ha producido ningún error",
+         "No hay suficiente memoria",
+         "No hay espacio en disco",
+         "Me he cansado de trabajar"
+         };
+
+    printf( "Error número %i: %s.\n", errnum, errores[errnum] );
+    exit( -1 );
+    }
+
+int main()
+     {
+     error( 2 );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<P>El resultado será:
+</P>
+
+<DIV CLASS="ejemplo"><PRE>
+Error número 2: No hay espacio en disco.
+</PRE></DIV>
+
+<P>Un array de cadenas es en realidad un array de punteros a cadenas. El primer elemento de la cadena ("No se ha producido ningún error") tiene un espacio reservado en memoria y <VAR>errores[0]</VAR> apunta a ese espacio.
+</P>
+
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+
+
+
+
+<!-- TÍTULO DE NIVEL 1 ------------------------------------------------------>
+<BR><A NAME="ordenar"></A><H2>
+	Ordenar un array de cadenas
+</H2>
+
+<P>Vamos a ver un sencillo ejemplo de ordenación de cadenas. En el ejemplo tenemos que ordenar una 
+serie de dichos populares:
+</P>
+
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+#define ELEMENTOS       5
+
+int main()
+     {
+     char *dichos[ELEMENTOS] = {
+         "La avaricia rompe el saco",
+         "Más Vale pájaro en mano que ciento volando",
+         "No por mucho madrugar amanece más temprano",
+         "Año de nieves, año de bienes",
+         "A caballo regalado no le mires el diente"
+         };
+     char *temp;
+     int i, j;
+
+     printf( "Lista desordenada:\n" );
+     for( i=0; i&lt;ELEMENTOS; i++ )
+          printf( "  %s.\n", dichos[i] );
+     for( i=0; i&lt;ELEMENTOS-1; i++ )
+          for( j=0; j&lt;ELEMENTOS; j++ )
+               if (strcmp(dichos[i], dichos[j])&gt;0)
+                  {
+                  temp = dichos[i];
+                  dichos[i] = dichos[j];
+                  dichos[j] = temp;
+                  }
+     printf( "Lista ordenada:\n" );
+     for( i=0; i&lt;ELEMENTOS; i++ )
+          printf( "  %s.\n", dichos[i] );
+     }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<p>Este método se conoce como el método de burbuja.</p>
+<P>Cómo funciona el programa:<BR>
+</P>
+
+<P>1.- Tomamos el primer elemento de la matriz. Lo comparamos con todos los siguientes. Si alguno es anterior los intercambiamos. Cuando acabe esta primera vuelta tendremos "A caballo regalado no le mires el diente" en primera posición.
+</P>
+
+<P>2.- Tomamos el segundo elemento. Lo comparamos con el tercero y siguientes. Si alguno es anterior los intercambiamos. Al final de esta vuelta quedará "A caballo regalado no le mires el diente" en segunda posición.
+</P>
+
+<P>Para mayor claridad (eso espero) voy a sustituir cada cadena por su primera letra (menos la de "Año de nieves..." que la sustituyo por Añ). Y así represento el proceso:
+</P>
+
+
+<DIV CLASS="ejemplo"><PRE>
+   0    1    2    3    3'   4    4'   5    6    6'   7    7'   8    8'   9    9'   10  10'
+1  L    <B>L</B>    <B>L</B>    <B>L</B>    <B>Añ</B>   <B>Añ</B>   <B>A</B>
+2  M    <B>M</B>    M    M    M    M    M    <B>M</B>    <B>M</B>    <B>L</B>    <B>L</B>    <B>Añ</B>
+3  N    N    <B>N</B>    N    N    N    N    <B>N</B>    N    N    N    N    <B>N</B>    <B>M</B>    <B>M</B>    <B>L</B>
+4  Añ   Añ   Añ   <B>Añ</B>   <B>L</B>    L    L    L    <B>L</B>    <B>M</B>    M    M    <B>M</B>    <B>N</B>    N    N    <B>N</B>    <B>M</B>
+5  A    A    A    A    A    <B>A</B>    <B>Añ</B>   Añ   Añ   Añ   <B>Añ</B>   <B>L</B>    L    L   <B> L</B>    <B>M</B>    <B>M</B>    <B>N</B>
+</PRE></DIV>
+
+
+
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+
+
+<!-- TÍTULO DE NIVEL 1 ------------------------------------------------------>
+<BR><A NAME="ejercicios"></A><H2>
+	Ejercicios
+</H2>
+
+
+<p><B><U>Ejercicio 1:</U></B> Crear un programa que tome una frase e imprima cada una de las palabras
+en una línea:</p>
+
+<DIV CLASS="ejemplo"><PRE>Introduzca una frase: <b>La programación en C es divertida</b>
+Resultado:
+La
+programación
+en
+C
+es
+divertida</PRE></DIV>
+
+<p><u><B>Solución</B></u>:
+</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main() {
+    char frase[100];
+    int i = 0;
+    
+    printf( "Escriba una frase: " );
+    gets( frase );
+    printf( "Resultado:\n" );
+    while ( frase[i]!='\0' ) {
+        if ( frase[i]==' ' )
+                printf( "\n" );
+        else
+                printf( "%c", frase[i] );  
+        i++;  
+    }
+    system( "pause" );
+    return 0;
+}
+</PRE></DIV>
+
+<p><B><U>Ejercicio 2:</U></B> Escribe un programa que después de introducir una 
+  palabra convierta alternativamente las letras a mayúsculas y minúsculas:</p>
+<DIV CLASS="ejemplo"><PRE>Introduce una palabra: <b>chocolate</b>
+Resultado: ChOcoLaTe</PRE></DIV>
+<p><B><U>Solución:</U></B> </p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main() {
+    char palabra[100];
+    int i = 0, j = 0;
+    
+    printf( "Escribe una palabra: " );
+    gets( palabra );
+    printf( "Resultado:\n" );
+    while ( palabra[i]!='\0' ) {
+        if ( j==0 )
+                printf( "%c", toupper( palabra[i] ) );
+        else
+                printf( "%c", tolower( palabra[i] ) );  
+        j = 1 - j;
+        i++;
+    }
+    printf( "\n" );
+    system( "pause" );
+    return 0;
+}
+</PRE></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+
+
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" --> 
+<a href="cursoc11.html" class="barranav">[Anterior]</a> <a href="cursoc13.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+</BODY>
+
+<!-- InstanceEnd --></HTML>

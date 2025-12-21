@@ -1,0 +1,457 @@
+<HTML>
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Las buenas costumbres</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="description" content="Curso de C - Introducción">
+<meta name="keywords" content="Programación, Curso de C, C">
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    h3 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 14pt;
+        font-weight: bold;
+        color: #006600;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: right;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+        display: block;
+        margin: 10px auto;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+    
+    .texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .ejemplo pre {
+        margin: 0;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    b, strong {
+        color: #006600;
+    }
+    
+    u {
+        color: #006600;
+    }
+    
+    ol.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    ol.texto li {
+        margin: 10px 0;
+    }
+    
+    table[border="1"] {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    table[border="1"] td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    table[border="1"] th {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+    
+    center {
+        text-align: center;
+    }
+    
+    font[color="#ff0000"] {
+        color: #ff0000;
+    }
+    
+    font[color="#0000ff"] {
+        color: #0000ff;
+    }
+    
+    blockquote.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+        font-style: italic;
+    }
+    
+    em {
+        font-style: italic;
+    }
+    
+    .comprobado {
+        font-size: 10px;
+        color: #666;
+        display: block;
+        margin-top: 5px;
+    }
+    
+    pre code {
+        color: #006600;
+    }
+    
+    .coment {
+        color: #666;
+        font-style: italic;
+    }
+    
+    .enlace {
+        text-decoration: none;
+        color: #006600;
+    }
+    
+    .enlace:hover {
+        text-decoration: underline;
+    }
+    
+    .mini {
+        font-size: 10px;
+        color: #666;
+    }
+    
+    dl.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    dl.texto dt {
+        font-weight: bold;
+        color: #006600;
+        margin-top: 10px;
+    }
+    
+    dl.texto dd {
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+    
+    p {
+        margin: 10px 0;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://sic.cultura.gob.mx/imagenes_cache/universidad_4269_g_74422.png" alt="Curso de C" border="0" style="width: 300px; height: auto; max-width: 300px;">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com" border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" --><h1>Las buenas costumbres</h1><!-- InstanceEndEditable --> 
+
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" --> 
+<a href="cursoc21.html" class="barranav">[Anterior]</a> <a href="cursoc-mat.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" -->
+
+
+<P>En esta sección voy a tratar de dar unas indicaciones de cual es la forma más correcta de programar. Qué aspecto dar al código fuente para que sea más legible y elegante, cómo distribuir el código fuente en distintos ficheros...</P>
+
+
+<A NAME="aspecto"></A>
+<H2>
+	Aspecto del código
+</H2>
+
+<P>Observa el siguiente código:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+int main(void){ char cadena[20]; printf("Introduce una cadena:");fflush(stdout);
+gets(cadena);printf("has escrito: %s",cadena);return 0;}
+</PRE></DIV>
+
+<P>Ahora compáralo con este otro:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main(void)
+     {
+     char cadena[20];
+     printf( "Introduce una cadena:" );
+     fflush(stdout);
+     gets(cadena);
+     printf("has escrito: %s",cadena);
+     return 0;
+     }
+</PRE></DIV>
+
+<P>Creo que está claro cual es más conveniente. Si tienes que entregar una práctica de clase bien hecha recomendamos la segunda forma. Pero si tu código fuente es una chapuza y no sabes bien lo que estás haciendo recomendamos la primera (es una pesadilla intentar corregir un programa así). Por supuesto no me hago responsable de la posible mala leche del profesor.</p>
+
+<p>Desde luego no es la única forma ni la más correcta, es simplemente mi estilo. Cada uno tiene su estilo personal, aunque conviene que tampoco sea 'muy personal' si es para compartirlo. Otra forma muy habitual es poner '{' justo después de la función:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main(void) {
+     char cadena[20];
+     printf( "Introduce una cadena:" );
+     fflush(stdout);
+     gets(cadena);
+     printf("has escrito: %s",cadena);
+     return 0;
+     }
+</PRE></DIV>
+
+<p class="volver"><a href="#arriba" >[Arriba]</a></p>
+
+<A NAME="comentarios"></A>
+<H2>
+	Los Comentarios
+</H2>
+
+<P>El código fuente debe estar bien documentado, de tal forma que si se lo pasamos a otra persona pueda entenderlo sin grandes dificultades. Quizá pienses: "mi código es mío y nunca se lo voy a dejar a nadie, así que para que voy a comentarlo". Parece lógico, pero imagina que lo abandonas y en el futuro quieres retocar el programa. Es muy probable que olvides por qué hiciste tal o cual cosa, (pasa muy a menudo, lo digo por experiencia) y tienes que pasarte un montón de tiempo descifrando algo que en su día entendiste perfectamente.
+
+<P>Aquí tienes un ejemplo de un programa mal comentado:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main(void)  /* declaro la función main */
+     {  /* Abro llaves */
+     char cadena[20];   /* declaro una variable llamada cadena */
+     printf( "Introduce una cadena:" );  /* Imprimo el mensaje 'Introduce una cadena */
+     fflush(stdout);  /* vacío el buffer de salida */
+     gets(cadena);   /* pregunto por el valor de cadena */
+     printf("has escrito: %s",cadena);   /* muestro el valor que han introducido */
+     return 0;  /* hago que el programa devuelva el valor 0;
+     }  /* cierro llaves */
+</PRE></DIV>
+
+<P>Estos comentarios están bien si el código forma parte de algún curso, pero no de un programa serio. Todo el mundo (que lleva un tiempo programando en C) sabe que con 'int main (void)' se declara una función y que con 'char cadena[20]' se declara una variable.</p>
+
+<p>Los comentarios deben decirnos qué es lo que hace el programa, para qué sirven las variables y explicar las partes críticas o confusas del programas. Algo mas correcto sería:</P>
+
+<DIV CLASS="ejemplo"><PRE>
+/* Programa ejemplo creado para el Curso de C para Principiantes */
+
+#include &lt;stdio.h&gt;
+
+int main(void)
+     {
+     char cadena[20];  /* En la variable cadena se almacenará el valor a introducir */
+     printf( "Introduce una cadena:" );
+     fflush(stdout);
+     gets(cadena);
+     printf("has escrito: %s",cadena);
+     return 0;
+     }
+</PRE></DIV>
+
+<p class="mini">Este programa es tan sencillo que no tiene puntos <I>oscuros</I> para comentar.</p>
+
+<P>Es importante indicar para qué se van a usar las variables. Cuando tengamos muchas y pase el tiempo es difícil descifrar para que era cada una.</p>
+
+<p class="volver"><a href="#arriba" >[Arriba]</a></p>
+
+<A NAME="variables"></A>
+<H2>
+	Los nombres de las variables
+</H2>
+
+<p>Cuando hacemos un programa con prisas o por no pensar mucho damos a las variables cualquier nombre. Supongamos un programa como éste</p>
+
+<DIV CLASS="ejemplo"><PRE>
+     int i, j, k;
+     char a, b, c;
+     double x1, x2, x3, x4;
+     char an1, ab, ac, ad, ae;
+     /* ... muchas más variables */
+</PRE></DIV>
+
+<p>Cómo podemos acordarnos al de un tiempo de qué era cada variable. Por eso es conveniente que aparte de indicar para qué sirve cada variable les demos nombres descriptivos:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+     int num_enemigos;    /* Número de enemigos en escanario */
+     int personaje_x, personaje_y;   /* Coordenadas del personaje */
+     char balas;  /* Balas en cartuchera */
+     char vida;   /* Vida restante */
+     char arma;  /*modelo del arma */
+     /* ... etc */
+</PRE></DIV>
+
+<p class="volver"><a href="#arriba" >[Arriba]</a></p>
+
+
+
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" --> 
+<a href="cursoc21.html" class="barranav">[Anterior]</a> <a href="cursoc-mat.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+</BODY>
+</HTML>

@@ -1,0 +1,718 @@
+<HTML><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Punteros</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="description" content="Curso de C - Introducción">
+<meta name="keywords" content="Programación, Curso de C, C">
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: right;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+        display: block;
+        margin: 10px auto;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+    
+    .texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .ejemplo pre {
+        margin: 0;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    b, strong {
+        color: #006600;
+    }
+    
+    u {
+        color: #006600;
+    }
+    
+    ol.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    ol.texto li {
+        margin: 10px 0;
+    }
+    
+    table[border="1"] {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    table[border="1"] td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    table[border="1"] th {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+    
+    center {
+        text-align: center;
+    }
+    
+    font[color="#ff0000"] {
+        color: #ff0000;
+    }
+    
+    font[color="#0000ff"] {
+        color: #0000ff;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://sic.cultura.gob.mx/imagenes_cache/universidad_4269_g_74422.png" alt="Curso de C" border="0" style="width: 300px; height: auto; max-width: 300px;">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com"  border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" -->
+<h1>Punteros</h1>
+<!-- InstanceEndEditable --> 
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" --> 
+<a href="cursoc8.html" class="barranav">[Anterior]</a> <a href="cursoc10.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" -->
+<a name="arriba"></a>
+
+<A NAME="contenido"></A>
+<H2>
+	Contenido del Capítulo:
+</H2>
+<UL>
+<li><A HREF="#intro">Introducción</A><BR>
+<li><A HREF="#direcciones">Direcciones de variables</A>
+<li><A HREF="#memoria">La memoria del ordenador</A>
+<li><A HREF="#queson">Que son los punteros</A>
+<li><A HREF="#paraque">Para qué sirve un puntero y cómo se usa</A>
+<li><A HREF="#comparacion">Usando punteros en una comparación</A>
+<li><A HREF="#funciones">Punteros como argumentos en funciones</A>
+<li><A HREF="#ejercicios">Ejercicios</A>
+</UL>
+
+
+<A NAME="intro"></A>
+<H2>
+	Introducción
+</H2>
+
+
+<p><FONT COLOR=#ff0000><B>Este capítulo puede resultar problemático a aquellos que no han visto nunca lo que es un puntero. Por lo tanto si tienes alguna duda o te parece que alguna parte está poco clara ponte en contacto conmigo.
+</B></FONT></p>
+
+<p>Punteros!!! uff. Si hasta ahora te había parecido complicado prepárate. Este 
+  es uno de los temas que más suele costar a la gente al aprender C. Los punteros 
+  son una de las más potentes características de C, pero a la vez uno de sus mayores 
+  peligros. Los punteros nos permiten acceder directamente a cualquier parte de 
+  la memoria. Esto da a los programas <B><FONT COLOR="#0000ff" SIZE="+2" FACE="Comic Sans MS, Arial">C</FONT></B> 
+  una gran potencia. Sin embargo son una fuente ilimitada de errores. Un error 
+  usando un puntero puede bloquear el sistema (si usamos ms-dos o win95, no en 
+  Linux) y a veces puede ser difícil detectarlo.</p>
+
+
+<p>Otros lenguajes no nos dejan usar punteros para evitar estos problemas, pero a la vez nos quitan parte del control que tenemos en C. No voy a entrar a discutir si es mejor o no poder usar punteros, aunque pienso que es mejor. Yo me voy a limitar a explicar cómo funcionan.</p>
+
+
+<p>A pesar de todo esto no hay que tenerles miedo. Casi todos los programas <B><FONT COLOR="#0000ff" SIZE="+2" FACE="Comic Sans MS, Arial">C</FONT></B> usan punteros. Si aprendemos a usarlos bien no tendremos mas que algún problema esporádico. Así que atención, valor y al toro.</p>
+
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="memoria"></A>
+<H2>
+	La memoria del ordenador
+</H2>
+
+
+<p>Si tienes bien claro lo que es la memoria del ordenador puedes saltarte esta sección. Pero si confundes la memoria con el disco duro o no tienes claro lo que es no te la pierdas.</p>
+
+
+<p>A lo largo de mi experiencia con ordenadores me he encontrado con mucha gente que no tiene claro cómo funciona un ordenador. Cuando hablamos de memoria nos estamos refiriendo a la memoria RAM del ordenador. Son unas <I>pastillas</I> que se conectan a la placa base y nada tienen que ver con el disco duro. El disco duro guarda los datos permanentemente (hasta que se rompe) y la información se almacena como ficheros. Nosotros podemos decirle al ordenador cuándo grabar, borrar, abrir un documento, etc. La memoria Ram en cambio, se borra al apagar el ordenador. La memoria Ram la usan los programas sin que el usuario de éstos se de cuenta.</p>
+
+
+<p>Para hacernos una idea, hoy en dia la memoria se mide en MegaBytes (suelen ser 16, 32, 64, 128Mb) y los discos duros en GigaBytes (entre 3,4 y 70Gb, o mucho más).</p>
+
+<p>Hay otras memorias en el ordenador aparte de la mencionada. La memoria de video (que está en la tarjeta gráfica), las memorias caché (del procesador, de la placa...) y quizás alguna más que ahora se me olvida.</p>
+
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="direcciones"></A>
+<H2>
+	Direcciones de variables
+</H2>
+
+<p>Vamos a ir como siempre por partes. Primero vamos a ver qué pasa cuando declaramos una variable.</p>
+
+
+<p>Al declarar una variable estamos diciendo al ordenador que nos reserve una parte de la memoria para almacenarla. Cada vez que ejecutemos el programa la variable se almacenará en un sitio diferente, eso no lo podemos controlar, depende de la memoria disponible y otros factores misteriosos. Puede que se almacene en el mismo sitio, pero es mejor no fiarse. Dependiendo del tipo de variable que declaremos el ordenador nos reservará más o menos memoria. Como vimos en el capítulo de tipos de datos cada tipo de variable ocupa más o menos bytes. Por ejemplo si declaramos un char, el ordenador nos reserva 1 byte (8 bits). Cuando finaliza el programa todo el espacio reservado queda libre.</p>
+
+
+<p>Existe una forma de saber qué direcciones nos ha reservado el ordenador. Se trata de usar el operador <B>&</B> (operador de dirección). Vamos a ver un ejemplo: Declaramos la variable 'a' y obtenemos su valor y dirección.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     int a;
+
+     a = 10;
+     printf( "Dirección de a = %p, valor de a = %i\n", &a, a );
+     }
+</PRE></DIV>
+
+<p>Para mostrar la dirección de la variable usamos %p en lugar de %i, sirve para escribir direcciones de punteros y variables. El valor se muestra en hexadecimal.</p>
+
+
+<p>No hay que confundir el valor de la variable con la dirección donde está almacenada la variable. La variable 'a' está almacenada en un lugar determinado de la memoria, ese lugar no cambia mientras se ejecuta el programa. El valor de la variable puede cambiar a lo largo del programa, lo cambiamos nosotros. Ese valor está almacenado en la dirección de la variable. El nombre de la variable es equivalente a poner un nombre a una zona de la memoria. Cuando en el programa escribimos 'a', en realidad estamos diciendo, "el valor que está almacenado en la dirección de memoria a la que llamamos 'a'".</p>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="queson"></A>
+<H2>
+	Que son los punteros
+</H2>
+
+
+<p>Ahora ya estamos en condiciones de ver lo que es un puntero. Un puntero es una variable un tanto especial. Con un puntero podemos almacenar direcciones de memoria. En un puntero podemos tener guardada la dirección de una variable.</p>
+
+
+<p>Vamos a ver si cogemos bien el concepto de puntero y la diferencia entre éstos y las variables <I>normales</I>.</p>
+
+
+<CENTER><IMG SRC="punteros1.jpg" WIDTH="133" HEIGHT="155" ALT=""></CENTER>
+
+
+<p>En el dibujo anterior tenemos una representación de lo que sería la memoria del ordenador. Cada casilla representa un byte de la memoria. Y cada número es su dirección de memoria. La primera casilla es la posición 00001 de la memoria. La segunda casilla la posición 00002 y así sucesivamente.
+</p>
+
+<p>Supongamos que ahora declaramos una variable char: <I><B>char numero = 43</B></I>. El ordenador nos guardaría por ejemplo la posición 00003 para esta variable. Esta posición de la memoria queda reservada y ya no la puede usar nadie más. Además esta posición a partir de ahora se le llama <I>numero</I>. Como le hemos dado el valor 43 a numero, el valor 43 se almacena en numero, es decir, en la posición 00003.</p>
+
+
+<CENTER><IMG SRC="punteros2.jpg" WIDTH="194" HEIGHT="155" ALT=""></CENTER>
+
+
+<p>Si ahora usáramos el programa anterior:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     int numero;
+
+     numero = 43;
+     printf( "Dirección de numero = %p, valor de numero = %i\n", &numero, numero );
+     }
+</PRE></DIV>
+
+<p>El resultado sería:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+Dirección de numero = <B>00003</B>, valor de numero = <B>43</B>
+</PRE></DIV>
+
+<p>Creo que así ya está clara la diferencia entre el valor de una variable (43) y su dirección (00003). Ahora vamos un poco más allá, vamos a declarar un puntero. Hemos dicho que un puntero sirve para almacenar la direcciones de memoria. Muchas veces los punteros se usan para guardar las direcciones de variables. Vimos en el capítulo Tipos de Datos que cada tipo de variable ocupaba un espacio distinto. Por eso cuando declaramos un puntero debemos especificar el tipo de datos cuya dirección almacenará. En nuestro ejemplo queremos que almacene la dirección de una variable char.  Así que para declarar el puntero <B>punt</B> debemos hacer:</p>
+
+
+<DIV CLASS="ejemplo"><PRE>
+char *punt;
+</PRE></DIV>
+
+<p>El * (asterisco) sirve para indicar que se trata de un puntero, debe ir justo antes del nombre de la variable, sin espacios. En la variable punt sólo se pueden guardar direcciones de memoria, no se pueden guardar datos. Vamos a volver sobre el ejemplo anterior un poco ampliado para ver cómo funciona un puntero:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     int numero;
+     int *punt;
+
+     numero = 43;
+     punt = &numero;
+     printf( "Dirección de numero = %p, valor de numero = %i\n", &numero, numero );
+     }
+</PRE></DIV>
+
+<p>Vamos a ir línea a línea:</p>
+<UL class="texto">
+<li>En la primera <I>int numero</I> reservamos memoria para numero (supongamos que queda como antes, posición 00003). Por ahora numero no tiene ningún valor.
+<li>Siguiente línea: <I>int *punt;</I>. Reservamos una posición de memoria para almacenar el puntero. Lo normal es que según se declaran variables se guarden en posiciones contiguas. De modo que quedaría en la posición 00004. Por ahora punt no tiene ningún valor, es decir, no apunta a ninguna variable. Esto es lo que tenemos por ahora:
+</UL>
+
+<CENTER><IMG SRC="punteros3.jpg" WIDTH="194" HEIGHT="155" ALT=""></CENTER>
+
+<UL class="texto">
+
+<LI>Tercera línea: <I>numero = 43;</I>. Aquí ya estamos dando el valor 43 a numero. Se almacena 43 en la dirección 00003, que es la de numero.
+<LI>Cuarta línea: <I>punt = &numero;</I>. Por fin damos un valor a punt. El valor que le damos es la dirección de numero (ya hemos visto que & devuelve la dirección de una variable). Así que punt tendrá como valor la dirección de numero, 00003. Por lo tanto ya tenemos:
+</UL>
+
+<CENTER><IMG SRC="punteros4.jpg" WIDTH="194" HEIGHT="155" ALT=""></CENTER>
+
+
+<p>Cuando un puntero tiene la dirección de una variable se dice que ese puntero <B>apunta</B> a esa variable.</p>
+
+
+<p><B><U>NOTA:</U></B> La declaración de un puntero depende del tipo de dato al que queramos apuntar. En general la declaración es:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+tipo_de_dato *nombre_del_puntero;
+</PRE></DIV>
+
+<p>Si en vez de querer apuntar a una variable tipo char como en el ejemplo hubiese sido de tipo int:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+int *punt;
+</PRE></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="paraque"></A>
+<H2>
+	Para qué sirve un puntero y cómo se usa
+</H2>
+
+
+<p>Los punteros tienen muchas utilidades, por ejemplo nos permiten pasar argumentos (o parámetros) a una función y modificarlos. También permiten el manejo de cadenas y de arrays. Otro uso importante es que nos permiten acceder directamente a la pantalla, al teclado y a todos los componenetes del ordenador. Pero esto ya lo veremos más adelante.</p>
+
+
+<p>Pero si sólo sirvieran para almacenar direcciones de memoria no servirían para mucho. Nos deben dejar también la posibilidad de acceder a esas posiciones de memoria. Para acceder a ellas se usa el operador *, que no hay que confundir con el de la multiplicación.</p>
+
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     int numero;
+     int *punt;
+
+     numero = 43;
+     punt = &numero;
+     printf( "Dirección de numero = %p, valor de numero = %i\n", &numero, <B><U>*punt</U></B> );
+     }
+</PRE></DIV>
+
+<p>Si nos fijamos en lo que ha cambiado con respecto al ejemplo anterior, vemos que para acceder al valor de número usamos *punt en vez de numero. Esto es así porque punt apunta a numero y *punt nos permite acceder al valor al que apunta punt.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     int numero;
+     int *punt;
+
+     numero = 43;
+     punt = &numero;
+     *punt = 30;
+     printf( "Dirección de numero = %p, valor de numero = %i\n", &numero, numero );
+     }
+</PRE></DIV>
+
+<p>Ahora hemos cambiado el valor de numero a través de *punt.</p>
+
+
+<p>En resumen, usando punt podemos apuntar a una variable y con *punt vemos o cambiamos el contenido de esa variable.</p>
+
+
+<p>Un puntero no sólo sirve para apuntar a una variable, también sirve para apuntar 
+  una dirección de memoria determinada. Esto tiene muchas aplicaciones, por ejemplo 
+  nos permite controlar el hardware directamente (en MS-Dos y Windows, no en Linux). 
+  Podemos escribir directamente sobre la memoria de video y así escribir directamente 
+  en la pantalla sin usar printf.</p>
+
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="comparacion"></A>
+<H2>
+	Usando punteros en una comparación
+</H2>
+
+<p>Veamos el siguiente ejemplo. Queremos comprobar si dos variables son iguales usando punteros:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     int a, b;
+     int *punt1, *punt2;
+
+     a = 5; b = 5;
+     punt1 = &a; punt2 = &b;
+
+     if ( punt1 == punt2 )
+     printf( "Son iguales\n" );
+     }
+</PRE></DIV>
+
+<p>Alguien podría pensar que el <I>if</I> se cumple y se mostraría el mensaje <I>Son iguales</I> en pantalla. Pues no es así, el programa es erróneo. Es cierto que a y b son iguales. También es cierto que punt1 apunta a 'a' y punt2 a 'b'. Lo que queríamos comprobar era si a y b son iguales. Sin embargo con la condición estamos comprobando si punt1 apunta al mismo sitio que punt2, estamos comparando las direcciones donde apuntan. Por supuesto a y b están en distinto sitio en la memoria así que la condición es falsa. Para que el programa funcionara deberíamos usar los asteriscos:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     int a, b;
+     int *punt1, *punt2;
+
+     a = 5; b = 5;
+     punt1 = &a; punt2 = &b;
+
+     if ( <B>*punt1 == *punt2</B> )
+     printf( "Son iguales\n" );
+     }
+</PRE></DIV>
+
+<p>Ahora sí. Estamos comparando el contenido de las variables a las que apuntan punt1 y punt2. Debemos tener mucho cuidado con esto porque es un error que se cuela con mucha facilidad.</p>
+
+
+<p>Vamos a cambiar un poco el ejemplo. Ahora 'b' no existe y punt1 y punt2 apuntan a 'a'. La condición se cumplirá porque apuntan al mismo sitio.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     int a;
+     int *punt1, *punt2;
+
+     a = 5;
+     <B>punt1 = &a; punt2 = &a;</B>
+
+     if ( punt1 == punt2 )
+     printf( "punt1 y punt2 apuntan al mismo sitio\n" );
+     }
+</PRE></DIV>
+
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="funciones"></A>
+<H2>
+	Punteros como argumentos de funciones
+</H2>
+
+<p>Hemos visto en el capítulo de funciones cómo pasar parámetros y cómo obtener resultados de las funciones (con los valores devueltos con return). Pero tiene un inconveniente, sólo podemos tener un valor devuelto. Ahora vamos a ver cómo los punteros nos permites modificar varias variables en una función.</p>
+
+
+<p>Hasta ahora para pasar una variable a una función hacíamos lo siguiente:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int suma( int a, int b )
+     {
+     return a+b;
+     }
+
+int main()
+     {
+     int var1, var2, resultado;
+
+     var1 = 5; var2 = 8;
+	 resultado = suma(var1, var2);
+     printf( "La suma es : %i\n", resultado );
+     }
+</PRE></DIV>
+
+<p>Bien aquí hemos pasado a la función los parámetros 'a' y 'b' (que no podemos modificar) y nos devuelve la suma de ambos. Supongamos ahora que queremos tener la suma pero además queremos que var1 se haga cero dentro de la función. Para eso haríamos lo siguiente:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int suma( <B>int *a</B>, int b )
+     {
+     int c;
+
+     c = *a + b;
+     *a = 0;
+     return c;
+     }
+
+int main()
+     {
+     int var1, var2, resultado;
+
+     var1 = 5; var2 = 8;
+	 resultado = suma(<B>&var1</B>, var2);
+     printf( "La suma es: %i y a vale: %i\n", resultado , var1 );
+     }
+</PRE></DIV>
+
+<p>Fijémonos en lo que ha cambiado (con letra en negrita): En la función suma hemos declarado 'a' 
+como puntero. En la llamada a la función (dentro de main) hemos puesto & para pasar la dirección 
+de la variable var1. Ya sólo queda hacer cero a var1 a través de *a=0.</p>
+
+<p>También usamos una variable 'c' que nos servirá para almacenar la suma de 'a' y 'b'.</p>
+
+<p>Es importante no olvidar el operador & en la llamada a la función ya que sin el no estaríamos 
+pasando la dirección de la variable sino cualquier otra cosa.</p>
+
+
+<p>Podemos usar tantos punteros como queramos en la definición de la función. </p>
+
+<p><b>NOTA IMPORTANTE</b>: Existe la posibilidad de hacer el ejercicio de esta otra manera, sin usar la variable
+<i>resultado</i> (de hecho, en una versión
+anterior del curso estaba así):</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int suma( <B>int *a</B>, int b )
+     {
+     int c;
+
+     c = *a + b;
+     *a = 0;
+     return c;
+     }
+
+int main()
+     {
+     int var1, var2;
+
+     var1 = 5; var2 = 8;
+     printf( "La suma es: %i y a vale: %i\n", suma(<B>&var1</B>, var2) , var1 );
+     }
+</PRE></DIV>
+
+Sin embargo, esto puede dar problemas, ya que no podemos asegurar de cómo va a evaluar el compilador
+los argumentos de printf. Es posible que primero almacene el varlor de var1 antes de evaluar <i>suma</i>.
+Si ocurriese así el resultado del programa sería: <i>La suma es 13 y a vale 5</i>, en lugar de 
+<i></i>La suma es 13 y a vale 0</i>.
+
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="ejercicios"></A>
+<H2>
+	Ejercicios
+</H2>
+
+
+<p><B><U>Ejercicio 1:</U></B> Encuentra un fallo muy grave:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     int *a;
+
+     *a = 5;
+     }
+</PRE></DIV>
+
+<p><B>Solución</B>: No hemos dado ninguna dirección al puntero. No sabemos a dónde apunta. Puede apuntar a cualquier sitio, al darle un valor estamos encribiendo en un lugar desconocido de la memoria. Esto puede dar problemas e incluso bloquear el ordenador. Recordemos que al ejecutar un programa éste se copia en la memoria, al escribir en cualquier parte puede que estemos cambiando el programa (en la memoria, no en el disco duro).</p>
+
+
+
+<p><B><U>Ejercicio 2:</U></B> Escribe un programa que de un valor a una variable. Esta sea apuntada por un puntero y sumarle 3 a través del puntero. Luego imprimir el resultado.</p>
+
+<p><B>Solución</B>: Esta es una posible solución:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     int a;
+     int *b;
+
+     a = 5;
+     b = &a;
+     *b += 3;
+     printf( "El valor de a es = %i\n", a );
+     }
+</PRE></DIV>
+
+<p>También se podía haber hecho: printf( "El valor de a es = %i\n", *b );</p>
+
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" --> 
+<a href="cursoc8.html" class="barranav">[Anterior]</a> <a href="cursoc10.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+</BODY>
+
+<!-- InstanceEnd --></HTML>

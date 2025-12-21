@@ -1,0 +1,540 @@
+<HTML>
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Escritura de Ficheros</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="description" content="Curso de C - Escritura de Ficheros">
+<meta name="keywords" content="Programación, Curso de C, C, ficheros, escritura, fopen, fclose, putc, fputs">
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    h3 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 14pt;
+        font-weight: bold;
+        color: #006600;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: right;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+        display: block;
+        margin: 10px auto;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+    
+    .texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .ejemplo pre {
+        margin: 0;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    b, strong {
+        color: #006600;
+    }
+    
+    u {
+        color: #006600;
+    }
+    
+    ol.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    ol.texto li {
+        margin: 10px 0;
+    }
+    
+    table[border="1"] {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    table[border="1"] td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    table[border="1"] th {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+    
+    center {
+        text-align: center;
+    }
+    
+    font[color="#ff0000"] {
+        color: #ff0000;
+    }
+    
+    font[color="#0000ff"] {
+        color: #0000ff;
+    }
+    
+    blockquote.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+        font-style: italic;
+    }
+    
+    em {
+        font-style: italic;
+    }
+    
+    .comprobado {
+        font-size: 10px;
+        color: #666;
+        display: block;
+        margin-top: 5px;
+    }
+    
+    pre code {
+        color: #006600;
+    }
+    
+    .coment {
+        color: #666;
+        font-style: italic;
+    }
+    
+    .enlace {
+        text-decoration: none;
+        color: #006600;
+    }
+    
+    .enlace:hover {
+        text-decoration: underline;
+    }
+    
+    .mini {
+        font-size: 10px;
+        color: #666;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://sic.cultura.gob.mx/imagenes_cache/universidad_4269_g_74422.png" alt="Curso de C" border="0" style="width: 300px; height: auto; max-width: 300px;">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com"  border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" -->
+<h1>Escritura de Ficheros</h1>
+<!-- InstanceEndEditable --> 
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" --> 
+<a href="cursoc19.html" class="barranav">[Anterior]</a> <a href="cursoc21.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" -->
+<a name="arriba"></a>
+
+<A NAME="contenido"></A>
+<H2>
+	Contenido
+</H2>
+
+<UL>
+	<LI><A HREF="#intro" class="enlace">Introducción</A>
+	<LI><A HREF="#escritura" class="enlace">Escritura de un fichero</A>
+	<ul>
+		<li><A HREF="#file" class="enlace">El puntero FILE *</A>
+		<li><A HREF="#fopen" class="enlace">Abrir el fichero - fopen</A>
+		<li><A HREF="#putc" class="enlace">Lectura del origen y escritura en destino- getc y putc</A>
+		<li><A HREF="#fclose" class="enlace">Cerrar el fichero - fclose</A>
+	</ul>
+	<LI><A HREF="#fputs" class="enlace">Escritura de líneas - fputs</A>
+	<LI><A HREF="#ejercicios" class="enlace">Ejercicios</A>
+</UL>
+
+<A NAME="intro"></A>
+<H2>
+	Introducción
+</H2>
+
+<p>En este capítulo vamos a completar la parte que nos faltaba en el anterior capítulo, escribir en un fichero.</p>
+
+<p>Como en el capítulo anterior vamos a verlo con un ejemplo. En este ejemplo abrimos un fichero '<I>origen.txt</I>' y lo copiamos en otro fichero '<I>destino.txt</I>'. Además el fichero se muestra en pantalla. Las partes nuevas están marcadas en negrita para que se vea la diferencia:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+    {
+    FILE *origen, <B>*destino</B>;
+    char letra;
+
+    origen=fopen("origen.txt","r");
+    <B>destino=fopen("destino.txt","w");</B>
+    if (origen==NULL || destino==NULL)
+       {
+       printf( "Problemas con los ficheros.\n" );
+       exit( 1 );
+       }
+    letra=getc(origen);
+    while (feof(origen)==0)
+          {
+          <B>putc(letra,destino);</B>
+          printf( "%c",letra );
+          letra=getc(origen);
+          }
+    if (fclose(origen)!=0)
+       printf( "Problemas al cerrar el fichero origen.txt\n" );
+    <B>if (fclose(destino)!=0)
+       printf( "Problemas al cerrar el fichero destino.txt\n" );</B>
+    }
+</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="escritura"></A>
+<H2>
+	Escritura de un fichero
+</H2>
+
+<A NAME="file"></A>
+<H3>El puntero FILE *</H3>
+
+<p>Como hemos visto en el capítulo anterior el puntero FILE es la base de la escritura/lectura de archivos. Por eso definimos dos punteros FILE:</p>
+
+<ul class="texto">
+<li>el puntero 'origen' donde vamos a almacenar la información sobre el fichero origen.txt y
+<li> 'destino' donde guardamos la del fichero destino.txt (el nombre del puntero no tiene por qué coincidir con el de fichero).
+</ul>
+
+<A NAME="fopen"></A>
+<H3>Abrir el fichero - fopen</H3>
+
+<p>El siguiente paso, como antes, es abrir el fichero usando fopen. La diferencia es que ahora tenemos que abrirlo para escritura. Usamos el modo 'w' (crea el fichero o lo vacía si existe) porque queremos crear un fichero.</p>
+
+<p>Recordemos que después de abrir un fichero hay que comprobar si la operación se ha realizado con éxito. En este caso, como es un sencillo ejemplo, los he comprobado ambos a la vez:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+if (origen==NULL || destino==NULL)
+</PRE></DIV>
+
+<p>pero es más correcto hacerlo por separado así sabemos dónde se está produciendo el posible fallo.</p>
+
+<p>Por comodidad para el lector repito aquí la lista de modos posibles:</p>
+
+<table border="1">
+<tr>
+<td class="texto">r</td>
+<td class="texto">Abre un fichero existente para lectura.</td>
+</tr>
+<tr>
+<td class="texto">w</td>
+<td class="texto">Crea un fichero nuevo (o borra su contenido si existe) y lo abre para escritura.</td>
+</tr>
+<tr>
+<td class="texto">a</td>
+<td class="texto">Abre un fichero (si no existe lo crea) para escritura. El puntero se sitúa al final del archivo, de forma que se puedan añadir datos si borrar los existentes.</td>
+</tr>
+</table>
+
+<p>y los modificadores eran:</p>
+
+<table border="1">
+<tr>
+<td class="texto">b</td>
+<td class="texto">Abre el fichero en modo binario.</td>
+</tr>
+<tr>
+<td class="texto">t</td>
+<td class="texto">Abre el fichero en modo texto.</td>
+</tr>
+<tr>
+<td class="texto">+</td>
+<td class="texto">Abre el fichero para lectura y escritura.</td>
+</tr>
+</table>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="putc"></A>
+<H2>
+	Lectura del origen y escritura en destino- getc y putc
+</H2>
+
+<p>Como se puede observar en el ejemplo la lectura del fichero se hace igual que lo que vimos en el capítulo anterior. Para la escritura usamos la función <strong>putc</strong>:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+int putc(int c, FILE *fichero);</PRE></DIV>
+
+<p>donde <i>c</i> contiene el carácter que queremos escribir en el fichero y el puntero <i>fichero</i> es el fichero sobre el que trabajamos.</p>
+
+<p>De esta forma vamos escribiendo en el fichero <i>destino.txt</i> el contenido del fichero <i>origen.txt</i>.</p>
+
+<A NAME="comprobar"></A>
+<H3>Comprobar fin de fichero</H3>
+
+<p>Como siempre que leemos datos de un fichero debemos comprobar si hemos llegado al final. Sólo debemos comprobar si estamos al final del fichero que leemos. No tenemos que comprobar el final del fichero en el que escribimos puesto que lo estamos creando y aún no tiene final. </p>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="flcose"></A>
+<H2>
+	Cerrar el fichero - fclose
+</H2>
+
+<p>Y por fin lo que nunca debemos olvidar al trabajar con ficheros: cerrarlos. Debemos cerrar tanto los ficheros que leemos como aquellos sobre los que escribimos.</p>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="fputs"></A>
+<H2>
+	Escritura de líneas - fputs
+</H2>
+
+<p>La función <strong>fputs</strong> trabaja junto con la función fgets que vimos en el capítulo anterior:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+int fputs(const char *cadena, FILE *fichero);</PRE></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<A NAME="ejercicios"></A>
+<H2>
+	Ejercicios
+</H2>
+
+<A NAME="ejercicio1"></A>
+<H3>Ejercicio 1</H3>
+
+<p>Escribe un programa que lea un fichero y le suprima todas las vocales.
+
+<p>Es decir que siendo el fichero origen.txt:</p>
+
+<pre>El alegre campesino
+pasea por el campo
+ajeno a que el toro
+se acerca por detrás
+</pre>
+
+<p>El fichero destino.txt sea:</p>
+
+<pre>l lgr cmpsn
+ps pr l cmp
+jn  q l tr
+s crc pr dtrás
+</pre>
+
+<A NAME="ejercicio2"></A>
+<H3>Ejercicio 2</H3>
+
+<p>La solución propuesta no elimina las vocales acentuadas, modifica el programa para conseguirlo.</p>
+
+<A NAME="sol1"></A>
+<H3>Solución al ejercicio 1</H3>
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;stdio.h&gt;
+
+int main()
+    {
+    FILE *origen, *destino;
+    char letra;
+
+    origen=fopen("origen.txt","r");
+    destino=fopen("destino.txt","w");
+    if (origen==NULL || destino==NULL)
+       {
+       printf( "Problemas con los ficheros.\n" );
+       exit( 1 );
+       }
+    letra=getc(origen);
+    while (feof(origen)==0)
+          {
+          if (!strchr("AEIOUaeiou",letra)) putc( letra, destino );
+          letra=getc(origen);
+          }
+    if (fclose(origen)!=0)
+       printf( "Problemas al cerrar el fichero origen.txt\n" );
+    if (fclose(destino)!=0)
+       printf( "Problemas al cerrar el fichero destino.txt\n" );
+    }</PRE><DIV CLASS="comprobado">Comprobado con DJGPP</DIV></DIV>
+
+<A NAME="sol2"></A>
+<H3>Solución al ejercicio 2</H3>
+
+<p>Lo único que hay que hacer es añadir "áéíóúÁÉÍÓÚ" a la línea:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+          if (!strchr("AEIOUaeiouáéíóúÁÉÍÓÚ",letra)) putc( letra, destino );</PRE></DIV>
+
+<p class="volver"><a href="#arriba">[Arriba]</a></p>
+
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" --> 
+<a href="cursoc19.html" class="barranav">[Anterior]</a> <a href="cursoc21.html" class="barranav">[Siguiente]</a> 
+<a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+</BODY>
+</HTML>

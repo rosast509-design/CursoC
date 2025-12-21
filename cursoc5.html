@@ -1,0 +1,1135 @@
+<HTML><!-- InstanceBegin template="/Templates/plantilla.dwt" codeOutsideHTMLIsLocked="false" -->
+<HEAD>
+<!-- InstanceBeginEditable name="doctitle" -->
+<TITLE>Curso de C - Manipulando datos (Operadores)</TITLE>
+<!-- InstanceEndEditable --> 
+<meta name="decription" content="Curso de C - Introducción">
+<meta name="keywords" content="Programación, Curso de C, C" >
+<META NAME="GENERATOR" CONTENT="Arachnophilia 3.5">
+<META NAME="FORMATTER" CONTENT="Arachnophilia 3.5">
+<meta name="author" content="Gorka Urrutia">
+<meta name="DC.Creator" content="Gorka Urrutia">
+<META name="robots" content="noindex, nofollow">
+<style type="text/css">
+<!--
+    body {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 12px;
+        background: white;
+        color: #333;
+        line-height: 1.6;
+        margin: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    h1 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 24pt;
+        font-weight: bold;
+        color: #006600;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #006600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-top: 30px;
+    }
+    
+    a:link, a:visited {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .barranavegaciontop, .barranavegacionabajo {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .barranav {
+        font-family: Verdana, Arial, sans-serif;
+        font-weight: bold;
+        color: #006600;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    
+    .barranav:hover {
+        color: #009900;
+        text-decoration: underline;
+    }
+    
+    .volver {
+        text-align: right;
+        margin: 20px 0;
+    }
+    
+    ul {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    li {
+        margin: 10px 0;
+    }
+    
+    .ejemplo {
+        background-color: #f0f0f0;
+        border-left: 4px solid #006600;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    
+    .nota {
+        background-color: #fff8e1;
+        border-left: 4px solid #ff9800;
+        padding: 15px;
+        margin: 15px 0;
+    }
+    
+    .resultado {
+        background-color: #e8f5e8;
+        border-left: 4px solid #4caf50;
+        padding: 15px;
+        margin: 15px 0;
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    img {
+        border: 0;
+    }
+    
+    pre {
+        margin: 0;
+        white-space: pre-wrap;
+    }
+    
+    code {
+        color: #006600;
+    }
+    
+    var {
+        font-style: italic;
+        color: #006600;
+    }
+    
+    .letraC {
+        font-weight: bold;
+        color: #006600;
+    }
+    
+    .texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+    }
+    
+    .ejemplo pre {
+        margin: 0;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+    
+    b, strong {
+        color: #006600;
+    }
+    
+    u {
+        color: #006600;
+    }
+    
+    ol.texto {
+        background-color: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px 40px;
+        margin: 20px 0;
+    }
+    
+    ol.texto li {
+        margin: 10px 0;
+    }
+    
+    table[border="1"] {
+        width: 100%;
+        border: 1px solid #e0e0e0;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    table[border="1"] td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+    }
+    
+    table[border="1"] th {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        background-color: #f9f9f9;
+        font-weight: bold;
+    }
+    
+    center {
+        margin: 20px 0;
+    }
+    
+    .comprobado {
+        font-size: 10px;
+        color: #666;
+        font-style: italic;
+        margin-top: 5px;
+    }
+-->
+</style>
+<!-- InstanceBeginEditable name="head" -->
+
+<!-- InstanceEndEditable -->
+</HEAD>
+<BODY>
+<a name="arriba"></a> 
+
+<table width="100%" border="0">
+<tr>
+<td align="left"><img src="https://sic.cultura.gob.mx/imagenes_cache/universidad_4269_g_74422.png" alt="Curso de C" border="0" style="width: 300px; height: auto; max-width: 300px;">
+</td>
+<td align="right"><a href="http://www.elrincondelc.com" target="_top"><img src="logogrande.gif" alt="El Rincón del C - www.elrincondelc.com"  border="0"></a> 
+</td>
+</tr>
+</table>
+<!-- InstanceBeginEditable name="Titulo" --><h1>Manipulando datos (Operadores)</h1><!-- InstanceEndEditable --> 
+
+<p class="barranavegaciontop"><!-- InstanceBeginEditable name="BarraNavegacion" --> 
+<a href="cursoc4.html" class="barranav">[Anterior]</a> <a href="cursoc6.html" class="barranav">[Siguiente]</a> 
+  <a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+<!-- InstanceBeginEditable name="Cuerpo" -->
+<a name="arriba"></a>
+
+
+
+<A NAME="contenido"></A>
+<H2>
+	Contenido del capítulo
+</H2>
+
+<UL>
+<li><A HREF="#intro">Introducción, ¿Qué es un operador?</A><BR>
+<li><A HREF="#asignacion">Operador = : Asignación</A><BR>
+<li><A HREF="#aritmeticos">Operadores aritméticos</A><BR>
+	<UL>
+		<li><A HREF="#suma">Suma (+)</A><BR>
+		<li><A HREF="#incremento">Incremento (++)</A><BR>
+		<li><A HREF="#resta">Resta/Negativo (-)</A><BR>
+		<li><A HREF="#decremento">Decremento (--)</A><BR>
+		<li><A HREF="#multiplicacion">Multiplicación (*)</A><BR>
+		<li><A HREF="#decremento">División (/)</A><BR>
+		<li><A HREF="#resto">Resto (%)</A><BR>
+	</UL>
+<li><A HREF="#comparacion">Operadores de comparación</A><BR>
+<li><A HREF="#logicos">Operadores lógicos</A><BR>
+<li><A HREF="#bitsbytes">Introducción a los bits y bytes</A><BR>
+<li><A HREF="#bits">Operadores de bits</A><BR>
+<li><A HREF="#sizeof">Operador sizeof</A><BR>
+<li><A HREF="#otros">Otros Operadores</A><BR>
+<li><A HREF="#orden">Orden de evaluación de operadores</A><BR>
+<li><A HREF="#ejercicios">Ejercicios</A><BR>
+</UL>
+
+<A NAME="intro"></A>
+<H2>
+	¿Qué es un operador?
+</H2>
+
+<p>Un operador sirve para manipular datos. Los hay de varios tipos: de asignación, de relación, lógicos, aritméticos y de manipulación de bits. En realidad los nombres tampoco importan mucho; aquí lo que queremos es aprender a programar, no aprender un montón de nombres.</p>
+
+
+<A NAME="asignacion"></A>
+<H2>
+	Operador de asignación
+</H2>
+
+<P>Este es un operador que ya hemos visto en el capítulo de Tipos de Datos. Sirve para dar un valor a una variable. Este valor puede ser un número que tecleamos directamente u otra variable:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	a = 3;		/* Metemos un valor directamente */
+o
+	a = b;		/* Le damos el valor de una variable */
+</PRE></DIV>
+
+<p>Podemos dar valores a varias variables a la vez:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	a = b = c = 10;		/* Damos a las variables a,b,c el valor 10 */
+</PRE></DIV>
+
+<p>También podemos asignar a varias variables el valor de otra de un sólo golpe:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	a = b = c = d;		/* a,b,c toman el valor de d */
+</PRE></DIV>
+
+
+<A NAME="aritmeticos"></A>
+<H2>
+	Operadores aritméticos
+</H2>
+
+<p>Los operadores aritméticos son aquellos que sirven para realizar operaciones tales como suma, resta, división y multiplicación.</p>
+
+<p>Si quieres saber cómo usar funciones matemáticas más complejas (exponentes, raíces, trigonométricas) vete al <A HREF="cursoc70.html">capítulo correspondiente</A>.</p>
+
+
+<A NAME="suma"></A>
+<H2>
+	Operador (+) : Suma
+</H2>
+
+<p>Este operador permite sumar variables:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		int a = 2;
+		int b = 3;
+		int c;
+		
+		c = a + b;
+		printf ( "Resultado = %i\n", c );
+		}
+</PRE></DIV>
+
+<p>El resultado será 5 obviamente.</p>
+
+<p>Por supuesto se pueden sumar varias variables o variables más constantes:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		int a = 2;
+		int b = 3;
+		int c = 1;
+		int d;
+
+		d = a + b + c + 4;
+		printf ( "Resultado = %i\n", c );
+		}
+</PRE></DIV>
+
+<p>El resultado es 10.</p>
+
+<p>Podemos utilizar este operador para incrementar el valor de una variable:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	x = x + 5;
+</PRE></DIV>
+
+<p>Pero existe una forma abreviada:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	x <B>+=</B> 5;
+</PRE></DIV>
+
+<p>Esto suma el valor 5 al valor que tenía la variable x. Veamos un ejemplo:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		int x, y;
+
+		x = 3;
+		y = 5;
+
+		x += 2;
+		printf( "x = %i\n", x );
+		x += y;		/* esto equivale a x = x + y */
+		printf( "x = %i\n", x );	
+		}
+</PRE></DIV>
+
+<p>Resultado:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	x = 5
+	x = 10
+</PRE></DIV>
+
+<A NAME="incremento"></A>
+<H2>
+	Operador (++) : Incremento
+</H2>
+
+<p>Este operador equivale a sumar uno a la variable:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		int x = 5;
+
+		printf ( "Valor de x = %i\n", x );
+		<B>x++</B>;
+		printf ( "Valor de x = %i\n", x );
+		}
+</PRE></DIV>
+
+<p>Resultado:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	Valor de x = 5
+	Valor de x = 6
+</PRE></DIV>
+
+<p>Se puede poner antes o después de la variable.</p>
+
+<A NAME="resta"></A>
+<H2>
+	Operador (-) : Resta/Negativo
+</H2>
+
+<p>Este operador tiene dos usos, uno es la resta que funciona como el operador suma y el otro es cambiar de signo.
+</p>
+
+<p>Resta:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	x = x - 5;
+</PRE></DIV>
+
+<p>Para la operación resta se aplica todo lo dicho para la suma. Se puede usar también como: <B>x -= 5;</B>.</p>
+
+<p>Pero también tiene el uso de cambiar de signo. Poniendolo delante de una variable o constante equivale a multiplicarla por -1.
+</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		int a, b;
+
+		a = 1;
+
+		b = -a;
+		printf( "a = %i, b = %i\n", a, b );
+		}
+</PRE></DIV>
+
+<p>Resultado: a = 1, b = -1. No tiene mucho misterio.</p>
+
+
+<A NAME="decremento"></A>
+<H2>
+	Operador (--) : Decremento
+</H2>
+
+<P>Es equivalente a ++ pero en vez de incrementar disminuye el valor de la variable. Equivale a restar uno a la variable.</p>
+
+
+<A NAME="multiplicacion"></A>
+<H2>
+	Operador (*) : Multiplicación y punteros
+</H2>
+
+<p>Este operador sirve para multiplicar y funciona de manera parecida a los anteriores.</p>
+
+<P>También sirve para definir y utilizar punteros, pero eso lo veremos más tarde.</p>
+
+
+<A NAME="division"></A>
+<H2>
+	Operador (/) : División
+</H2>
+
+<p>Este funciona también como los anteriores pero hay que tener cuidado. Si dividimos dos número en coma flotante (tipo float) tenemos la división con sus correspondientes decimales. Pero si dividimos dos enteros obtenemos un número entero. Es decir que si dividimos 4/3 tenemos como resultado 1.
+El redondeo se hace por truncamiento, simplemente se eliminan los decimales y se deja el entero.</p>
+<p>Si dividimos dos enteros el resultado es un número entero, aunque luego lo saquemos por pantalla usando %f o %d no obtendremos la parte decimal.</p>
+
+<p>Cuando dividimos dos enteros, si queremos saber cual es el resto (o módulo) usamos el operador %, que vemos más abajo.</p>
+
+
+<A NAME="resto"></A>
+<H2>
+	Operador (%) : Resto
+</H2>
+
+<p>Si con el anterior operador obteníamos el módulo o cociente de una división entera con éste podemos tener el resto. No funciona más que con enteros, no vale para números float o double.</p>
+
+<p>Cómo se usa:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		int a, b;
+
+		a = 18;
+		b = 5;
+		printf( "Resto de la división: %d \n", a % b );
+		}
+</PRE></DIV>
+
+
+<A NAME="comparacion"></A>
+<H2>
+	Operadores de comparación
+</H2>
+
+<p>Los operadores de condición se utilizan para comprobar las condiciones de las sentencias de control de flujo (las estudiaremos en el capítulo sentencias).</p>
+
+<p>Cuando se evalúa una condición el resultado que se obtiene es 0 si no se cumple y un número distinto de 0 si se cumple. Normalmente cuando se cumplen devuelven un 1.
+</p>
+
+<p>Los operadores de comparación son:</p>
+
+<TABLE BORDER=1>
+	<TR>
+		<TD>
+			==
+		</TD>
+		<TD>
+			igual que
+		</TD>
+		<TD>
+			se cumple si son iguales
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			!=
+		</TD>
+		<TD>
+			distinto que
+		</TD>
+		<TD>
+			se cumple 1 si son diferentes
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			&gt;
+		</TD>
+		<TD>
+			mayor que
+		</TD>
+		<TD>
+			se cumple si el primero es mayor que el segundo
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			&lt;
+		</TD>
+		<TD>
+			menor que
+		</TD>
+		<TD>
+			se cumple si el primero es menor que el segundo
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			&gt;= 
+		</TD>
+		<TD>
+			mayor o igual que
+		</TD>
+		<TD>
+			se cumple si el primero es mayor o igual que el segundo
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			&lt;= 
+		</TD>
+		<TD>
+			menor o igual que
+		</TD>
+		<TD>
+			se cumple si el primero es menor o igual que el segundo
+		</TD>
+	</TR>
+</TABLE>
+
+<p>Veremos la aplicación de estos operadores en el capítulo <B>Sentencias</B>. Pero ahora vamos a ver unos ejemplos:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		printf( "10 &gt; 5 da como resultado %i\n", 10&gt;5 );
+		printf( "10 &gt; 5 da como resultado %i\n", 10&gt;5 );
+		printf( "5== 5 da como resultado %i\n", 5==5 );
+		printf( "10==5 da como resultado %i\n", 10==5 );
+		}
+</PRE></DIV>
+
+<p>No sólo se pueden comparar constantes, también se pueden comparar variables.</p>
+
+<A NAME="logicos"></A>
+<H2>
+	Operadores lógicos
+</H2>
+
+<p>Estos son los que nos permiten unir varias comparaciones: 10>5 <B>y</B> 6==6. Los operadores lógicos son: AND (&&), OR (||), NOT(!).</p>
+
+<p>Operador && (AND, en castellano Y): Devuelve un 1 si se cumplen dos condiciones.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	printf( "Resultado: %i", (10==10 && 5&gt;2 );
+</PRE></DIV>
+
+
+<p>Operador || (OR, en castellano O): Devuelve un 1 si se cumple una de las dos condiciones.</p>
+
+<p>Operador ! (NOT, negación): Si la condición se cumple NOT hace que no se cumpla y viceversa.</p>
+
+<p>Ver el capítulo <B>Sentencias</B>, sección <B>Notas sobre las condiciones</B> para más información.
+</p>
+
+<A NAME="bitsbytes"></A>
+<H2>
+	Introducción a los bits y bytes
+</H2>
+
+<p>En esta sección voy a describir lo que son los bytes y los bits. No voy a descubrir nada nuevo, así que la mayoría se podrán saltar esta sección.</p>
+
+
+<p>Supongo que todo el mundo sabe lo que son los bytes y los bits, pero por si acaso allá va. Los bits son la unidad de información más pequeña, digamos que son la base para almacenar la información. Son como los átomos a las moléculas. Los valores que puede tomar un bit son 0 ó 1. Si juntamos ocho bits tenemos un byte.</p>
+
+<p>Un byte puede tomar 256 valores diferentes (de 0 a 255). ¿Cómo se consigue esto? Imaginemos nuestro flamante byte con sus ocho bits. Supongamos que los ocho bits valen cero. Ya tenemos el valor 0 en el byte. Ahora vamos a darle al último byte el valor 1.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+00000001 -> 1</PRE></DIV>
+
+<p>Este es el uno para el byte. Ahora vamos a por el dos y el tres:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+00000010 -> 2
+00000011 -> 3
+</PRE></DIV>
+
+<p>y así hasta 255. Como vemos con ocho bits podemos tener 256 valores diferentes, que en byte corresponden a los valores entre 0 y 255.</p>
+
+
+<A NAME="bits"></A>
+<H2>
+	Operadores de bits
+</H2>
+
+<p>Ya hemos visto que un byte son ocho bits. Pues bien, con los operadores de bits podemos manipular las variables <I>por dentro</I>. Los diferentes operadores de bits son:</p>
+
+<CENTER>
+<TABLE  width="70%" border="1" cellspacing="0" cellpadding="4">
+	<TR>
+		<TD bgcolor="#0000ff">
+			<B>
+				<FONT COLOR=#ffffff>Operador</FONT>
+			</B>
+		</TD>
+		<TD bgcolor="#0000ff">
+			<B>
+				<FONT COLOR=#ffffff>Descripción</FONT>
+			</B>
+		</TD>
+	</TR>
+	<TR>
+		<TD ALIGN=CENTER>
+			|
+		</TD>
+		<TD >
+			OR (O)
+		</TD>
+	</TR>
+	<TR>
+		<TD ALIGN=CENTER>
+			&
+		</TD>
+		<TD >
+			AND (Y)
+		</TD>
+	</TR>
+	<TR>
+		<TD ALIGN=CENTER>
+			^
+		</TD>
+		<TD >
+			XOR (O exclusivo)
+		</TD>
+	</TR>
+	<TR>
+		<TD ALIGN=CENTER>
+			~
+		</TD>
+		<TD >
+			Complemento a uno o negación
+		</TD>
+	</TR>
+	<TR>
+		<TD ALIGN=CENTER>
+			&gt;&gt;
+		</TD>
+		<TD >
+			Desplazamiento a la derecha
+		</TD>
+	</TR>
+	<TR>
+		<TD ALIGN=CENTER>
+			&lt;&lt;
+		</TD>
+		<TD >
+			Desplazamiento a la izquierda
+		</TD>
+	</TR>
+</TABLE>
+</CENTER>
+
+<p><B><U>Operador | (OR):
+</U></B></p>
+
+<p>Toma los valores y hace con ellos la operación OR. Vamos a ver un ejemplo:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		printf( "El resultado de la operación 235 | 143 es: %i\n", <B>235 | 143</B> );
+		}
+</PRE></DIV>
+
+<p>Se obtiene:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+El resultado de la operación 235 | 143 es: 239
+</PRE></DIV>
+
+<p>Veamos la operación a nivel de bits:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	235 -> 11101011
+	143 -> <U>10001111</U> <B>|</B>
+	239 -> 11101111
+</PRE></DIV>
+
+<p>La operación OR funciona de la siguiente manera: Tomamos los bits dos a dos y los comparamos <U>si alguno de ellos es uno</U>, se obtiene un uno. Si ambos son cero el resultado es cero. Primero se compara los dos primeros (el primero de cada uno de los números, 1 y 1 -> 1), luego la segunda pareja (1 y 0 -> 1) y así sucesivamente.</p>
+
+<p><B><U>Operador & (AND):
+</U></B></p>
+
+<p>Este operador compara los bits también dos a dos. Si <U>ambos son 1</U> el resultado es 1. Si no, el resultado es cero.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		printf( "El resultado de la operación 170 & 155 es: %i\n", <B>170 & 155</B> );
+		}
+</PRE></DIV>
+
+<p>Tenemos:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+El resultado de la operación 170 & 155 es: 138
+</PRE></DIV>
+
+<p>A nivel de bits:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	170 -> 10101010
+	155 -> <U>10011011</U> <B>&</B>
+	138 -> 10001010
+</PRE></DIV>
+
+<p><B><U>Operador ^ (XOR):
+</U></B></p>
+
+<p>Compara los bits y los pone a unos si son <B>distintos</B>.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	235 -> 11101011
+	143 -> <U>10001111</U> <B>^</B>
+	100 -> 01100100
+</PRE></DIV>
+
+<p><B><U>Operador ~ (Complemento a uno):
+</U></B></p>
+
+<p>Este operador acepta un sólo dato (operando) y pone a 0 los 1 y a 1 los 0, es decir los invierte. Se pone delante del operando.</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		printf( "El resultado de la operación ~152 es: %i\n", <B>~152</B> );
+		}
+
+El resultado de la operación ~152 es: 103
+</PRE></DIV>
+
+<DIV CLASS="ejemplo"><PRE>
+	152 -> <U>10011000</U> <B>~</B>
+	103 -> 01100111
+</PRE></DIV>
+
+<p><B><U>Operador >> (Desplazamiento a la derecha):
+</U></B>
+
+<p>Este operador mueve cada bit a la derecha. El bit de la izquierda se pone a cero, el de la derecha se pierde. Si realizamos la operación inversa no recuperamos el número original. El formato es:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	<I>variable o dato</I> <B>&gt;&gt;</B> <I>número de posiciones a desplazar</I>
+</PRE></DIV>
+
+<p>El <I>número de posiciones a desplazar</I> indica cuantas veces hay que mover los bits hacia la derecha. Ejemplo:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		printf( "El resultado de la operación 150 >> 2 es: %i\n", <B>~152</B> );
+		}
+
+El resultado de la operación 150 >> 2 es: 37
+</PRE></DIV>
+
+<p>Veamos la operación paso a paso. Esta operación equivale a hacer dos desplazamientos a la derecha:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	150 -> 10010110  Número original
+	 75 -> 01001011 Primer desplazamiento. Entra un cero por la izquierda,
+			el cero de la derecha se pierde y los demás se mueven a la derecha.
+	 37 -> 00100101 Segundo desplazamiento.
+</PRE></DIV>
+
+<p>NOTA: Un desplazamiento a la izquierda equivale a dividir por dos. Esto es muy interesante porque el desplazamiento es más rápido que la división. Si queremos optimizar un programa esta es una buena idea. Sólo sirve para dividir entre dos. Si hacemos dos desplazamientos sería dividir por dos dos veces, no por tres.</p>
+
+<p><B><U>Operador << (Desplazamiento a la izquierda):
+</U></B>
+
+<p>Funciona igual que la anterior pero los bits se desplazan a la izquierda. Esta operación equivale a multiplicar por 2.</p>
+
+
+<A NAME="sizeof"></A>
+<H2>
+	Operador Sizeof
+</H2>
+
+<p>Este es un operador muy útil. Nos permite conocer el tamaño <B>en bytes</B> de una variable. De esta manera no tenemos que preocuparnos en recordar o calcular cuanto ocupa. Además el tamaño de una variable cambia de un compilador a otro, es la mejor forma de asegurarse. Se usa poniendo el nombre de la variable después de sizeof y separado de un espacio:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		int variable;
+
+		printf( "Tamaño de la variable: %i\n", <B>sizeof variable</B> );
+		}
+</PRE></DIV>
+
+<p>También se puede usar con los especificadores de tipos de datos (char, int, float, double...). Pero en éstos se usa de manera diferente, hay que poner el especificador entre paréntesis:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		printf( "Las variables tipo int ocupan: %i\n", <B>sizeof(int)</B> );
+		}
+</PRE></DIV>
+
+
+<A NAME="otros"></A>
+<H2>
+	Otros operadores
+</H2>
+
+<p>Existen además de los que hemos visto otros operadores. Sin embargo ya veremos en sucesivos capítulos lo que significa cada uno.
+</p>
+
+
+<A NAME="orden"></A>
+<H2>
+	Orden de evaluación de Operadores
+</H2>
+
+<p>Debemos tener cuidado al usar operadores pues a veces podemos tener resultados no esperados si no tenemos en cuenta su orden de evaluación. Vamos a ver la lista de precedencias, cuanto más arriba se evalúa antes:</p>
+
+<CENTER><TABLE   border="1" cellspacing="0" cellpadding="4">
+	<TR>
+		<TD bgcolor="#0000ff">
+			<B><FONT COLOR=#ffffff>Precedencia</FONT></B>
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			() [] -> .
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			! ~ ++ -- (molde) * & sizeof  (El * es el de puntero)
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			* / %	(El * de aquí es el de multiplicación)
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			+ -
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			<< >>
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			< <= > >=
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			== !=
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			&
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			^
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			|
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			&&
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			||
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			?:
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			= += -= *= /=
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			,
+		</TD>
+	</TR>
+</TABLE>
+</CENTER>
+
+<p>Por ejemplo imaginemos que tenemos la siguiente operación:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	10 * 2 + 5 
+</PRE></DIV>
+
+<p>Si vamos a la tabla de precedencias vemos que el * tiene un orden superior al +, por lo tanto primero se hace el producto 10*2=20 y luego la suma 20+5=25. Veamos otra:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	10 * ( 2 + 5 )
+</PRE></DIV>
+
+<p>Ahora con el paréntesis cambia el orden de evaluación. El que tiene mayor precedencia ahora es el paréntesis, se ejecuta primero. Como dentro del paréntesis sólo hay una suma se evalúa sin más, 2+5=7. Ya solo queda la multiplicación 10*7=70. Otro caso:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	10 * ( 5 * 2 +3 )
+</PRE></DIV>
+
+<p>Como antes, el que mayor precedencia tiene es el paréntesis, se evalúa primero. Dentro del paréntesis tenemos producto y suma. Como sabemos ya se  evalúa primero el producto, 5*2=10. Seguimos en el paréntesis, nos queda la suma 10+3=13. Hemos acabado con el paréntesis, ahora al resto de la expresión. Cogemos la multiplicación que queda: 10*13=130.</p>
+
+<p>Otro detalle que debemos cuidar son los operadores ++ y --. Estos tienen mayor precedencia que las demás operaciones aritméticas (+, -, *, /, %). Por ejemplo:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	10 * 5 ++
+</PRE></DIV>
+
+<p>Puede parecer que primero se ejecutará la multiplicación y luego el ++. Pero si vamos a la tabla de precedencias vemos que el ++ está por encima de * (de multiplicación), por lo tanto se evaluará primero 5++=6. 10*6=60.
+</p>
+
+<p>Es mejor no usar los operadores ++ y -- mezclados con otros, pues a veces obtenemos resultados inesperados. Por ejemplo:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		int a, b;
+
+		a = 5;
+		b = a++;
+		printf( "a = %i, b = %i\n", a, b );
+		}
+</PRE></DIV>
+
+<p>Este ejemplo en unos compiladores dará a = 6, b = 5 y en otros a = 6 y b = 6. Por favor si podeis, escribidme diciendo qué valores os salen a vosotros y qué compilador usais.
+</p>
+ 
+<p>Para asegurarse lo mejor sería separar la línea donde se usa el ++ y el =:</p>
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		int a, b;
+
+		a = 5;
+		a++;
+		b = a;
+		printf( "a = %i, b = %i\n", a, b );
+		}
+</PRE></DIV>
+
+<A NAME="ejercicios"></A>
+<H2>
+	Ejercicios
+</H2>
+
+<p><B><U>Ejercicio 1:</U></B> En este programa hay un fallo muy gordo y muy habitual en programación. A ver si lo encuentras:
+
+<DIV CLASS="ejemplo"><PRE>
+	#include &lt;stdio.h&gt;
+
+	int main()
+		{
+		int a, c;
+
+		a = 5;
+		c += a +5;
+		}
+</PRE></DIV>
+
+<p><B>Solución</B>:
+
+<p>Cuando calculamos el valor de 'c' sumamos a+5 ( =10 ) al valor de 'c'. Pero resulta que 'c' no tenía ningún valor indicado por nosotros. Estamos usando la variable 'c' sin haberle dado valor. En algunos compiladores el resultado será inesperado. Este es un fallo bastante habitual, usar variables a las que no hemos dado ningún valor.
+</p>
+
+<p><B><U>Ejercicio 2:</U></B> ¿Cual será el resultado del siguiente programa?
+
+<DIV CLASS="ejemplo"><PRE>
+#include &lt;conio.h&gt;
+#include &lt;stdio.h&gt;
+
+int main()
+     {
+     int a, b, c;
+
+     a = 5;
+     b = ++a;
+     c = ( a + 5 * 2 ) * ( b + 6 / 2 ) + ( a * 2 );
+     printf( "%i, %i, %i", a, b, c );
+     }
+</PRE></DIV>
+
+
+<p><B>Solución</B>:
+
+<P>El resultado es 156. En la primera a vale 5. Pero en la segunda se ejecuta 
+  b = ++a = ++5 = 6. Tenemos a = b = 6. 
+<P><strong><u>Ejercicio 3:</u></strong> Escribir un programa que compruebe si un número 
+  es par o impar.
+<P><strong>Solución:</strong>
+<pre>
+<code><font  size=3 face="Courier New"><font color="#008000">#include &lt;stdio.h&gt;
+
+</font><b>int </b>main() {
+    <b>char </b>palabra[<font color="#800080">100</font>];
+    <b>int </b>a;
+    
+    a = <font color="#800080">124</font>;
+    <b>if </b>( a % <font color="#800080">2 </font>== <font color="#800080">0 </font>)
+        printf( <font color="#FF0000">&quot;%d es par\n&quot;</font>, a );
+    <b>else
+        </b>printf( <font color="#FF0000">&quot;%d es impar\n&quot;</font>, a );
+    printf( <font color="#FF0000">&quot;\n&quot; </font>);
+    system( <font color="#FF0000">&quot;pause&quot; </font>);
+    <b>return </b><font color="#800080">0</font>;
+}</font></code>
+
+<span class="comprobado">Fichero: cap5_ejercicio3.c</span></pre>
+<p>Para comprobar si un número es par o impar podemos usar el operador 
+  '%'. Si al calcular el resto de dividir un número por 2 el resultado 
+  es cero eso indica que el número es par. Si el resto es distinto de cero 
+  el número es impar.</p>
+<p align=center><a href="#arriba" class="volver">[Arriba]</a></p>
+
+
+<!-- InstanceEndEditable --> 
+<p class="barranavegacionabajo"><!-- InstanceBeginEditable name="PieNavegacion" --> 
+<a href="cursoc4.html" class="barranav">[Anterior]</a> <a href="cursoc6.html" class="barranav">[Siguiente]</a> 
+  <a href="index.html" target="_top" class="barranav">[Contenido]</a>
+<!-- InstanceEndEditable --></p>
+
+</BODY>
+
+<!-- InstanceEnd --></HTML>
